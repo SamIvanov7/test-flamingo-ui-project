@@ -262,73 +262,121 @@
     }
   },
   "pricing": {
-    "title": "Choose Your",
-    "subtitle": "Weapon",
-    "description": "Every plan includes our core AI prediction engine. Choose based on your playing style.",
-    "monthly": "Monthly",
-    "yearly": "Yearly",
-    "save": "Save 20%",
+    "hero": {
+      "title": "Stop Guessing. Start Seeing.",
+      "subtitle": "Casinos use complex algorithms against you. It's time to respond in kind. Choose your access level to our quantum core and gain the advantage they're hiding from you."
+    },
+    "billingToggle": {
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "save": "Save 20%"
+    },
     "plans": {
-      "basic": {
-        "name": "Basic Disruptor",
-        "price": "$49",
+      "scout": {
+        "name": "Scout Protocol",
+        "englishName": "Scout Protocol",
+        "price": "$29.9",
+        "priceYearly": "$287.04",
         "period": "/month",
-        "description": "Perfect for casual players looking to gain an edge",
+        "periodYearly": "/year",
+        "tagline": "First glimpse behind the curtain",
+        "description": "Perfect to verify this is real. Get basic access to our algorithms and feel the difference between blind play and play with hints.",
         "features": [
-          "Real-time slot pattern analysis",
-          "Basic probability predictions",
-          "Up to 100 spins per day",
-          "Email support",
-          "Mobile app access"
+          "15 Quantum requests per day",
+          "Up to 75% prediction accuracy (Basic calibration)",
+          "Basic slot volatility analysis",
+          "Email support"
         ],
-        "cta": "Start Free Trial"
+        "cta": "Start Calibration"
       },
-      "pro": {
-        "name": "Pro Exploiter",
-        "price": "$149",
+      "hunter": {
+        "name": "Hunter Protocol",
+        "englishName": "Hunter Protocol",
+        "price": "$99.9",
+        "priceYearly": "$959.04",
         "period": "/month",
-        "description": "For serious players ready to maximize their advantage",
-        "badge": "Most Popular",
+        "periodYearly": "/year",
+        "tagline": "Full tactical advantage",
+        "description": "Our flagship protocol. Optimal combination of power and precision for those who came not just to try, but to dominate. This level is used by 8 out of 10 of our users.",
+        "badge": "🔥 MOST POPULAR",
+        "tableBadge": "POPULAR",
         "features": [
-          "Everything in Basic",
-          "Advanced neural network predictions",
-          "Unlimited spins analysis",
-          "Multi-casino pattern tracking",
-          "Priority support",
-          "Custom betting strategies",
-          "VIP Discord access"
+          "50 Quantum requests per day",
+          "Up to 95% prediction accuracy (Deep core calibration)",
+          "Advanced volatility and cycle analysis",
+          "Real-time RNG anomaly alerts",
+          "Priority chat support"
         ],
-        "cta": "Upgrade to Pro"
+        "cta": "Unlock Full Power"
       },
-      "elite": {
-        "name": "Elite Syndicate",
-        "price": "$499",
+      "oracle": {
+        "name": "Oracle Protocol",
+        "englishName": "Oracle Protocol",
+        "price": "$299.9",
+        "priceYearly": "$2879.04",
         "period": "/month",
-        "description": "Join the inner circle of casino disruptors",
+        "periodYearly": "/year",
+        "tagline": "Direct access to the core",
+        "description": "For those who need no compromises. Maximum accuracy, unlimited power, and direct access to the deepest layers of our analysis. This isn't just gaming — it's probability management.",
         "features": [
-          "Everything in Pro",
-          "Quantum-enhanced predictions",
-          "White-glove support",
-          "Personal AI configuration",
-          "Early access to new exploits",
-          "Monthly strategy sessions",
-          "Legal protection resources",
-          "Profit sharing opportunities"
+          "150 Quantum requests per day",
+          "99%+ prediction accuracy (Direct core sync)",
+          "Predictive analysis 3-5 spins ahead",
+          "Real-time RNG anomaly alerts",
+          "Personal support manager 24/7"
         ],
-        "cta": "Apply for Elite"
+        "cta": "Activate Oracle Protocol"
       }
     },
-    "roi": {
-      "title": "ROI Calculator",
-      "investment": "Monthly Investment",
-      "hours": "Hours Played/Week",
-      "bet": "Average Bet Size",
-      "calculate": "Calculate ROI",
-      "results": {
-        "improved": "Improved Win Rate",
-        "monthly": "Est. Monthly Profit",
-        "roi": "ROI"
-      }
+    "comparison": {
+      "title": "Detailed Protocol Comparison",
+      "features": "Features",
+      "feature1": "Daily Quantum Requests",
+      "feature2": "Maximum Prediction Accuracy",
+      "feature3": "Volatility Analysis",
+      "feature4": "RNG Anomaly Alerts",
+      "feature5": "Predictive Analysis",
+      "feature6": "New Slot Analysis Access",
+      "feature7": "Support",
+      "feature8": "Ad-Free Experience",
+      "values": {
+        "basic": "Basic",
+        "advanced": "Advanced",
+        "full": "Full",
+        "delay72h": "72h delay",
+        "instant": "Instant",
+        "priority": "Priority",
+        "email": "Email",
+        "priorityChat": "Priority Chat",
+        "personal247": "Personal 24/7",
+        "upTo5Spins": "(up to 5 spins)"
+      },
+      "hint": "Hint: Most users choose Hunter Protocol — optimal balance of price and features."
+    },
+    "faq": {
+      "title": "Your Questions — Our Answers",
+      "q1": "Can I cancel my subscription at any time?",
+      "a1": "Yes. You're not in a casino. We have no hidden terms. You control everything.",
+      "q2": "Is this secure? Is my data protected?",
+      "a2": "We use military-grade end-to-end encryption. Your anonymity is as important to us as our own.",
+      "q3": "What is a 'Quantum Request'?",
+      "a3": "It's one complete analysis cycle: sending spin data to our servers, processing on the quantum core, and receiving a prediction from Floyd.",
+      "q4": "Why isn't the accuracy 100%?",
+      "a4": "We work with probabilities, not predetermination. Even quantum computers can't predict truly random events. But 99%+ is as close to absolute knowledge as physics allows."
+    },
+    "cta": {
+      "title": "The choice is yours: stay in the dark or gain sight.",
+      "subtitle": "Every spin without Wintuition is a gift to the casino. Stop giving gifts.",
+      "button": "Unlock My Access NOW",
+      "features": [
+        "No hidden fees",
+        "Cancel anytime",
+        "Complete anonymity"
+      ]
+    },
+    "savings": {
+      "save": "You save",
+      "originalPrice": "Original price"
     }
   },
   "contact": {
