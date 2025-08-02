@@ -18,6 +18,7 @@ export default function Header({ onLogin }: HeaderProps) {
     { name: t('navigation.about'), path: '/about' },
     { name: t('navigation.useCase'), path: '/use-case' },
     { name: t('navigation.pricing'), path: '/pricing' },
+    { name: t('navigation.faq'), path: '/faq' },
     { name: t('navigation.blog'), path: '/blog' },
     { name: t('navigation.contact'), path: '/contact' },
     { name: t('navigation.dashboard'), path: '/dashboard' },
