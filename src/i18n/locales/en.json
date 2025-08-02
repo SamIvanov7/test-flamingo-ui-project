@@ -459,8 +459,114 @@
     "subtitle": "Exposed",
     "description": "The truth about gambling that the industry doesn't want you to know.",
     "featured": "Featured Investigation",
-    "readTime": "{{time}} min read",
-    "readMore": "Read Full Investigation"
+    "readTime": "min read",
+    "readMore": "Read Full Investigation",
+    "hero": {
+      "title": "Exposing",
+      "subtitle": "the Truth",
+      "description": "Insider secrets, winning strategies, and hard evidence that casinos are rigging the game. Knowledge they've spent millions trying to suppress."
+    },
+    "categories": {
+      "all": "All Posts",
+      "strategies": "Winning Strategies",
+      "exposes": "Casino Exposés",
+      "tutorials": "AI Tutorials",
+      "news": "Industry News"
+    },
+    "search": {
+      "placeholder": "Search articles, tags, or authors...",
+      "results": "Found {{count}} results for \"{{query}}\"",
+      "noResults": "No articles found matching your criteria",
+      "clear": "Clear search",
+      "resetFilters": "Reset all filters"
+    },
+    "filters": {
+      "button": "Filters",
+      "categories": "Categories",
+      "popularTags": "Popular Tags"
+    },
+    "sort": {
+      "date": "Latest First",
+      "popular": "Most Popular",
+      "readTime": "Quick Reads"
+    },
+    "badges": {
+      "featured": "FEATURED",
+      "trending": "TRENDING"
+    },
+    "by": "By",
+    "views": "views",
+    "loadMore": "Load More Articles",
+    "remaining": "more",
+    "newsletter": {
+      "title": "Never Miss",
+      "subtitle": "an Edge",
+      "description": "Get exclusive strategies, insider leaks, and pattern alerts delivered to your inbox. The kind of information casinos pay millions to keep secret.",
+      "placeholder": "Enter your email",
+      "subscribe": "Subscribe",
+      "subscribing": "Subscribing...",
+      "success": "Subscribed!",
+      "error": "Error!",
+      "privacy": "Join 25,000+ readers • Unsubscribe anytime • We expose casinos, not your data"
+    },
+    "tags": {
+      "title": "Popular Topics"
+    },
+    "featured": {
+      "title": "How We Cracked MGM's 'Unbreakable' RNG Algorithm",
+      "excerpt": "Our AI discovered a critical flaw in MGM's random number generation that they've been hiding for years. Here's the pattern that cost them millions.",
+      "author": "Investigation Unit"
+    },
+    "posts": {
+      "post1": {
+        "title": "The Mathematics Behind Slot Machine 'Randomness'",
+        "excerpt": "Dive deep into the pseudo-random number generators used by major casinos and learn why true randomness is a myth they're selling you."
+      },
+      "post2": {
+        "title": "5 Patterns Casinos Don't Want You to Notice",
+        "excerpt": "Our AI has identified recurring patterns across 50+ online casinos. These are the red flags that indicate when the house is tightening the odds."
+      },
+      "post3": {
+        "title": "Exposed: How Live Dealers Are Trained to Manipulate",
+        "excerpt": "Former casino employee reveals the psychological tricks and physical techniques dealers use to influence game outcomes."
+      },
+      "post4": {
+        "title": "Beginner's Guide to Pattern Recognition in Slots",
+        "excerpt": "Start identifying profitable patterns with our step-by-step tutorial. No advanced math required - just follow our AI's guidance."
+      },
+      "post5": {
+        "title": "Why Tuesday 3AM is the Best Time to Play (Data Proof)",
+        "excerpt": "Our analysis of 2.7 million spins reveals shocking time-based patterns in casino algorithms. Here's when they're most vulnerable."
+      },
+      "post6": {
+        "title": "Breaking: EU Investigates Major Casino for RNG Fraud",
+        "excerpt": "Following our exposé, European regulators launch formal investigation into systematic RNG manipulation. Industry insiders are panicking."
+      },
+      "post7": {
+        "title": "The $50K Weekend: User Success Story",
+        "excerpt": "How David M. used Flamingo AI to turn a $500 bankroll into $50,000 over one weekend. Verified results with screenshots."
+      },
+      "post8": {
+        "title": "Casino CEO's Leaked Email Confirms Our Theories",
+        "excerpt": "Whistleblower shares internal communications proving casinos actively monitor and limit winning players. The truth is worse than we thought."
+      },
+      "post9": {
+        "title": "Advanced AI Settings for Maximum Pattern Detection",
+        "excerpt": "Optimize your Flamingo AI configuration with these pro tips. Increase pattern detection accuracy by up to 15%."
+      },
+      "post10": {
+        "title": "New Regulations: What They Mean for AI Gambling",
+        "excerpt": "Recent regulatory changes are reshaping the online gambling landscape. Here's how to stay ahead of the curve."
+      },
+      "post11": {
+        "title": "Security Alert: Major Casino Chain Data Breach",
+        "excerpt": "Breaking news on a massive security vulnerability affecting millions of players. What you need to know to protect yourself."
+      },
+      "post12": {
+        "title": "Getting Started: Your First Week with Flamingo AI",
+        "excerpt": "Complete guide for new users. Learn how to set up, configure, and start winning with our AI assistant."
+      }
+    }
   },
   "chat": {
     "title": "Meet your",
