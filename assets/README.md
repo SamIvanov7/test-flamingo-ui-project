@@ -33,7 +33,7 @@
 
 You are the Lead Front-End Architect with 10+ years of experience creating responsive, cross-platform designs (Web, iOS, Android, PWA). 
 
-Your task is to design an ultra-modern, visually stunning, and intuitively accessible UI for the "WIntuition" application that pushes the boundaries of web design using cutting-edge animations and interactions.
+Your task is to design an ultra-modern, visually stunning, and intuitively accessible UI for the "flamingo.ai" application that pushes the boundaries of web design using cutting-edge animations and interactions.
 
 The product is a chat assistant in the form of a pink flamingo that predicts the probability of winning at slot machines. 
 
