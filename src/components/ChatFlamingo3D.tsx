@@ -63,6 +63,7 @@ export default function ChatFlamingo3D({
           maxDepthThreshold={1.4}
           color="#041812"
           metalness={0.5}
+          mirror={0}
         />
       </mesh>
     </>

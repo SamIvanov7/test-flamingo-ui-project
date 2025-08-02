@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 interface HeaderProps {
   onLogin: () => void
@@ -7,11 +8,24 @@ interface HeaderProps {
 
 export default function Header({ onLogin }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const navigate = useNavigate()
 
   const navItems = [
-    'Home', 'About Us', 'Use Case', 'Pricing', 
-    'Blog', 'Contact', 'Dashboard', 'Chat', 'Request Feature'
+    { name: 'Home', path: '/' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Use Case', path: '/use-case' },
+    { name: 'Pricing', path: '/pricing' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Contact', path: '/contact' },
+    { name: 'Dashboard', path: '/dashboard' },
+    { name: 'Chat', path: '/chat' },
+    { name: 'Request Feature', path: '/request-feature' }
   ]
+
+  const handleNavClick = (path: string) => {
+    setIsMenuOpen(false)
+    navigate(path)
+  }
 
   return (
     <>
@@ -21,8 +35,9 @@ export default function Header({ onLogin }: HeaderProps) {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <motion.div 
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-2 cursor-pointer"
               whileHover={{ scale: 1.05 }}
+              onClick={() => navigate('/')}
             >
               <img 
                 src="/assets/images/logo-variant-3.png" 
@@ -118,24 +133,27 @@ export default function Header({ onLogin }: HeaderProps) {
                 {/* Navigation Items */}
                 <div className="space-y-2">
                   {navItems.map((item, index) => (
-                    <motion.a
-                      key={item}
-                      href="#"
-                      className="block py-3 px-4 rounded-lg text-limeGreen font-medium
+                    <motion.button
+                      key={item.name}
+                      onClick={() => handleNavClick(item.path)}
+                      className="block w-full text-left py-3 px-4 rounded-lg text-limeGreen font-medium
                                hover:bg-limeGreen/10 hover:translate-x-2 
                                transition-all duration-300"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
                     >
-                      {item}
-                    </motion.a>
+                      {item.name}
+                    </motion.button>
                   ))}
                 </div>
 
                 {/* Login Button */}
                 <motion.button
-                  onClick={onLogin}
+                  onClick={() => {
+                    setIsMenuOpen(false)
+                    onLogin()
+                  }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-full mt-8 px-6 py-3 bg-limeGreen/20 border-2 border-limeGreen text-limeGreen font-bold 

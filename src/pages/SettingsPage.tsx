@@ -1,9 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-
-interface SettingsPageProps {
-  onBack: () => void
-}
+import { useNavigate } from 'react-router-dom'
 
 interface Settings {
   soundEnabled: boolean
@@ -16,7 +13,8 @@ interface Settings {
   breakReminder: number
 }
 
-export default function SettingsPage({ onBack }: SettingsPageProps) {
+export default function SettingsPage() {
+  const navigate = useNavigate()
   const [settings, setSettings] = useState<Settings>({
     soundEnabled: true,
     vibrationEnabled: true,
@@ -73,7 +71,7 @@ export default function SettingsPage({ onBack }: SettingsPageProps) {
           <div className="container mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
               <motion.button
-                onClick={onBack}
+                onClick={() => navigate('/dashboard')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center space-x-2 text-cream hover:text-acid transition-colors"

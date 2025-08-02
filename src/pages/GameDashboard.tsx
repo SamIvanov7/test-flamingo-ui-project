@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import ProbabilityCard from '../components/ProbabilityCard'
 import ChatPanel from '../components/ChatPanel'
 import GameControls from '../components/GameControls'
@@ -7,11 +8,8 @@ import SessionHeader from '../components/SessionHeader'
 import SlotSelectionModal from '../components/SlotSelectionModal'
 import VideoBackgroundClean from '../components/VideoBackgroundClean'
 
-interface GameDashboardProps {
-  onOpenSettings: () => void
-}
-
-export default function GameDashboard({ onOpenSettings }: GameDashboardProps) {
+export default function GameDashboard() {
+  const navigate = useNavigate()
   const [probability, setProbability] = useState(45)
   const [balance, setBalance] = useState(1000)
   const [sessionTime, setSessionTime] = useState(0)
@@ -69,7 +67,7 @@ export default function GameDashboard({ onOpenSettings }: GameDashboardProps) {
           slotName={currentSlot}
           balance={balance}
           sessionTime={sessionTime}
-          onOpenSettings={onOpenSettings}
+          onOpenSettings={() => navigate('/settings')}
           onSelectSlot={() => setShowSlotSelection(true)}
         />
 

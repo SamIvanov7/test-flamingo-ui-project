@@ -1,14 +1,11 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { Canvas } from '@react-three/fiber'
 import { PerspectiveCamera, Environment } from '@react-three/drei'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import Flamingo3D from './Flamingo3D'
 import ParticleField from './ParticleField'
-
-interface OnboardingCarouselProps {
-  onComplete: () => void
-}
 
 const slides = [
   {
@@ -28,14 +25,15 @@ const slides = [
   },
 ]
 
-export default function OnboardingCarousel({ onComplete }: OnboardingCarouselProps) {
+export default function OnboardingCarousel() {
+  const navigate = useNavigate()
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const handleNext = () => {
     if (currentSlide < slides.length - 1) {
       setCurrentSlide(currentSlide + 1)
     } else {
-      onComplete()
+      navigate('/dashboard')
     }
   }
 
@@ -46,7 +44,7 @@ export default function OnboardingCarousel({ onComplete }: OnboardingCarouselPro
   }
 
   const handleSkip = () => {
-    onComplete()
+    navigate('/dashboard')
   }
 
   return (
