@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 export default function PricingPage() {
@@ -12,8 +12,8 @@ export default function PricingPage() {
       name: t('pricing.plans.scout.name'),
       englishName: t('pricing.plans.scout.englishName'),
       icon: "⚡",
-      monthlyPrice: 29.9,
-      yearlyPrice: 287.04, // ~20% discount
+      monthlyPrice: 29,
+      yearlyPrice: 278, // ~20% discount
       tagline: t('pricing.plans.scout.tagline'),
       description: t('pricing.plans.scout.description'),
       features: [
@@ -31,8 +31,8 @@ export default function PricingPage() {
       name: t('pricing.plans.hunter.name'),
       englishName: t('pricing.plans.hunter.englishName'),
       icon: "🎯",
-      monthlyPrice: 99.9,
-      yearlyPrice: 959.04, // ~20% discount
+      monthlyPrice: 99,
+      yearlyPrice: 950, // ~20% discount
       tagline: t('pricing.plans.hunter.tagline'),
       description: t('pricing.plans.hunter.description'),
       features: [
@@ -52,8 +52,8 @@ export default function PricingPage() {
       name: t('pricing.plans.oracle.name'),
       englishName: t('pricing.plans.oracle.englishName'),
       icon: "🔮",
-      monthlyPrice: 299.9,
-      yearlyPrice: 2879.04, // ~20% discount
+      monthlyPrice: 299,
+      yearlyPrice: 2870, // ~20% discount
       tagline: t('pricing.plans.oracle.tagline'),
       description: t('pricing.plans.oracle.description'),
       features: [
@@ -149,65 +149,6 @@ export default function PricingPage() {
     }
   ]
 
-  // Matrix rain effect for background
-  useEffect(() => {
-    const canvas = document.getElementById('matrix-canvas') as HTMLCanvasElement
-    if (!canvas) return
-    
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-    
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
-    
-    const matrix = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ0123456789@#$%^&*()_+"
-    const matrixArray = matrix.split("")
-    
-    const fontSize = 10
-    const columns = canvas.width / fontSize
-    
-    const drops: number[] = []
-    for (let i = 0; i < columns; i++) {
-      drops[i] = 1
-    }
-    
-    let animationId: number
-    
-    const draw = () => {
-      ctx.fillStyle = 'rgba(6, 9, 10, 0.05)'
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-      
-      ctx.fillStyle = '#00ff00'
-      ctx.font = fontSize + 'px monospace'
-      
-      for (let i = 0; i < drops.length; i++) {
-        const text = matrixArray[Math.floor(Math.random() * matrixArray.length)]
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize)
-        
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0
-        }
-        drops[i]++
-      }
-      
-      animationId = requestAnimationFrame(draw)
-    }
-    
-    draw()
-    
-    const handleResize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-    
-    window.addEventListener('resize', handleResize)
-    
-    return () => {
-      cancelAnimationFrame(animationId)
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -215,13 +156,6 @@ export default function PricingPage() {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-raisinBlack relative overflow-hidden"
     >
-      {/* Matrix Background */}
-      <canvas 
-        id="matrix-canvas" 
-        className="absolute inset-0 opacity-20"
-        style={{ pointerEvents: 'none' }}
-      />
-      
       {/* Hero Section */}
       <section className="py-20 relative z-10">
         <div className="container mx-auto px-6">
@@ -268,40 +202,86 @@ export default function PricingPage() {
           </motion.div>
 
           {/* Pricing Cards */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-20">
+          <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-20 items-center">
             {plans.map((plan) => (
               <motion.div
                 key={plan.id}
                 initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
+                animate={{ 
+                  y: plan.highlighted ? -5 : 0, 
+                  opacity: 1,
+                }}
                 transition={{ delay: plan.delay }}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                whileHover={{ y: plan.highlighted ? -15 : -10, transition: { duration: 0.3 } }}
                 className={`relative rounded-3xl p-8 backdrop-blur-md transition-all duration-300 ${
                   plan.highlighted
-                    ? 'bg-gradient-to-br from-limeGreen/30 via-limeGreen/20 to-transparent border-2 border-limeGreen shadow-[0_0_40px_rgba(171,248,11,0.3)] scale-105'
+                    ? 'bg-gradient-to-br from-limeGreen/40 via-limeGreen/25 to-limeGreen/10 border-2 border-limeGreen shadow-[0_0_60px_rgba(171,248,11,0.5),0_0_120px_rgba(171,248,11,0.3)] scale-110 z-10'
+                    : plan.id === 'oracle'
+                    ? 'bg-gradient-to-br from-pink/15 via-pink/10 to-transparent border-2 border-pink shadow-[0_0_25px_rgba(255,20,147,0.2)] scale-102'
                     : 'bg-white/5 border border-white/10 hover:border-white/20'
                 }`}
               >
+                {/* Pulsing glow effect for highlighted card */}
+                {plan.highlighted && (
+                  <motion.div
+                    className="absolute inset-0 -z-10 rounded-3xl"
+                    animate={{
+                      boxShadow: [
+                        "0 0 80px rgba(171, 248, 11, 0.4)",
+                        "0 0 120px rgba(171, 248, 11, 0.6)",
+                        "0 0 80px rgba(171, 248, 11, 0.4)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+                )}
+
                 {plan.badge && (
-                  <div className="absolute top-4 right-4 z-10">
-                    <span className="bg-limeGreen text-darkGreen px-4 py-2 rounded-full text-sm font-bold animate-pulse">
-                      {plan.badge}
-                    </span>
+                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 z-20">
+                    <motion.span 
+                      animate={{ 
+                        scale: [1, 1.1, 1],
+                        rotate: [-2, 2, -2]
+                      }}
+                      transition={{ 
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      className="inline-block bg-limeGreen text-darkGreen px-8 py-3 rounded-full text-base font-bold shadow-[0_0_30px_rgba(171,248,11,0.6)] whitespace-nowrap"
+                    >
+                      🔥 {plan.badge}
+                    </motion.span>
                   </div>
                 )}
 
-                <div className="text-center mb-8">
-                  <div className="text-6xl mb-4 filter drop-shadow-lg">{plan.icon}</div>
-                  <h3 className="text-2xl font-bold text-limeGreen mb-1">{plan.name}</h3>
-                  <p className="text-sm text-beigeCream/60 mb-3">{plan.englishName}</p>
-                  <p className="text-lg font-semibold text-pink mb-4">{plan.tagline}</p>
-                  <p className="text-sm text-beigeCream/70 leading-relaxed mb-6">{plan.description}</p>
+
+                <div className="text-center mb-8 relative z-10">
+                  <h3 className={`font-bold mb-4 mt-4 ${
+                    plan.highlighted ? 'text-4xl text-limeGreen drop-shadow-[0_0_20px_rgba(171,248,11,0.6)]' : 'text-3xl text-limeGreen'
+                  }`}>{plan.name}</h3>
+                  <div className={`h-1 mx-auto bg-gradient-to-r from-transparent via-limeGreen to-transparent mb-4 ${
+                    plan.highlighted ? 'w-32' : 'w-20'
+                  }`} />
+                  <p className={`font-semibold mb-4 ${
+                    plan.highlighted ? 'text-xl text-pink' : 'text-lg text-pink'
+                  }`}>{plan.tagline}</p>
+                  <p className={`text-beigeCream/70 leading-relaxed mb-6 ${
+                    plan.highlighted ? 'text-base' : 'text-sm'
+                  }`}>{plan.description}</p>
                   
                   <div className="mb-6">
-                    <span className="text-5xl font-bold text-beigeCream">
-                      ${billingCycle === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice}
-                    </span>
-                    <span className="text-beigeCream/60">
+                    <div className="flex items-baseline justify-center gap-1">
+                      <span className="text-2xl text-beigeCream/60">$</span>
+                      <span className="text-6xl font-bold text-beigeCream">
+                        {billingCycle === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice}
+                      </span>
+                    </div>
+                    <span className="text-beigeCream/60 text-sm">
                       {billingCycle === 'monthly' ? t(`pricing.plans.${plan.id}.period`) : t(`pricing.plans.${plan.id}.periodYearly`)}
                     </span>
                     {billingCycle === 'yearly' && (
@@ -320,27 +300,29 @@ export default function PricingPage() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => console.log('Selected plan:', plan.id)}
-                    className={`w-full py-4 px-6 rounded-xl font-bold transition-all duration-300 ${
+                    className={`w-full rounded-xl font-bold transition-all duration-300 ${
                       plan.highlighted
-                        ? 'bg-limeGreen text-darkGreen hover:shadow-[0_0_30px_rgba(171,248,11,0.6)] hover:bg-limeGreen/90'
-                        : 'bg-transparent text-limeGreen border-2 border-limeGreen/50 hover:border-limeGreen hover:bg-limeGreen/10'
+                        ? 'py-5 px-8 bg-limeGreen text-darkGreen text-lg hover:shadow-[0_0_40px_rgba(171,248,11,0.8)] hover:bg-limeGreen/90 transform hover:-translate-y-1'
+                        : 'py-4 px-6 bg-transparent text-limeGreen border-2 border-limeGreen/50 hover:border-limeGreen hover:bg-limeGreen/10'
                     }`}
                   >
                     {plan.cta}
                   </motion.button>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-4 relative z-10">
                   {plan.features.map((feature, idx) => (
                     <motion.div 
                       key={idx} 
-                      className="flex items-start"
+                      className="flex items-start group/feature"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: plan.delay + (idx * 0.1) }}
                     >
-                      <span className="text-2xl mr-3 mt-[-4px]">{feature.icon}</span>
-                      <span className="text-beigeCream/80 text-sm leading-relaxed">{feature.text}</span>
+                      <div className={`rounded-full mr-3 mt-1.5 flex-shrink-0 transition-all duration-300 group-hover/feature:scale-125 ${
+                        plan.highlighted ? 'w-3 h-3 bg-limeGreen shadow-[0_0_10px_rgba(171,248,11,0.6)]' : plan.id === 'oracle' ? 'w-2 h-2 bg-pink' : 'w-2 h-2 bg-beigeCream/60'
+                      }`}></div>
+                      <span className="text-beigeCream/80 text-sm leading-relaxed group-hover/feature:text-beigeCream transition-colors duration-300">{feature.text}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -370,18 +352,18 @@ export default function PricingPage() {
                       <th className="text-left py-6 px-6 text-beigeCream font-bold text-lg">{t('pricing.comparison.features')}</th>
                       <th className="text-center py-6 px-6">
                         <div className="text-beigeCream font-bold text-lg">{t('pricing.plans.scout.name')}</div>
-                        <div className="text-xs text-beigeCream/60 mt-1">$29.9/{billingCycle === 'monthly' ? t('pricing.plans.scout.period').slice(1) : t('pricing.plans.scout.periodYearly').slice(1)}</div>
+                        <div className="text-xs text-beigeCream/60 mt-1">$29/{billingCycle === 'monthly' ? t('pricing.plans.scout.period').slice(1) : t('pricing.plans.scout.periodYearly').slice(1)}</div>
                       </th>
                       <th className="text-center py-6 px-6 relative">
                         <div className="absolute inset-0 bg-limeGreen/10"></div>
                         <div className="relative">
                           <div className="text-limeGreen font-bold text-lg">{t('pricing.plans.hunter.name')}</div>
-                          <div className="text-xs text-limeGreen/80 mt-1">$99.9/{billingCycle === 'monthly' ? t('pricing.plans.hunter.period').slice(1) : t('pricing.plans.hunter.periodYearly').slice(1)}</div>
+                          <div className="text-xs text-limeGreen/80 mt-1">$99/{billingCycle === 'monthly' ? t('pricing.plans.hunter.period').slice(1) : t('pricing.plans.hunter.periodYearly').slice(1)}</div>
                         </div>
                       </th>
                       <th className="text-center py-6 px-6">
                         <div className="text-pink font-bold text-lg">{t('pricing.plans.oracle.name')}</div>
-                        <div className="text-xs text-pink/60 mt-1">$299.9/{billingCycle === 'monthly' ? t('pricing.plans.oracle.period').slice(1) : t('pricing.plans.oracle.periodYearly').slice(1)}</div>
+                        <div className="text-xs text-pink/60 mt-1">$299/{billingCycle === 'monthly' ? t('pricing.plans.oracle.period').slice(1) : t('pricing.plans.oracle.periodYearly').slice(1)}</div>
                       </th>
                     </tr>
                   </thead>

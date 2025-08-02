@@ -274,7 +274,7 @@
     "plans": {
       "scout": {
         "name": "Протокол «Разведчик»",
-        "englishName": "Scout Protocol",
+        "englishName": "Scout",
         "price": "$29.9",
         "priceYearly": "$287.04",
         "period": "/месяц",
@@ -291,7 +291,7 @@
       },
       "hunter": {
         "name": "Протокол «Охотник»",
-        "englishName": "Hunter Protocol",
+        "englishName": "Hunter",
         "price": "$99.9",
         "priceYearly": "$959.04",
         "period": "/месяц",
@@ -311,7 +311,7 @@
       },
       "oracle": {
         "name": "Протокол «Оракул»",
-        "englishName": "Oracle Protocol",
+        "englishName": "Oracle",
         "price": "$299.9",
         "priceYearly": "$2879.04",
         "period": "/месяц",
