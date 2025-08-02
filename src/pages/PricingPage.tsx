@@ -130,24 +130,6 @@ export default function PricingPage() {
     }
   ]
 
-  const faqs = [
-    {
-      question: t('pricing.faq.q1'),
-      answer: t('pricing.faq.a1')
-    },
-    {
-      question: t('pricing.faq.q2'),
-      answer: t('pricing.faq.a2')
-    },
-    {
-      question: t('pricing.faq.q3'),
-      answer: t('pricing.faq.a3')
-    },
-    {
-      question: t('pricing.faq.q4'),
-      answer: t('pricing.faq.a4')
-    }
-  ]
 
   return (
     <motion.div
@@ -433,36 +415,6 @@ export default function PricingPage() {
               </p>
             </motion.div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 relative z-10">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold">
-              <span className="text-beigeCream">{t('pricing.faq.title')}</span>
-            </h2>
-          </motion.div>
-
-          <div className="max-w-3xl mx-auto space-y-6">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ x: index % 2 === 0 ? -50 : 50, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all"
-              >
-                <h3 className="text-xl font-bold text-limeGreen mb-3">{faq.question}</h3>
-                <p className="text-beigeCream/80 leading-relaxed">{faq.answer}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 

@@ -380,51 +380,78 @@
     }
   },
   "contact": {
-    "title": "Expose the",
-    "subtitle": "Truth",
-    "description": "Have evidence of casino manipulation? Want to join our mission? Get in touch.",
+    "title": "Get in",
+    "subtitle": "Touch",
+    "description": "Have insider information? Need support? Want to partner? We're here to help you beat the house.",
     "form": {
-      "name": "Name",
-      "namePlaceholder": "Your name (or alias)",
-      "email": "Email",
-      "emailPlaceholder": "your.email@example.com",
+      "title": "Send Us a Message",
+      "name": "Your Name",
+      "namePlaceholder": "John Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "john@example.com",
       "subject": "Subject",
       "subjects": {
         "general": "General Inquiry",
         "support": "Technical Support",
         "partnership": "Partnership Opportunity",
-        "whistleblower": "Whistleblower Report",
-        "media": "Media Inquiry"
+        "whistleblower": "Casino Whistleblower",
+        "media": "Media Inquiry",
+        "legal": "Legal Matter"
       },
       "message": "Message",
-      "messagePlaceholder": "Tell us your story...",
-      "anonymous": "Submit anonymously",
-      "anonymousTip": "Your identity will be protected",
+      "messagePlaceholder": "Tell us more...",
       "submit": "Send Message",
-      "submitting": "Sending..."
-    },
-    "channels": {
-      "title": "Other Ways to",
-      "subtitle": "Connect",
-      "support": {
-        "title": "24/7 Support",
-        "description": "Our AI never sleeps",
-        "action": "support@flamingo.ai"
-      },
-      "telegram": {
-        "title": "Telegram Community",
-        "description": "Join 5,000+ disruptors",
-        "action": "@flamingo_disruptors"
-      },
-      "signal": {
-        "title": "Secure Channel",
-        "description": "For sensitive information",
-        "action": "+1 (555) 0123"
+      "submitting": "Sending...",
+      "success": "Message Sent Successfully!",
+      "error": "Failed to Send Message",
+      "errors": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "messageRequired": "Message is required",
+        "messageTooShort": "Message must be at least 10 characters"
       }
     },
-    "success": {
-      "title": "Message Sent!",
-      "description": "We'll get back to you within 24 hours."
+    "channels": {
+      "title": "Quick Contact",
+      "email": {
+        "title": "Email",
+        "description": "Response within 24 hours"
+      },
+      "chat": {
+        "title": "Live Chat",
+        "available": "Available 24/7",
+        "description": "For urgent support"
+      },
+      "secure": {
+        "title": "Secure Line",
+        "description": "End-to-end encrypted"
+      }
+    },
+    "special": {
+      "title": "Special Inquiries",
+      "whistleblower": {
+        "title": "Casino Whistleblowers",
+        "description": "Have insider information about casino manipulation? Contact us securely. Your identity will be protected."
+      },
+      "partnership": {
+        "title": "Partnership Opportunities",
+        "description": "Interested in joining the revolution? We're always looking for allies in exposing casino deception."
+      },
+      "media": {
+        "title": "Media Inquiries",
+        "description": "Writing about casino manipulation or AI gambling analysis? We have data and experts available."
+      }
+    },
+    "privacy": {
+      "title": "Your Privacy Matters",
+      "description": "All communications are encrypted. We never share your information with casinos or third parties. Your secrets are safe with us."
+    },
+    "cta": {
+      "title": "Ready to",
+      "highlight": "Join the Revolution",
+      "description": "Don't wait for casinos to take more of your money. Start winning with AI-powered insights today.",
+      "button": "Get Started Now"
     }
   },
   "blog": {
@@ -432,8 +459,114 @@
     "subtitle": "Exposed",
     "description": "The truth about gambling that the industry doesn't want you to know.",
     "featured": "Featured Investigation",
-    "readTime": "{{time}} min read",
-    "readMore": "Read Full Investigation"
+    "readTime": "min read",
+    "readMore": "Read Full Investigation",
+    "hero": {
+      "title": "Exposing",
+      "subtitle": "the Truth",
+      "description": "Insider secrets, winning strategies, and hard evidence that casinos are rigging the game. Knowledge they've spent millions trying to suppress."
+    },
+    "categories": {
+      "all": "All Posts",
+      "strategies": "Winning Strategies",
+      "exposes": "Casino Exposés",
+      "tutorials": "AI Tutorials",
+      "news": "Industry News"
+    },
+    "search": {
+      "placeholder": "Search articles, tags, or authors...",
+      "results": "Found {{count}} results for \"{{query}}\"",
+      "noResults": "No articles found matching your criteria",
+      "clear": "Clear search",
+      "resetFilters": "Reset all filters"
+    },
+    "filters": {
+      "button": "Filters",
+      "categories": "Categories",
+      "popularTags": "Popular Tags"
+    },
+    "sort": {
+      "date": "Latest First",
+      "popular": "Most Popular",
+      "readTime": "Quick Reads"
+    },
+    "badges": {
+      "featured": "FEATURED",
+      "trending": "TRENDING"
+    },
+    "by": "By",
+    "views": "views",
+    "loadMore": "Load More Articles",
+    "remaining": "more",
+    "newsletter": {
+      "title": "Never Miss",
+      "subtitle": "an Edge",
+      "description": "Get exclusive strategies, insider leaks, and pattern alerts delivered to your inbox. The kind of information casinos pay millions to keep secret.",
+      "placeholder": "Enter your email",
+      "subscribe": "Subscribe",
+      "subscribing": "Subscribing...",
+      "success": "Subscribed!",
+      "error": "Error!",
+      "privacy": "Join 25,000+ readers • Unsubscribe anytime • We expose casinos, not your data"
+    },
+    "tags": {
+      "title": "Popular Topics"
+    },
+    "featured": {
+      "title": "How We Cracked MGM's 'Unbreakable' RNG Algorithm",
+      "excerpt": "Our AI discovered a critical flaw in MGM's random number generation that they've been hiding for years. Here's the pattern that cost them millions.",
+      "author": "Investigation Unit"
+    },
+    "posts": {
+      "post1": {
+        "title": "The Mathematics Behind Slot Machine 'Randomness'",
+        "excerpt": "Dive deep into the pseudo-random number generators used by major casinos and learn why true randomness is a myth they're selling you."
+      },
+      "post2": {
+        "title": "5 Patterns Casinos Don't Want You to Notice",
+        "excerpt": "Our AI has identified recurring patterns across 50+ online casinos. These are the red flags that indicate when the house is tightening the odds."
+      },
+      "post3": {
+        "title": "Exposed: How Live Dealers Are Trained to Manipulate",
+        "excerpt": "Former casino employee reveals the psychological tricks and physical techniques dealers use to influence game outcomes."
+      },
+      "post4": {
+        "title": "Beginner's Guide to Pattern Recognition in Slots",
+        "excerpt": "Start identifying profitable patterns with our step-by-step tutorial. No advanced math required - just follow our AI's guidance."
+      },
+      "post5": {
+        "title": "Why Tuesday 3AM is the Best Time to Play (Data Proof)",
+        "excerpt": "Our analysis of 2.7 million spins reveals shocking time-based patterns in casino algorithms. Here's when they're most vulnerable."
+      },
+      "post6": {
+        "title": "Breaking: EU Investigates Major Casino for RNG Fraud",
+        "excerpt": "Following our exposé, European regulators launch formal investigation into systematic RNG manipulation. Industry insiders are panicking."
+      },
+      "post7": {
+        "title": "The $50K Weekend: User Success Story",
+        "excerpt": "How David M. used Flamingo AI to turn a $500 bankroll into $50,000 over one weekend. Verified results with screenshots."
+      },
+      "post8": {
+        "title": "Casino CEO's Leaked Email Confirms Our Theories",
+        "excerpt": "Whistleblower shares internal communications proving casinos actively monitor and limit winning players. The truth is worse than we thought."
+      },
+      "post9": {
+        "title": "Advanced AI Settings for Maximum Pattern Detection",
+        "excerpt": "Optimize your Flamingo AI configuration with these pro tips. Increase pattern detection accuracy by up to 15%."
+      },
+      "post10": {
+        "title": "New Regulations: What They Mean for AI Gambling",
+        "excerpt": "Recent regulatory changes are reshaping the online gambling landscape. Here's how to stay ahead of the curve."
+      },
+      "post11": {
+        "title": "Security Alert: Major Casino Chain Data Breach",
+        "excerpt": "Breaking news on a massive security vulnerability affecting millions of players. What you need to know to protect yourself."
+      },
+      "post12": {
+        "title": "Getting Started: Your First Week with Flamingo AI",
+        "excerpt": "Complete guide for new users. Learn how to set up, configure, and start winning with our AI assistant."
+      }
+    }
   },
   "chat": {
     "title": "Meet your",
@@ -474,5 +607,224 @@
     "vote": "Vote",
     "voted": "Voted",
     "comments": "comments"
+  },
+  "faq": {
+    "hero": {
+      "title1": "Frequently Asked",
+      "title2": "Questions",
+      "subtitle": "All answers to your questions about Wintuition",
+      "badge": "Knowledge Base"
+    },
+    "search": {
+      "placeholder": "Search FAQ...",
+      "results": "results found",
+      "noResults": "No results found for your query",
+      "clearSearch": "Clear search"
+    },
+    "stats": {
+      "categories": "Categories",
+      "questions": "Questions"
+    },
+    "filters": {
+      "all": "All Questions",
+      "basics": "Basics",
+      "technical": "Technical",
+      "pricing": "Pricing",
+      "security": "Security"
+    },
+    "navigation": {
+      "title": "Quick Navigation"
+    },
+    "section": {
+      "questions": "questions in this category"
+    },
+    "helpful": {
+      "question": "Was this helpful?"
+    },
+    "help": {
+      "community": "Join Community",
+      "docs": "Read Docs",
+      "support": "24/7 Support"
+    },
+    "cta": {
+      "title1": "Still have questions?",
+      "title2": "We're here to help",
+      "subtitle": "Can't find an answer? Contact us or start your free trial",
+      "button1": "Start Free",
+      "button2": "Contact Us"
+    },
+    "sections": {
+      "general": {
+        "title": "General Questions & Basics",
+        "q1": {
+          "question": "What is Wintuition?",
+          "answer": "Wintuition is not a hacking tool or a \"lucky charm.\" It's a high-tech analytical platform that gives you a real mathematical edge in online slots. We use a hybrid system of two components:\n\n• Classical supercomputers that create statistical profiles of slot machines based on billions of simulations.\n• A trapped-ion quantum core that analyzes your gaming sessions in real-time, comparing them to our models and finding hidden patterns.\n\nSimply put, we see the mathematics behind the \"randomness\" and share this knowledge with you through our AI assistant Floyd."
+        },
+        "q2": {
+          "question": "How can I be sure this isn't a scam?",
+          "answer": "Skepticism in an industry full of deception is a healthy reaction. Here's why we're different:\n\n• No promises of \"guaranteed wins\" — we work with probabilities, not magic.\n• Transparent pricing policy with no hidden fees or automatic charges.\n• Swiss jurisdiction with full compliance with data protection laws.\n• Ability to cancel subscription at any time without questions.\n• Over 15,000 active users and a growing community.\n\nWe don't sell dreams. We provide a mathematical tool for those who understand the difference between hope and strategy."
+        },
+        "q3": {
+          "question": "Is it legal to use Wintuition?",
+          "answer": "Absolutely. Wintuition doesn't interact directly with casino software, doesn't modify games, and doesn't use exploits. We simply analyze publicly available data using advanced computational methods.\n\nIt's like using a calculator in poker or studying sports team statistics before betting. You're using math and analysis to make more informed decisions. No casino can prohibit you from thinking or using external analytical tools.\n\nHowever, we always recommend checking local gambling laws in your jurisdiction."
+        },
+        "q4": {
+          "question": "What devices does Wintuition work on?",
+          "answer": "Wintuition is a web application optimized for all modern devices:\n\n• Desktop computers: Windows, macOS, Linux (Chrome, Firefox, Safari, Edge)\n• Mobile devices: iOS and Android (via browser)\n• Tablets: Full support for iPad and Android tablets\n\nNo downloads or installations required. Just log in through your browser and start using it. For optimal performance, we recommend using the latest browser versions."
+        }
+      },
+      "technology": {
+        "title": "Technology & Methodology",
+        "q1": {
+          "question": "How exactly does your quantum analysis work?",
+          "answer": "Our system works in four stages:\n\n1. **Data Collection**: Classical supercomputers simulate billions of spins for each slot, creating a statistical \"fingerprint.\"\n\n2. **State Modeling**: Each slot is represented as a Markov chain — a mathematical model with different states (loss, small win, big win) and transition probabilities between them.\n\n3. **Quantum Processing**: Using the HHL algorithm on our 320-qubit quantum processor, we solve the system of linear equations describing these transitions exponentially faster than classical computers.\n\n4. **AI Interpretation**: Floyd translates complex probability vectors into understandable recommendations in real-time.\n\nThis isn't predicting the future — it's seeing the probabilistic structure of the present."
+        },
+        "q2": {
+          "question": "What is PRNG and why can it be analyzed?",
+          "answer": "PRNG (Pseudo-Random Number Generator) is an algorithm that creates sequences of numbers that appear random but are actually deterministic. The key word is \"pseudo.\"\n\nEvery PRNG:\n• Starts with an initial value (seed)\n• Follows a mathematical formula to generate the next number\n• Repeats after a certain period (can be trillions of numbers)\n\nWhile modern PRNGs are extremely complex, they are not truly random. With enough computational power, you can find correlations and patterns in their output. This is exactly what our quantum system does — finds tiny statistical deviations invisible to classical analysis."
+        },
+        "q3": {
+          "question": "What's the accuracy of your predictions?",
+          "answer": "Accuracy depends on your subscription plan:\n\n• **Scout Protocol**: Up to 75% accuracy (basic calibration)\n• **Hunter Protocol**: Up to 95% accuracy (deep core calibration)\n• **Oracle Protocol**: 99%+ accuracy (direct core sync)\n\nImportant to understand: this doesn't mean you'll win 99% of spins. It means our probability estimates are accurate 99% of the time. For example, if we say the win probability is 23%, then in the long run, exactly 23% of such spins will be winning.\n\nWe work with probability mathematics, not guarantees."
+        },
+        "q4": {
+          "question": "Why can't you achieve 100% accuracy?",
+          "answer": "Several fundamental reasons:\n\n1. **Quantum Uncertainty**: Even with perfect information, Heisenberg's uncertainty principle sets physical limits on predictability.\n\n2. **Computational Limits**: Fully solving some PRNGs would require more computational power than exists in the universe.\n\n3. **Dynamic Changes**: Casinos regularly update their systems, change seeds and algorithms.\n\n4. **Ethical Choice**: We intentionally limit our system to probabilistic analysis, not deterministic hacking.\n\n99%+ accuracy is the maximum that the laws of physics and mathematics allow for this type of analysis."
+        }
+      },
+      "usage": {
+        "title": "Platform Usage",
+        "q1": {
+          "question": "How do I start using Wintuition?",
+          "answer": "Simple 5-step process:\n\n1. **Registration**: Create an account with your email (anonymous options available)\n2. **Choose Protocol**: Start with Scout for testing or go straight to Hunter for full power\n3. **Open Your Favorite Slot**: At any online casino of your choice\n4. **Activate Floyd**: Our AI assistant will appear in the corner of the screen\n5. **Play with Insights**: Floyd will analyze each spin and provide real-time recommendations\n\nNo complex setup or technical knowledge required."
+        },
+        "q2": {
+          "question": "What is a 'Quantum Request'?",
+          "answer": "A Quantum Request is one complete analysis cycle:\n\n1. You make a spin in the slot\n2. Result data is automatically sent to our servers\n3. Quantum core processes the information (usually 50-200ms)\n4. Floyd receives updated probabilities\n5. You see new recommendations on screen\n\nNumber of requests depends on your plan:\n• Scout: 15/day\n• Hunter: 50/day\n• Oracle: 150/day\n\nRequests reset daily at midnight UTC."
+        },
+        "q3": {
+          "question": "Which slots does Wintuition support?",
+          "answer": "We support over 10,000 popular online slots from leading providers:\n\n• NetEnt\n• Microgaming\n• Play'n GO\n• Pragmatic Play\n• Evolution Gaming\n• And many more\n\nOur database is constantly updated. New slots are usually added within 24-72 hours after release (instantly for Oracle subscribers).\n\nIf a slot uses PRNG (and that's 99.9% of all online slots), we can analyze it."
+        },
+        "q4": {
+          "question": "Can I use Wintuition at multiple casinos?",
+          "answer": "Yes! Wintuition works independently of casinos. Our analysis focuses on the slots themselves, not the platforms where they're hosted.\n\nYou can:\n• Use at unlimited number of casinos\n• Switch between casinos without losing data\n• Compare results of the same slot at different casinos\n\nInteresting fact: sometimes we discover that the same slot has slightly different RTP settings at different casinos. Floyd takes these differences into account in his analysis."
+        }
+      },
+      "floyd": {
+        "title": "Floyd - AI Assistant",
+        "q1": {
+          "question": "Who is Floyd and how does he help?",
+          "answer": "Floyd is your personal AI assistant, named after the Floyd-Warshall algorithm (used to find shortest paths — like how we find the best probabilities).\n\nWhat Floyd does:\n• Translates complex quantum calculations into simple recommendations\n• Tracks your gaming session and adapts advice\n• Warns about potential hot/cold periods\n• Answers questions about slots and strategies\n• Helps with responsible gaming (limits, reminders)\n\nHe doesn't play for you — he gives you information to make smart decisions."
+        },
+        "q2": {
+          "question": "What recommendations does Floyd provide?",
+          "answer": "Floyd provides several types of insights:\n\n**Real-time Probabilities:**\n• Next spin win chance\n• Bonus game probability\n• Expected RTP for current session\n\n**Tactical Advice:**\n• When to increase/decrease bet\n• Optimal time to change slot\n• Anomalous pattern detection\n\n**Strategic Analysis:**\n• Long-term slot trends\n• Comparison with historical data\n• Personalized recommendations based on your play style\n\nAll advice is based on mathematics, not superstition."
+        },
+        "q3": {
+          "question": "Can I customize Floyd to my play style?",
+          "answer": "Absolutely! Floyd adapts to your preferences:\n\n**Play Profiles:**\n• Conservative (risk minimization)\n• Balanced (optimal risk/reward ratio)\n• Aggressive (chasing big wins)\n\n**Customizable Parameters:**\n• Notification frequency\n• Level of explanation detail\n• Preferred slot types\n• Budget limits and warnings\n\n**Machine Learning:**\nFloyd learns from your play history, gradually improving recommendation personalization. The more you play, the smarter he becomes."
+        },
+        "q4": {
+          "question": "Does Floyd work on mobile devices?",
+          "answer": "Yes, Floyd is fully optimized for mobile devices:\n\n• **Adaptive Interface**: Automatically adjusts to screen size\n• **Gestures**: Swipes for quick access to features\n• **Minimal Resource Usage**: Doesn't slow down gameplay\n• **Offline Cache**: Basic features work even without internet\n\nOn mobile devices, Floyd appears as a floating icon that can be moved around the screen to not interfere with gameplay."
+        }
+      },
+      "security": {
+        "title": "Security & Privacy",
+        "q1": {
+          "question": "How do you protect my data?",
+          "answer": "We apply multi-layered protection:\n\n**Encryption:**\n• AES-256 for data at rest\n• TLS 1.3 for data transmission\n• Quantum-resistant algorithms for critical operations\n\n**Infrastructure:**\n• Servers in Switzerland (strict privacy laws)\n• Air-gapped quantum systems\n• Regular security audits\n\n**Data Policy:**\n• Minimal data collection\n• Automatic deletion after 90 days\n• Never sell or share data with third parties\n• Full GDPR compliance\n\nYour security = our security."
+        },
+        "q2": {
+          "question": "Can casinos detect that I'm using Wintuition?",
+          "answer": "No. Wintuition is designed for complete invisibility:\n\n• **No Casino Interaction**: We don't inject code or modify their sites\n• **Separate Window/Tab**: Works independently of casino\n• **No Traces**: Doesn't leave cookies or data on casino sites\n• **VPN Compatible**: Full support for additional anonymity\n\nUsing external analytical tools is not prohibited. It's like using a calculator next to your computer — casinos can't control or prohibit it."
+        },
+        "q3": {
+          "question": "What happens to my gaming history?",
+          "answer": "Your data is processed with maximum privacy:\n\n**What we store:**\n• Anonymized spin results\n• Timestamps (without personal information)\n• General statistics for model improvement\n\n**What we DON'T store:**\n• Names or personal data\n• Banking information\n• IP addresses (hashed and deleted)\n• Casino visit history\n\n**Your control:**\n• Download all your data at any time\n• Delete account and all data with one click\n• Full anonymity option (crypto payments)\n\nData is automatically deleted after 90 days of inactivity."
+        },
+        "q4": {
+          "question": "How do you process payments securely?",
+          "answer": "We use industry best practices:\n\n**Payment Methods:**\n• Stripe (for cards) — PCI DSS Level 1\n• PayPal — buyer protection\n• Cryptocurrencies — full anonymity (BTC, ETH, USDT)\n\n**Security:**\n• We never see or store card data\n• 3D Secure for all transactions\n• Instant email confirmations\n• AI fraud protection\n\n**Guarantees:**\n• 14-day money-back guarantee\n• No automatic renewals without notice\n• Transparent transaction history in dashboard\n• 24/7 support for payment issues"
+        }
+      },
+      "subscription": {
+        "title": "Subscription & Payment",
+        "q1": {
+          "question": "Which subscription plan should I choose?",
+          "answer": "Choice depends on your play style:\n\n**Scout Protocol ($29.9/month)**\nIdeal for:\n• Newcomers to Wintuition\n• Players with small bankroll\n• Testing the system\n• Casual players (1-2 times per week)\n\n**Hunter Protocol ($99.9/month) — RECOMMENDED**\nOptimal for:\n• Regular players\n• Serious advantage\n• Best value for money\n• 80% of users choose this plan\n\n**Oracle Protocol ($299.9/month)**\nFor professionals:\n• Daily players\n• Maximum accuracy\n• VIP support\n• Early access to features\n\nTip: start with Hunter — you can upgrade/downgrade anytime."
+        },
+        "q2": {
+          "question": "How do I cancel my subscription?",
+          "answer": "Cancellation is simple — we're not a casino:\n\n1. Log into your dashboard\n2. Go to \"Settings\" → \"Subscription\"\n3. Click \"Cancel Subscription\"\n4. Confirm (no 20 questions)\n\n**What happens after cancellation:**\n• Access remains until end of paid period\n• Data stored for 90 days (you can return)\n• No hidden fees or penalties\n• Can resume anytime\n\n**No:**\n• Fund retention\n• Complex procedures\n• Calls begging you to stay\n• Automatic charges after cancellation"
+        },
+        "q3": {
+          "question": "Is there a trial period or money-back guarantee?",
+          "answer": "We offer several risk-free options:\n\n**14-day money-back guarantee:**\n• Full refund no questions asked\n• Applies to all plans\n• Refund processing within 48 hours\n• Money returned via same payment method\n\n**Demo mode:**\n• Free access to historical data\n• Limited Floyd features\n• Great way to understand the system\n\n**Special offers:**\n• Sometimes we run promotions with trial periods\n• Subscribe to newsletter for notifications\n• Referral bonuses for friends\n\nWe're confident in our product — that's why we make trying risk-free easy."
+        },
+        "q4": {
+          "question": "What payment methods do you accept?",
+          "answer": "We accept practically everything:\n\n**Traditional methods:**\n• Visa, Mastercard, American Express\n• PayPal\n• Apple Pay / Google Pay\n• Bank transfers (for annual plans)\n\n**Cryptocurrencies (for anonymity):**\n• Bitcoin (BTC)\n• Ethereum (ETH)\n• USDT (Tether)\n• USDC\n• And 10+ more cryptocurrencies\n\n**Regional methods:**\n• SEPA (Europe)\n• Alipay (Asia)\n• And other local systems\n\n**Features:**\n• Automatic currency conversion\n• No additional fees from our side\n• Instant activation after payment\n• Invoices for business clients"
+        }
+      },
+      "results": {
+        "title": "Results & Expectations",
+        "q1": {
+          "question": "How much can I win with Wintuition?",
+          "answer": "Let's be honest — we're not a magic wand:\n\n**What Wintuition DOES:**\n• Improves your odds through mathematical analysis\n• Helps avoid cold periods\n• Optimizes bet sizes\n• Finds slots with better conditions\n• Turns -EV into less negative or even +EV\n\n**What Wintuition DOESN'T do:**\n• Doesn't guarantee wins\n• Doesn't turn losing slots into winning ones\n• Can't change programmed RTP\n\n**Realistic expectations:**\n• Reduce losses by 40-60%\n• Increase playtime on same bankroll\n• Better bonus hit rate\n• More conscious gameplay\n\nRemember: casinos have a mathematical edge. We help minimize it, not eliminate it completely."
+        },
+        "q2": {
+          "question": "Why am I still losing while using Wintuition?",
+          "answer": "Several important factors:\n\n**Mathematical reality:**\n• Slots have negative expectation (usually RTP 94-97%)\n• Even with perfect play, long-term result is negative\n• Short-term variance can be huge\n\n**Common mistakes:**\n• Ignoring Floyd's recommendations\n• Emotional decisions instead of mathematical ones\n• Playing low RTP slots\n• Poor bankroll management\n• Chasing losses\n\n**Proper usage:**\n• Follow ALL recommendations, not just convenient ones\n• Use stop-losses\n• Choose slots with RTP 96%+\n• Play for entertainment, not as income source\n\nWintuition improves odds but can't defeat casino mathematics."
+        },
+        "q3": {
+          "question": "What results do other users show?",
+          "answer": "Based on anonymized data from 15,000+ users:\n\n**Average metrics (Hunter Protocol):**\n• Playtime increase: +156%\n• Loss rate reduction: -47%\n• Bonus hit improvement: +23%\n• Overall RTP closer to theoretical: +2.3%\n\n**Best results (top 10%):**\n• Some users stay positive for months\n• Successful \"hot\" period detection\n• Optimal switching between slots\n\n**Important:**\n• Results vary\n• Past results don't guarantee future ones\n• Discipline is as important as technology\n• Most still lose long-term (but less)\n\nReviews and cases available in our Telegram community."
+        },
+        "q4": {
+          "question": "How quickly will I see results?",
+          "answer": "Realistic expectation timeline:\n\n**First day:**\n• Learning the interface\n• Understanding Floyd's recommendations\n• Possible beginner mistakes\n\n**First week:**\n• Adapting to new play style\n• Starting to see patterns\n• Improving discipline\n\n**First month:**\n• Noticeable playtime increase\n• Better understanding of volatility\n• Statistically significant results\n\n**3+ months:**\n• Full integration into play style\n• Maximum usage efficiency\n• Clear understanding of long-term impact\n\n**Key factor:** The more you play, the more accurate predictions become. Minimum 1000 spins for statistical significance."
+        }
+      },
+      "technical": {
+        "title": "Technical Questions",
+        "q1": {
+          "question": "What are the system requirements for Wintuition?",
+          "answer": "Wintuition works on any modern device:\n\n**Minimum requirements:**\n• Browser: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+\n• Internet: 1 Mbps (5+ Mbps recommended)\n• RAM: 2 GB free memory\n• JavaScript enabled\n\n**Recommended:**\n• Modern browser (updated)\n• Stable internet connection\n• 4+ GB RAM for smooth operation\n• Screen resolution 1280x720 or higher\n\n**Mobile devices:**\n• iOS 13+ (iPhone 6s and newer)\n• Android 8+ (2 GB RAM minimum)\n• Works in any mobile browser\n\n**NOT required:**\n• Software installation\n• Special permissions\n• Powerful graphics card\n• Special plugins"
+        },
+        "q2": {
+          "question": "What if Wintuition is running slow?",
+          "answer": "Try these solutions in order:\n\n**1. Check internet:**\n• Speed test (need at least 1 Mbps)\n• Try restarting router\n• Switch from WiFi to mobile data\n\n**2. Optimize browser:**\n• Close unnecessary tabs\n• Clear browser cache\n• Disable unnecessary extensions\n• Try incognito mode\n\n**3. Check device:**\n• Restart device\n• Close background apps\n• Check free disk space\n• Update browser\n\n**4. Wintuition settings:**\n• Reduce update frequency\n• Disable animations in settings\n• Use \"Light mode\" on weak devices\n\n**If problem persists:**\nContact support with device and browser info."
+        },
+        "q3": {
+          "question": "How do I export my gaming statistics?",
+          "answer": "Several ways to get your data:\n\n**Automatic reports:**\n• Weekly summaries via email\n• Monthly detailed reports\n• Annual statistics for taxes\n\n**Manual export:**\n1. Dashboard → \"Statistics\"\n2. Select period\n3. Click \"Export\"\n4. Choose format:\n   • CSV (for Excel)\n   • PDF (for printing)\n   • JSON (for developers)\n\n**What's included:**\n• All spins with results\n• Analysis by slots\n• Profit/loss chart\n• Floyd's recommendations and their effectiveness\n• Time patterns\n\n**API access:**\nAvailable for Oracle subscribers for automatic data retrieval."
+        },
+        "q4": {
+          "question": "What to do with technical problems?",
+          "answer": "Step-by-step troubleshooting:\n\n**1. Floyd doesn't appear:**\n• Check you're logged in\n• Disable ad blockers\n• Allow popups for Wintuition\n• Try different browser\n\n**2. Data not syncing:**\n• Check internet connection\n• Refresh page (F5)\n• Log out and back in\n• Clear Wintuition cookies\n\n**3. Payment errors:**\n• Check card details\n• Ensure sufficient funds\n• Try different payment method\n• Contact your bank\n\n**Emergency support:**\n• Live chat: 2-5 minute response\n• Email: up to 24 hours\n• Telegram: @wintuition_support\n• Knowledge base: help.wintuition.ai\n\nAlways provide account ID and error screenshot."
+        }
+      },
+      "responsible": {
+        "title": "Responsible Gaming",
+        "q1": {
+          "question": "How does Wintuition help play responsibly?",
+          "answer": "We've built in many protection tools:\n\n**Limits and control:**\n• Daily/weekly/monthly deposit limits\n• Playtime limits with reminders\n• Automatic breaks every hour\n• Risk calculator before session\n\n**Smart warnings:**\n• Alerts when exceeding planned budget\n• Loss chasing warnings\n• Emotional play state analysis\n• Break recommendations\n\n**Reality statistics:**\n• Accurate win/loss counting\n• No hiding negative results\n• Comparison with other users\n• Long-term result forecast\n\n**Help tools:**\n• Quick links to help organizations\n• Gambling addiction test\n• Self-exclusion option\n• Support for players' relatives"
+        },
+        "q2": {
+          "question": "Can Wintuition increase gambling addiction?",
+          "answer": "We take this risk seriously:\n\n**Potential risks:**\n• Illusion of control over randomness\n• Increased playtime\n• False confidence in winning\n\n**Our countermeasures:**\n• Mandatory education about real odds\n• Inability to hide losses\n• Regular healthy gaming checks\n• Automatic cooling periods\n\n**Red flags (we warn):**\n• Playing longer than planned\n• Trying to win back losses\n• Playing with borrowed money\n• Emotional decisions\n\n**Important to understand:**\nWintuition is an analysis tool, not a way to earn money. If you feel loss of control, use the self-exclusion feature immediately."
+        },
+        "q3": {
+          "question": "What self-control tools are available?",
+          "answer": "Complete set of protection tools:\n\n**Before playing:**\n• Available budget calculator\n• Session planner\n• Gaming goals reminder\n• Realistic result forecast\n\n**During play:**\n• Session timer (customizable)\n• Real-time balance counter\n• Fast loss alerts\n• \"Pause\" button for thinking\n\n**Limits (customizable):**\n• Maximum bet\n• Daily loss limit\n• Weekly time limit\n• Monthly deposit limit\n\n**Emergency measures:**\n• Instant freeze for 24h/7d/30d\n• Self-exclusion for 6 months/1 year/forever\n• Specific slot blocking\n• \"Statistics only\" mode without playing\n\nAll limits cannot be changed while active."
+        },
+        "q4": {
+          "question": "Where to get help for gambling problems?",
+          "answer": "Help resources by region:\n\n**International:**\n• Gamblers Anonymous: www.gamblersanonymous.org\n• BeGambleAware: www.begambleaware.org\n• GamCare: www.gamcare.org.uk\n\n**USA:**\n• National Council on Problem Gambling: 1-800-522-4700\n• www.ncpgambling.org\n\n**Europe:**\n• UK: GamStop - www.gamstop.co.uk\n• Germany: BZgA - www.check-dein-spiel.de\n• Sweden: Stödlinjen - 020-81 91 00\n\n**In Wintuition:**\n• Direct line with counselors\n• Free condition assessment\n• Help setting up blocks\n• Support for relatives\n\n**Remember:**\nSeeking help is a sign of strength, not weakness. We'll support any decision to stop or limit gaming."
+        }
+      }
+    }
   }
 }

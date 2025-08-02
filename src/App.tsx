@@ -11,6 +11,7 @@ import BlogPage from './pages/BlogPage'
 import ContactPage from './pages/ContactPage'
 import ChatPage from './pages/ChatPage'
 import RequestFeaturePage from './pages/RequestFeaturePage'
+import FAQPage from './pages/FAQPage'
 import Layout from './components/Layout'
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/use-case" element={<UseCasePage />} />
               <Route path="/pricing" element={<PricingPage />} />
+              <Route path="/faq" element={<FAQPage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/request-feature" element={<RequestFeaturePage />} />
