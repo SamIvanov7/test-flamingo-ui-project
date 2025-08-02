@@ -37,51 +37,88 @@ export default function LandingPage() {
     const handleScroll = () => {
       if (isScrollingRef.current) return
 
-      const scrollPosition = window.scrollY + window.innerHeight / 2
+      const scrollPosition = window.scrollY
+      const windowHeight = window.innerHeight
+      const scrollCenter = scrollPosition + windowHeight / 2
       
-      sectionsRef.current.forEach((section, index) => {
+      // Find which section is currently in view
+      for (let i = 0; i < sectionsRef.current.length; i++) {
+        const section = sectionsRef.current[i]
         if (section) {
-          const { top, bottom } = section.getBoundingClientRect()
-          const sectionTop = top + window.scrollY
-          const sectionBottom = bottom + window.scrollY
+          const sectionTop = section.offsetTop
+          const sectionHeight = section.offsetHeight
+          const sectionBottom = sectionTop + sectionHeight
           
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            setCurrentSection(index)
+          // Check if the center of the viewport is within this section
+          if (scrollCenter >= sectionTop && scrollCenter < sectionBottom) {
+            if (currentSection !== i) {
+              setCurrentSection(i)
+            }
+            break
           }
         }
-      })
+      }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll() // Initial check
 
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [currentSection])
 
-  // Auto-advance sections every 10 seconds
+  // Auto-advance sections immediately on load
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isVideoPlaying && currentSection < sectionsRef.current.length - 1) {
+    // Disabled auto-scroll for now to fix navigation
+    // Uncomment below to re-enable auto-scrolling
+    /*
+    if (!isVideoPlaying && currentSection < sectionsRef.current.length - 1) {
+      const timeout = setTimeout(() => {
         scrollToSection(currentSection + 1)
-      }
-    }, 10000) // 10 seconds
-
-    return () => clearInterval(interval)
+      }, 0) // Immediate execution
+      
+      return () => clearTimeout(timeout)
+    }
+    */
   }, [currentSection, isVideoPlaying])
 
   const scrollToSection = (index: number) => {
     if (index >= 0 && index < sectionsRef.current.length) {
-      isScrollingRef.current = true
-      sectionsRef.current[index]?.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      })
-      setCurrentSection(index)
+      const targetElement = sectionsRef.current[index]
       
-      // Reset scrolling flag after animation
-      setTimeout(() => {
-        isScrollingRef.current = false
-      }, 1000)
+      if (targetElement) {
+        isScrollingRef.current = true
+        setCurrentSection(index) // Update immediately for responsive UI
+        
+        // Use a custom smooth scroll implementation for better control
+        const targetPosition = targetElement.offsetTop
+        const startPosition = window.pageYOffset
+        const distance = targetPosition - startPosition
+        const duration = 1500 // 1.5 seconds for smooth but not too slow
+        let start: number | null = null
+        
+        const easeInOutQuad = (t: number): number => {
+          return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
+        }
+        
+        const animation = (currentTime: number) => {
+          if (start === null) start = currentTime
+          const timeElapsed = currentTime - start
+          const progress = Math.min(timeElapsed / duration, 1)
+          const ease = easeInOutQuad(progress)
+          
+          window.scrollTo(0, startPosition + distance * ease)
+          
+          if (timeElapsed < duration) {
+            requestAnimationFrame(animation)
+          } else {
+            isScrollingRef.current = false
+            // Ensure the section is properly set after animation
+            setCurrentSection(index)
+          }
+        }
+        
+        requestAnimationFrame(animation)
+      }
     }
   }
 
@@ -103,13 +140,13 @@ export default function LandingPage() {
   // Section navigation dots
   const SectionDots = () => (
     <div className="fixed right-8 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-4">
-      {sectionsRef.current.map((_, index) => (
+      {[0, 1, 2, 3].map((index) => (
         <motion.button
           key={index}
           onClick={() => scrollToSection(index)}
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
-          className={`w-3 h-3 rounded-full transition-all duration-300 ${
+          className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
             currentSection === index 
               ? 'bg-limeGreen shadow-[0_0_20px_rgba(171,248,11,0.6)]' 
               : 'bg-beigeCream/30 hover:bg-beigeCream/50'
