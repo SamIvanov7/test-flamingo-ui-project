@@ -7,6 +7,11 @@ import ParticleField from '../components/ParticleField'
 
 export default function AboutPage() {
   const { t } = useTranslation()
+  
+  // Color variables for animations
+  const limeGreen = '#ABF80B'
+  const pink = '#E59FCE'
+  
   const processLevels = [
     {
       level: 1,
@@ -324,153 +329,412 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
+      {/* Team Section - Ghosts in the Machine */}
+      <section className="py-20 relative overflow-hidden">
+        {/* CSS Animation Styles */}
+        <style>{`
+          @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50px); }
+          }
+          @keyframes matrixFall {
+            0% { 
+              transform: translateY(-100%);
+              opacity: 0;
+            }
+            10% {
+              opacity: 1;
+            }
+            90% {
+              opacity: 1;
+            }
+            100% { 
+              transform: translateY(100vh);
+              opacity: 0;
+            }
+          }
+        `}</style>
+        
+        {/* Animated Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `linear-gradient(30deg, transparent 40%, ${limeGreen}20 41%, ${limeGreen}20 49%, transparent 50%),
+                            linear-gradient(60deg, transparent 40%, ${pink}20 41%, ${pink}20 49%, transparent 50%)`,
+            backgroundSize: '50px 50px',
+            animation: 'slide 20s linear infinite'
+          }} />
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            className="text-center mb-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-8">
-              <span className="text-beigeCream">{t('about.team.title1')}</span>{' '}
-              <span className="text-limeGreen">{t('about.team.title2')}</span>.{' '}
-              <span className="text-pink">{t('about.team.title3')}</span>.
-            </h2>
-            <p className="text-xl text-beigeCream/80 max-w-3xl mx-auto italic">
-              {t('about.team.subtitle')}
-            </p>
+            {/* Glitch Effect Title */}
+            <div className="relative inline-block mb-8">
+              <motion.h2
+                className="text-5xl sm:text-6xl md:text-7xl font-bold relative"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <motion.span
+                  className="text-beigeCream"
+                  animate={{ 
+                    textShadow: [
+                      '0 0 0 rgba(229,159,206,0)',
+                      '2px 2px 4px rgba(229,159,206,0.5)',
+                      '0 0 0 rgba(229,159,206,0)'
+                    ]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  {t('about.team.title1')}
+                </motion.span>{' '}
+                <motion.span
+                  className="text-limeGreen"
+                  animate={{ 
+                    textShadow: [
+                      '0 0 0 rgba(171,248,11,0)',
+                      '-2px -2px 4px rgba(171,248,11,0.5)',
+                      '0 0 0 rgba(171,248,11,0)'
+                    ]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+                >
+                  {t('about.team.title2')}
+                </motion.span>
+                <span className="text-beigeCream">.</span>
+              </motion.h2>
+              <motion.p
+                className="text-2xl sm:text-3xl text-pink font-bold mt-2"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                {t('about.team.title3')}.
+              </motion.p>
+            </div>
+            
+            <motion.p 
+              className="text-xl text-beigeCream/80 max-w-3xl mx-auto"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              <span className="text-limeGreen font-semibold">{t('about.team.subtitle')}</span>
+            </motion.p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto space-y-8">
-            <motion.div
-              initial={{ x: -50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              className="glassmorphism rounded-2xl p-8"
-            >
-              <p className="text-lg text-beigeCream/80 mb-6">
-                {t('about.team.intro')}
-              </p>
-              <p className="text-lg text-pink font-semibold">
-                {t('about.team.butNever')}
-              </p>
-            </motion.div>
-
-            {/* Reason 1 */}
-            <motion.div
-              initial={{ x: 50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="glassmorphism rounded-2xl p-6"
-            >
-              <div className="flex items-start">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink to-limeGreen flex items-center justify-center text-darkGreen font-bold text-lg flex-shrink-0">
-                  1
+          {/* Intro Card with Matrix Effect */}
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-5xl mx-auto mb-16"
+          >
+            <div className="relative glassmorphism rounded-3xl p-10 overflow-hidden">
+              {/* Matrix Rain Effect Background */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="text-limeGreen text-xs font-mono">
+                  {Array(20).fill(0).map((_, i) => (
+                    <div key={i} className="inline-block mx-2" style={{
+                      animation: `matrixFall ${3 + i * 0.2}s linear infinite`,
+                      animationDelay: `${i * 0.1}s`
+                    }}>
+                      {Array(10).fill(0).map(() => Math.random() > 0.5 ? '1' : '0').join('')}
+                    </div>
+                  ))}
                 </div>
-                <div className="ml-4">
-                  <h3 className="text-xl font-bold text-limeGreen mb-3">
+              </div>
+              
+              <div className="relative z-10">
+                <motion.p 
+                  className="text-xl text-beigeCream/90 mb-8 leading-relaxed"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  {t('about.team.intro')}
+                </motion.p>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="border-l-4 border-pink pl-6"
+                >
+                  <p className="text-2xl text-pink font-bold">
+                    {t('about.team.butNever')}
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Three Reasons Grid */}
+          <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+
+            {/* Reason 1 - Legal Shield */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="group"
+            >
+              <div className="glassmorphism rounded-2xl p-8 h-full relative overflow-hidden
+                            border border-beigeCream/10 hover:border-limeGreen/30 transition-all duration-300">
+                {/* Icon Background */}
+                <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="text-limeGreen">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                  </svg>
+                </div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink/20 to-limeGreen/20 
+                                  flex items-center justify-center backdrop-blur-sm
+                                  group-hover:from-pink/30 group-hover:to-limeGreen/30 transition-all">
+                      <span className="text-2xl font-bold text-limeGreen">01</span>
+                    </div>
+                    <div className="ml-4 h-px flex-1 bg-gradient-to-r from-limeGreen/50 to-transparent" />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-limeGreen mb-4 group-hover:text-pink transition-colors">
                     {t('about.team.reason1.title')}
                   </h3>
-                  <p className="text-beigeCream/80">
+                  <p className="text-beigeCream/80 leading-relaxed">
                     {t('about.team.reason1.description')}
                   </p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Reason 2 */}
+            {/* Reason 2 - Industry Challenge */}
             <motion.div
-              initial={{ x: -50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="glassmorphism rounded-2xl p-6"
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="group"
             >
-              <div className="flex items-start">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink to-limeGreen flex items-center justify-center text-darkGreen font-bold text-lg flex-shrink-0">
-                  2
+              <div className="glassmorphism rounded-2xl p-8 h-full relative overflow-hidden
+                            border border-beigeCream/10 hover:border-pink/30 transition-all duration-300">
+                {/* Icon Background */}
+                <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="text-pink">
+                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                  </svg>
                 </div>
-                <div className="ml-4">
-                  <h3 className="text-xl font-bold text-limeGreen mb-3">
+                
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink/20 to-limeGreen/20 
+                                  flex items-center justify-center backdrop-blur-sm
+                                  group-hover:from-pink/30 group-hover:to-limeGreen/30 transition-all">
+                      <span className="text-2xl font-bold text-pink">02</span>
+                    </div>
+                    <div className="ml-4 h-px flex-1 bg-gradient-to-r from-pink/50 to-transparent" />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-pink mb-4 group-hover:text-limeGreen transition-colors">
                     {t('about.team.reason2.title')}
                   </h3>
-                  <p className="text-beigeCream/80">
+                  <p className="text-beigeCream/80 leading-relaxed">
                     {t('about.team.reason2.description')}
                   </p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Reason 3 */}
+            {/* Reason 3 - Philosophy */}
             <motion.div
-              initial={{ x: 50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="glassmorphism rounded-2xl p-6"
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="group"
             >
-              <div className="flex items-start">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink to-limeGreen flex items-center justify-center text-darkGreen font-bold text-lg flex-shrink-0">
-                  3
+              <div className="glassmorphism rounded-2xl p-8 h-full relative overflow-hidden
+                            border border-beigeCream/10 hover:border-limeGreen/30 transition-all duration-300">
+                {/* Icon Background */}
+                <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="text-limeGreen">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
                 </div>
-                <div className="ml-4">
-                  <h3 className="text-xl font-bold text-limeGreen mb-3">
+                
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink/20 to-limeGreen/20 
+                                  flex items-center justify-center backdrop-blur-sm
+                                  group-hover:from-pink/30 group-hover:to-limeGreen/30 transition-all">
+                      <span className="text-2xl font-bold text-limeGreen">03</span>
+                    </div>
+                    <div className="ml-4 h-px flex-1 bg-gradient-to-r from-limeGreen/50 to-transparent" />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-limeGreen mb-4 group-hover:text-pink transition-colors">
                     {t('about.team.reason3.title')}
                   </h3>
-                  <p className="text-beigeCream/80">
+                  <p className="text-beigeCream/80 leading-relaxed">
                     {t('about.team.reason3.description')}
                   </p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Who We Are */}
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="glassmorphism rounded-2xl p-8 text-center"
-            >
-              <h3 className="text-2xl font-bold mb-4">
-                <span className="text-pink">{t('about.team.whoWeAre.title')}</span>
-              </h3>
-              <p className="text-lg text-beigeCream/80 mb-4">
-                {t('about.team.whoWeAre.description1')}
-              </p>
-              <p className="text-lg text-limeGreen font-semibold">
-                {t('about.team.whoWeAre.description2')}
-              </p>
-            </motion.div>
-
-            {/* Team Roles Grid */}
-            <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="grid md:grid-cols-3 gap-6 mt-12"
-            >
-              <div className="glassmorphism rounded-xl p-6 text-center">
-                <div className="text-4xl mb-3">⚛️</div>
-                <h4 className="text-lg font-bold text-limeGreen mb-2">{t('about.team.roles.quantum.title')}</h4>
-                <p className="text-sm text-beigeCream/70">
-                  {t('about.team.roles.quantum.description')}
-                </p>
-              </div>
-              <div className="glassmorphism rounded-xl p-6 text-center">
-                <div className="text-4xl mb-3">☁️</div>
-                <h4 className="text-lg font-bold text-limeGreen mb-2">{t('about.team.roles.saas.title')}</h4>
-                <p className="text-sm text-beigeCream/70">
-                  {t('about.team.roles.saas.description')}
-                </p>
-              </div>
-              <div className="glassmorphism rounded-xl p-6 text-center">
-                <div className="text-4xl mb-3">📊</div>
-                <h4 className="text-lg font-bold text-limeGreen mb-2">{t('about.team.roles.data.title')}</h4>
-                <p className="text-sm text-beigeCream/70">
-                  {t('about.team.roles.data.description')}
-                </p>
-              </div>
-            </motion.div>
           </div>
+
+          {/* Combined Who We Are & Team Section */}
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="max-w-6xl mx-auto mt-16"
+          >
+            <div className="glassmorphism rounded-3xl p-12 relative overflow-hidden">
+              {/* Animated Background */}
+              <div className="absolute inset-0 opacity-5">
+                <motion.div
+                  animate={{
+                    backgroundPosition: ['0% 0%', '100% 100%'],
+                  }}
+                  transition={{ duration: 20, repeat: Infinity, repeatType: 'reverse' }}
+                  style={{
+                    backgroundImage: `radial-gradient(circle at 20% 50%, ${pink}40 0%, transparent 50%),
+                                    radial-gradient(circle at 80% 80%, ${limeGreen}40 0%, transparent 50%)`,
+                    backgroundSize: '200% 200%',
+                  }}
+                  className="absolute inset-0"
+                />
+              </div>
+
+              <div className="relative z-10">
+                {/* Header Section */}
+                <div className="text-center mb-12">
+                  <motion.h3 
+                    className="text-4xl font-bold mb-6"
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <span className="text-pink">{t('about.team.whoWeAre.title')}</span>
+                  </motion.h3>
+                  <motion.p 
+                    className="text-xl text-beigeCream/90 mb-6 leading-relaxed max-w-3xl mx-auto"
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    {t('about.team.whoWeAre.description1')}
+                  </motion.p>
+                  <motion.p 
+                    className="text-2xl text-limeGreen font-bold"
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                  >
+                    <motion.span
+                      animate={{
+                        textShadow: [
+                          '0 0 0 rgba(171,248,11,0)',
+                          '0 0 20px rgba(171,248,11,0.5)',
+                          '0 0 0 rgba(171,248,11,0)'
+                        ]
+                      }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      {t('about.team.whoWeAre.description2')}
+                    </motion.span>
+                  </motion.p>
+                </div>
+
+                {/* Team Members Grid */}
+                <motion.div
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                  className="grid md:grid-cols-3 gap-6 mt-12"
+                >
+                  {/* Quantum Physicist - "The Oracle" */}
+                  <motion.div
+                    whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                    className="bg-darkGreen/30 backdrop-blur-sm rounded-2xl p-6 relative overflow-hidden
+                              border border-limeGreen/20 hover:border-limeGreen/40 transition-all duration-300"
+                  >
+                    <div className="absolute top-0 right-0 w-24 h-24 opacity-10">
+                      <div className="text-limeGreen text-6xl">⚛️</div>
+                    </div>
+                    <div className="relative z-10">
+                      <div className="text-3xl mb-2 filter drop-shadow-lg">⚛️</div>
+                      <div className="text-xs text-limeGreen/60 font-mono mb-1">// {t('about.team.roles.quantum.nickname')}</div>
+                      <h4 className="text-lg font-bold text-limeGreen mb-2">{t('about.team.roles.quantum.title')}</h4>
+                      <p className="text-sm text-beigeCream/70">
+                        {t('about.team.roles.quantum.description')}
+                      </p>
+                      <div className="mt-4 pt-4 border-t border-beigeCream/10">
+                        <p className="text-xs text-pink/60 italic">
+                          "{t('about.team.roles.quantum.quote')}"
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* SaaS Architect - "Ghost" */}
+                  <motion.div
+                    whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                    className="bg-darkGreen/30 backdrop-blur-sm rounded-2xl p-6 relative overflow-hidden
+                              border border-pink/20 hover:border-pink/40 transition-all duration-300"
+                  >
+                    <div className="absolute top-0 right-0 w-24 h-24 opacity-10">
+                      <div className="text-pink text-6xl">☁️</div>
+                    </div>
+                    <div className="relative z-10">
+                      <div className="text-3xl mb-2 filter drop-shadow-lg">☁️</div>
+                      <div className="text-xs text-pink/60 font-mono mb-1">// {t('about.team.roles.saas.nickname')}</div>
+                      <h4 className="text-lg font-bold text-pink mb-2">{t('about.team.roles.saas.title')}</h4>
+                      <p className="text-sm text-beigeCream/70">
+                        {t('about.team.roles.saas.description')}
+                      </p>
+                      <div className="mt-4 pt-4 border-t border-beigeCream/10">
+                        <p className="text-xs text-limeGreen/60 italic">
+                          "{t('about.team.roles.saas.quote')}"
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Data Specialist - "Cipher" */}
+                  <motion.div
+                    whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                    className="bg-darkGreen/30 backdrop-blur-sm rounded-2xl p-6 relative overflow-hidden
+                              border border-limeGreen/20 hover:border-limeGreen/40 transition-all duration-300"
+                  >
+                    <div className="absolute top-0 right-0 w-24 h-24 opacity-10">
+                      <div className="text-limeGreen text-6xl">📊</div>
+                    </div>
+                    <div className="relative z-10">
+                      <div className="text-3xl mb-2 filter drop-shadow-lg">📊</div>
+                      <div className="text-xs text-limeGreen/60 font-mono mb-1">// {t('about.team.roles.data.nickname')}</div>
+                      <h4 className="text-lg font-bold text-limeGreen mb-2">{t('about.team.roles.data.title')}</h4>
+                      <p className="text-sm text-beigeCream/70">
+                        {t('about.team.roles.data.description')}
+                      </p>
+                      <div className="mt-4 pt-4 border-t border-beigeCream/10">
+                        <p className="text-xs text-pink/60 italic">
+                          "{t('about.team.roles.data.quote')}"
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

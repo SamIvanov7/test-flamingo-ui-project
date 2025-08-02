@@ -2,7 +2,7 @@
 
 ## 🦩 Project Overview
 
-Flamingo.ai is a controversial gambling AI assistant web application that claims to help users "beat the house" by identifying patterns in casino games. The application features a rebellious, anti-establishment theme with a pink flamingo mascot and uses advanced 3D graphics, animations, and a modern tech stack.
+Flamingo.ai is a controversial gambling AI assistant web application that claims to help users "beat the house" by identifying patterns in casino games using quantum computing and AI. The application features a rebellious, anti-establishment theme with a pink flamingo mascot and uses advanced 3D graphics, animations, and a modern tech stack.
 
 **Tech Stack:**
 - React 18 with TypeScript
@@ -12,6 +12,7 @@ Flamingo.ai is a controversial gambling AI assistant web application that claims
 - Framer Motion for animations
 - Tailwind CSS for styling
 - GSAP for advanced animations
+- i18next for internationalization (EN, RU)
 
 ## 📁 Directory Structure
 
@@ -21,6 +22,13 @@ test-flamingo-ui-project/
 │   ├── components/          # Reusable UI components
 │   ├── pages/              # Page components for routing
 │   ├── styles/             # Global styles and CSS
+│   ├── i18n/               # Internationalization
+│   │   ├── config.ts       # i18next configuration
+│   │   └── locales/        # Translation files
+│   │       ├── en.json     # English translations
+│   │       ├── es.json     # Spanish translations
+│   │       ├── ru.json     # Russian translations
+│   │       └── vi.json     # Vietnamese translations
 │   ├── App.tsx             # Main application component with routing
 │   └── main.tsx            # Application entry point
 ├── assets/                 # Static assets
@@ -43,10 +51,11 @@ test-flamingo-ui-project/
 - **AnimatedNumber.tsx** - Smooth number transitions
 
 #### Layout Components
-- **Header.tsx** - Navigation header with slide-in menu
+- **Header.tsx** - Navigation header with slide-in menu and language switcher
 - **Layout.tsx** - Page layout wrapper
 - **VideoBackground.tsx** - Video background with fog effects
 - **VideoBackgroundClean.tsx** - Video background without effects
+- **LanguageSwitcher.tsx** - Language selection dropdown
 
 #### Game Components
 - **ProbabilityCard.tsx** - Displays win probability
@@ -67,7 +76,7 @@ test-flamingo-ui-project/
 ### Pages (`/src/pages/`)
 
 1. **LandingPage.tsx** - Homepage with video background and marketing content
-2. **AboutPage.tsx** - Team information and company mission
+2. **AboutPage.tsx** - Team information and company mission with "Ghosts in the Machine" section featuring anonymous team members (Tunn3l!spectre, Sh4dowQubit, Sup3rposition)
 3. **UseCasePage.tsx** - Interactive use case demonstrations
 4. **PricingPage.tsx** - Subscription tiers and pricing
 5. **BlogPage.tsx** - Casino exposé articles and strategies
@@ -100,23 +109,24 @@ test-flamingo-ui-project/
 ## 🚀 Key Features
 
 ### Gaming Features
-- Real-time probability analysis
+- Real-time probability analysis using quantum computing
 - Pattern detection visualization
 - Session tracking and limits
 - Responsible gaming tools
 - Multi-casino support
 
 ### AI Features
-- Interactive 3D AI assistant
+- Interactive 3D AI assistant "Floyd"
 - Real-time chat support
 - Pattern recognition alerts
-- Strategic recommendations
+- Strategic recommendations based on quantum analysis
 
 ### Content Features
 - Anti-casino blog posts
 - Gambling scandal news
 - User success stories
 - Feature request system
+- Multi-language support (English, Spanish, Russian, Vietnamese)
 
 ## 🔧 Configuration Files
 
@@ -153,6 +163,12 @@ The application is fully responsive with breakpoints:
 
 The application targets online gamblers who believe casinos manipulate their games and are looking for an edge. The messaging is deliberately controversial and anti-establishment, positioning flamingo.ai as a tool to "expose casino secrets" and "beat the house."
 
-## ⚠️ Disclaimer
+## 🌍 Internationalization
 
-This application's claims about beating casino games and exposing "rigged" systems are part of its fictional narrative. In reality, casino games are regulated and use certified random number generators. The anti-casino messaging is part of the creative theme and should not be taken as factual claims.
+The application supports multiple languages through i18next:
+- **English (EN)** - Default language
+- **Spanish (ES)** - Complete translations
+- **Russian (RU)** - Complete translations
+- **Vietnamese (VI)** - Complete translations
+
+Language preference is stored in localStorage and persists across sessions.

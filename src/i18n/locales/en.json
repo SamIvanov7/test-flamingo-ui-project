@@ -233,15 +233,21 @@
       "roles": {
         "quantum": {
           "title": "Quantum Physicist",
-          "description": "Previously modeled market volatility for hedge funds"
+          "description": "Previously modeled market volatility for hedge funds",
+          "nickname": "Tunn3l!spectre",
+          "quote": "Probability is just determinism we haven't decoded yet."
         },
         "saas": {
           "title": "SaaS Architect",
-          "description": "Built high-load cloud platforms for tech giants"
+          "description": "Built high-load cloud platforms for tech giants",
+          "nickname": "Sh4dowQubit",
+          "quote": "Infrastructure should be invisible until you need it."
         },
         "data": {
           "title": "Data Specialist",
-          "description": "Analyzed petabytes for global logistics companies"
+          "description": "Analyzed petabytes for global logistics companies",
+          "nickname": "Sup3rposition",
+          "quote": "In patterns, we find truth. In data, we find patterns."
         }
       }
     },
