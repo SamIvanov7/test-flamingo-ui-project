@@ -49,7 +49,7 @@ export default function AboutPage() {
             <pointLight position={[10, 10, 10]} intensity={0.5} color="#E59FCE" />
             <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ABF80B" />
             <Flamingo3D animationState="thinking" scale={2} />
-            <ParticleField count={100} density={0.5} color="#ABF80B" />
+            <ParticleField count={50} density={0.5} color="#ABF80B" />
           </Canvas>
         </div>
 

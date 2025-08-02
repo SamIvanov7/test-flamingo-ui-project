@@ -41,7 +41,7 @@ interface Particle {
 }
 
 export default function ParticleField({ 
-  count = 30, 
+  count = 15, 
   density = 1, 
   color = '#ABF80B' 
 }: ParticleFieldProps) {
