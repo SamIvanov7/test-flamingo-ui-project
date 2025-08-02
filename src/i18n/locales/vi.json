@@ -187,51 +187,78 @@
     }
   },
   "contact": {
-    "title": "Phơi bày",
-    "subtitle": "Sự thật",
-    "description": "Có bằng chứng về thao túng sòng bạc? Muốn tham gia sứ mệnh của chúng tôi? Liên lạc với chúng tôi.",
+    "title": "Liên hệ với",
+    "subtitle": "Chúng tôi",
+    "description": "Có thông tin nội bộ? Cần hỗ trợ? Muốn hợp tác? Chúng tôi ở đây để giúp bạn đánh bại nhà cái.",
     "form": {
-      "name": "Tên",
-      "namePlaceholder": "Tên của bạn (hoặc bí danh)",
-      "email": "Email",
-      "emailPlaceholder": "email.cua.ban@vidu.com",
+      "title": "Gửi tin nhắn cho chúng tôi",
+      "name": "Tên của bạn",
+      "namePlaceholder": "Nguyễn Văn A",
+      "email": "Địa chỉ Email",
+      "emailPlaceholder": "nguyen@example.com",
       "subject": "Chủ đề",
       "subjects": {
         "general": "Yêu cầu chung",
         "support": "Hỗ trợ kỹ thuật",
         "partnership": "Cơ hội hợp tác",
-        "whistleblower": "Báo cáo tố giác",
-        "media": "Yêu cầu truyền thông"
+        "whistleblower": "Tố giác sòng bạc",
+        "media": "Yêu cầu truyền thông",
+        "legal": "Vấn đề pháp lý"
       },
       "message": "Tin nhắn",
-      "messagePlaceholder": "Kể câu chuyện của bạn...",
-      "anonymous": "Gửi ẩn danh",
-      "anonymousTip": "Danh tính của bạn sẽ được bảo vệ",
+      "messagePlaceholder": "Cho chúng tôi biết thêm...",
       "submit": "Gửi tin nhắn",
-      "submitting": "Đang gửi..."
-    },
-    "channels": {
-      "title": "Các cách khác để",
-      "subtitle": "Kết nối",
-      "support": {
-        "title": "Hỗ trợ 24/7",
-        "description": "AI của chúng tôi không bao giờ ngủ",
-        "action": "support@flamingo.ai"
-      },
-      "telegram": {
-        "title": "Cộng đồng Telegram",
-        "description": "Tham gia cùng 5.000+ người phá vỡ",
-        "action": "@flamingo_disruptors"
-      },
-      "signal": {
-        "title": "Kênh bảo mật",
-        "description": "Cho thông tin nhạy cảm",
-        "action": "+1 (555) 0123"
+      "submitting": "Đang gửi...",
+      "success": "Gửi tin nhắn thành công!",
+      "error": "Không thể gửi tin nhắn",
+      "errors": {
+        "nameRequired": "Tên là bắt buộc",
+        "emailRequired": "Email là bắt buộc",
+        "emailInvalid": "Vui lòng nhập địa chỉ email hợp lệ",
+        "messageRequired": "Tin nhắn là bắt buộc",
+        "messageTooShort": "Tin nhắn phải có ít nhất 10 ký tự"
       }
     },
-    "success": {
-      "title": "Tin nhắn đã gửi!",
-      "description": "Chúng tôi sẽ liên lạc lại trong vòng 24 giờ."
+    "channels": {
+      "title": "Liên hệ nhanh",
+      "email": {
+        "title": "Email",
+        "description": "Phản hồi trong 24 giờ"
+      },
+      "chat": {
+        "title": "Chat trực tiếp",
+        "available": "Có sẵn 24/7",
+        "description": "Cho hỗ trợ khẩn cấp"
+      },
+      "secure": {
+        "title": "Đường dây bảo mật",
+        "description": "Mã hóa đầu cuối"
+      }
+    },
+    "special": {
+      "title": "Yêu cầu đặc biệt",
+      "whistleblower": {
+        "title": "Người tố giác sòng bạc",
+        "description": "Có thông tin nội bộ về thao túng sòng bạc? Liên hệ với chúng tôi một cách an toàn. Danh tính của bạn sẽ được bảo vệ."
+      },
+      "partnership": {
+        "title": "Cơ hội hợp tác",
+        "description": "Quan tâm đến việc tham gia cuộc cách mạng? Chúng tôi luôn tìm kiếm đồng minh trong việc vạch trần lừa đảo sòng bạc."
+      },
+      "media": {
+        "title": "Yêu cầu truyền thông",
+        "description": "Viết về thao túng sòng bạc hoặc phân tích cờ bạc bằng AI? Chúng tôi có dữ liệu và chuyên gia sẵn sàng."
+      }
+    },
+    "privacy": {
+      "title": "Quyền riêng tư của bạn quan trọng",
+      "description": "Tất cả thông tin liên lạc đều được mã hóa. Chúng tôi không bao giờ chia sẻ thông tin của bạn với sòng bạc hoặc bên thứ ba. Bí mật của bạn an toàn với chúng tôi."
+    },
+    "cta": {
+      "title": "Sẵn sàng",
+      "highlight": "Tham gia cuộc cách mạng",
+      "description": "Đừng chờ đợi sòng bạc lấy thêm tiền của bạn. Bắt đầu chiến thắng với thông tin phân tích do AI hỗ trợ ngay hôm nay.",
+      "button": "Bắt đầu ngay"
     }
   },
   "blog": {

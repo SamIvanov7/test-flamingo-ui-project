@@ -1,35 +1,129 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Mail, MessageSquare, Shield, Users, FileText, AlertTriangle, Check, X } from 'lucide-react'
 
 export default function ContactPage() {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: 'general',
     message: ''
   })
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [errors, setErrors] = useState<{ [key: string]: string }>({})
 
   const contactReasons = [
-    { value: 'general', label: 'General Inquiry' },
-    { value: 'support', label: 'Technical Support' },
-    { value: 'partnership', label: 'Partnership Opportunity' },
-    { value: 'whistleblower', label: 'Casino Whistleblower' },
-    { value: 'media', label: 'Media Inquiry' },
-    { value: 'legal', label: 'Legal Matter' }
+    { value: 'general', label: t('contact.form.subjects.general') },
+    { value: 'support', label: t('contact.form.subjects.support') },
+    { value: 'partnership', label: t('contact.form.subjects.partnership') },
+    { value: 'whistleblower', label: t('contact.form.subjects.whistleblower') },
+    { value: 'media', label: t('contact.form.subjects.media') },
+    { value: 'legal', label: t('contact.form.subjects.legal') }
   ]
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = () => {
+    const newErrors: { [key: string]: string } = {}
+    
+    if (!formData.name.trim()) {
+      newErrors.name = t('contact.form.errors.nameRequired')
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = t('contact.form.errors.emailRequired')
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = t('contact.form.errors.emailInvalid')
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = t('contact.form.errors.messageRequired')
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = t('contact.form.errors.messageTooShort')
+    }
+    
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
+    
+    if (!validateForm()) {
+      return
+    }
+    
+    setFormStatus('submitting')
+    
+    // Simulate API call
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      console.log('Form submitted:', formData)
+      setFormStatus('success')
+      // Reset form after success
+      setTimeout(() => {
+        setFormData({ name: '', email: '', subject: 'general', message: '' })
+        setFormStatus('idle')
+      }, 3000)
+    } catch (error) {
+      setFormStatus('error')
+      setTimeout(() => setFormStatus('idle'), 3000)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }))
+    }
   }
+
+  const contactChannels = [
+    {
+      icon: Mail,
+      title: t('contact.channels.email.title'),
+      value: 'support@flamingo.ai',
+      description: t('contact.channels.email.description'),
+      color: 'limeGreen'
+    },
+    {
+      icon: MessageSquare,
+      title: t('contact.channels.chat.title'),
+      value: t('contact.channels.chat.available'),
+      description: t('contact.channels.chat.description'),
+      color: 'pink'
+    },
+    {
+      icon: Shield,
+      title: t('contact.channels.secure.title'),
+      value: 'whistleblower@flamingo.ai',
+      description: t('contact.channels.secure.description'),
+      color: 'limeGreen'
+    }
+  ]
+
+  const specialInquiries = [
+    {
+      icon: AlertTriangle,
+      title: t('contact.special.whistleblower.title'),
+      description: t('contact.special.whistleblower.description'),
+      color: 'pink'
+    },
+    {
+      icon: Users,
+      title: t('contact.special.partnership.title'),
+      description: t('contact.special.partnership.description'),
+      color: 'limeGreen'
+    },
+    {
+      icon: FileText,
+      title: t('contact.special.media.title'),
+      description: t('contact.special.media.description'),
+      color: 'pink'
+    }
+  ]
 
   return (
     <motion.div
@@ -47,12 +141,11 @@ export default function ContactPage() {
             className="text-center mb-16"
           >
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6">
-              <span className="text-limeGreen">Get in</span>{' '}
-              <span className="text-pink">Touch</span>
+              <span className="text-limeGreen">{t('contact.title')}</span>{' '}
+              <span className="text-pink">{t('contact.subtitle')}</span>
             </h1>
             <p className="text-xl text-beigeCream/80 max-w-3xl mx-auto">
-              Have insider information? Need support? Want to partner? 
-              We're here to help you beat the house.
+              {t('contact.description')}
             </p>
           </motion.div>
 
@@ -64,48 +157,69 @@ export default function ContactPage() {
               transition={{ delay: 0.2 }}
               className="glassmorphism rounded-3xl p-8"
             >
-              <h2 className="text-2xl font-bold text-limeGreen mb-6">Send Us a Message</h2>
+              <h2 className="text-2xl font-bold text-limeGreen mb-6">{t('contact.form.title')}</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-beigeCream mb-2">Your Name</label>
+                  <label className="block text-beigeCream mb-2 font-medium">
+                    {t('contact.form.name')}
+                  </label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl
+                    disabled={formStatus === 'submitting'}
+                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl
                              text-beigeCream placeholder-beigeCream/50 focus:outline-none
-                             focus:border-limeGreen/50 transition-colors"
-                    placeholder="John Doe"
+                             transition-all duration-300 ${
+                               errors.name 
+                                 ? 'border-red-500 focus:border-red-400' 
+                                 : 'border-white/20 focus:border-limeGreen/50'
+                             } ${formStatus === 'submitting' ? 'opacity-50' : ''}`}
+                    placeholder={t('contact.form.namePlaceholder')}
                   />
+                  {errors.name && (
+                    <p className="mt-1 text-sm text-red-400">{errors.name}</p>
+                  )}
                 </div>
 
                 <div>
-                  <label className="block text-beigeCream mb-2">Email Address</label>
+                  <label className="block text-beigeCream mb-2 font-medium">
+                    {t('contact.form.email')}
+                  </label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl
+                    disabled={formStatus === 'submitting'}
+                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl
                              text-beigeCream placeholder-beigeCream/50 focus:outline-none
-                             focus:border-limeGreen/50 transition-colors"
-                    placeholder="john@example.com"
+                             transition-all duration-300 ${
+                               errors.email 
+                                 ? 'border-red-500 focus:border-red-400' 
+                                 : 'border-white/20 focus:border-limeGreen/50'
+                             } ${formStatus === 'submitting' ? 'opacity-50' : ''}`}
+                    placeholder={t('contact.form.emailPlaceholder')}
                   />
+                  {errors.email && (
+                    <p className="mt-1 text-sm text-red-400">{errors.email}</p>
+                  )}
                 </div>
 
                 <div>
-                  <label className="block text-beigeCream mb-2">Subject</label>
+                  <label className="block text-beigeCream mb-2 font-medium">
+                    {t('contact.form.subject')}
+                  </label>
                   <select
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl
+                    disabled={formStatus === 'submitting'}
+                    className={`w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl
                              text-beigeCream focus:outline-none focus:border-limeGreen/50
-                             transition-colors"
+                             transition-all duration-300 ${formStatus === 'submitting' ? 'opacity-50' : ''}`}
                   >
                     {contactReasons.map((reason) => (
                       <option key={reason.value} value={reason.value} className="bg-darkGreen">
@@ -116,28 +230,68 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-beigeCream mb-2">Message</label>
+                  <label className="block text-beigeCream mb-2 font-medium">
+                    {t('contact.form.message')}
+                  </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    required
+                    disabled={formStatus === 'submitting'}
                     rows={6}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl
+                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl
                              text-beigeCream placeholder-beigeCream/50 focus:outline-none
-                             focus:border-limeGreen/50 transition-colors resize-none"
-                    placeholder="Tell us more..."
+                             transition-all duration-300 resize-none ${
+                               errors.message 
+                                 ? 'border-red-500 focus:border-red-400' 
+                                 : 'border-white/20 focus:border-limeGreen/50'
+                             } ${formStatus === 'submitting' ? 'opacity-50' : ''}`}
+                    placeholder={t('contact.form.messagePlaceholder')}
                   />
+                  {errors.message && (
+                    <p className="mt-1 text-sm text-red-400">{errors.message}</p>
+                  )}
                 </div>
 
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full py-4 bg-limeGreen text-darkGreen font-bold rounded-xl
-                           hover:shadow-[0_0_30px_rgba(171,248,11,0.5)] transition-all"
+                  disabled={formStatus === 'submitting'}
+                  whileHover={{ scale: formStatus === 'idle' ? 1.05 : 1 }}
+                  whileTap={{ scale: formStatus === 'idle' ? 0.95 : 1 }}
+                  className={`w-full py-4 font-bold rounded-xl transition-all duration-300
+                           flex items-center justify-center space-x-2 ${
+                             formStatus === 'success' 
+                               ? 'bg-green-500 text-white' 
+                               : formStatus === 'error'
+                               ? 'bg-red-500 text-white'
+                               : formStatus === 'submitting'
+                               ? 'bg-beigeCream/20 text-beigeCream'
+                               : 'bg-limeGreen text-darkGreen hover:shadow-[0_0_30px_rgba(171,248,11,0.5)]'
+                           }`}
                 >
-                  Send Message
+                  {formStatus === 'submitting' && (
+                    <>
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        className="w-5 h-5 border-2 border-beigeCream/30 border-t-beigeCream rounded-full"
+                      />
+                      <span>{t('contact.form.submitting')}</span>
+                    </>
+                  )}
+                  {formStatus === 'success' && (
+                    <>
+                      <Check className="w-5 h-5" />
+                      <span>{t('contact.form.success')}</span>
+                    </>
+                  )}
+                  {formStatus === 'error' && (
+                    <>
+                      <X className="w-5 h-5" />
+                      <span>{t('contact.form.error')}</span>
+                    </>
+                  )}
+                  {formStatus === 'idle' && <span>{t('contact.form.submit')}</span>}
                 </motion.button>
               </form>
             </motion.div>
@@ -151,132 +305,87 @@ export default function ContactPage() {
             >
               {/* Quick Contact */}
               <div className="glassmorphism rounded-3xl p-8">
-                <h3 className="text-2xl font-bold text-pink mb-6">Quick Contact</h3>
+                <h3 className="text-2xl font-bold text-pink mb-6">{t('contact.channels.title')}</h3>
                 
                 <div className="space-y-4">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-limeGreen/20 rounded-full flex items-center justify-center">
-                      <span className="text-2xl">📧</span>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-limeGreen">Email</h4>
-                      <p className="text-beigeCream/80">support@flamingo.ai</p>
-                      <p className="text-beigeCream/60 text-sm">Response within 24 hours</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-limeGreen/20 rounded-full flex items-center justify-center">
-                      <span className="text-2xl">💬</span>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-limeGreen">Live Chat</h4>
-                      <p className="text-beigeCream/80">Available 24/7</p>
-                      <p className="text-beigeCream/60 text-sm">For urgent support</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-limeGreen/20 rounded-full flex items-center justify-center">
-                      <span className="text-2xl">🔒</span>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-limeGreen">Secure Line</h4>
-                      <p className="text-beigeCream/80">whistleblower@flamingo.ai</p>
-                      <p className="text-beigeCream/60 text-sm">End-to-end encrypted</p>
-                    </div>
-                  </div>
+                  {contactChannels.map((channel, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ x: 20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.4 + index * 0.1 }}
+                      className="flex items-start space-x-4"
+                    >
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${
+                        channel.color === 'limeGreen' ? 'bg-limeGreen/20' : 'bg-pink/20'
+                      }`}>
+                        <channel.icon className={`w-6 h-6 ${
+                          channel.color === 'limeGreen' ? 'text-limeGreen' : 'text-pink'
+                        }`} />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className={`font-semibold ${
+                          channel.color === 'limeGreen' ? 'text-limeGreen' : 'text-pink'
+                        }`}>{channel.title}</h4>
+                        <p className="text-beigeCream/80">{channel.value}</p>
+                        <p className="text-beigeCream/60 text-sm">{channel.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
 
               {/* Special Contacts */}
               <div className="glassmorphism rounded-3xl p-8">
-                <h3 className="text-2xl font-bold text-pink mb-6">Special Inquiries</h3>
+                <h3 className="text-2xl font-bold text-pink mb-6">{t('contact.special.title')}</h3>
                 
                 <div className="space-y-4">
-                  <div className="p-4 bg-white/5 rounded-xl">
-                    <h4 className="font-semibold text-limeGreen mb-2">🕵️ Casino Whistleblowers</h4>
-                    <p className="text-beigeCream/70 text-sm">
-                      Have insider information about casino manipulation? Contact us securely. 
-                      Your identity will be protected.
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-white/5 rounded-xl">
-                    <h4 className="font-semibold text-limeGreen mb-2">🤝 Partnership Opportunities</h4>
-                    <p className="text-beigeCream/70 text-sm">
-                      Interested in joining the revolution? We're always looking for allies 
-                      in exposing casino deception.
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-white/5 rounded-xl">
-                    <h4 className="font-semibold text-limeGreen mb-2">📰 Media Inquiries</h4>
-                    <p className="text-beigeCream/70 text-sm">
-                      Writing about casino manipulation or AI gambling analysis? 
-                      We have data and experts available.
-                    </p>
-                  </div>
+                  {specialInquiries.map((inquiry, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ x: 20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.5 + index * 0.1 }}
+                      className="p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors duration-300"
+                    >
+                      <div className="flex items-start space-x-3">
+                        <inquiry.icon className={`w-5 h-5 mt-0.5 ${
+                          inquiry.color === 'limeGreen' ? 'text-limeGreen' : 'text-pink'
+                        }`} />
+                        <div>
+                          <h4 className={`font-semibold mb-2 ${
+                            inquiry.color === 'limeGreen' ? 'text-limeGreen' : 'text-pink'
+                          }`}>
+                            {inquiry.title}
+                          </h4>
+                          <p className="text-beigeCream/70 text-sm">
+                            {inquiry.description}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
 
               {/* Security Notice */}
-              <div className="bg-pink/10 border border-pink/30 rounded-2xl p-6">
-                <h4 className="font-semibold text-pink mb-2">🛡️ Your Privacy Matters</h4>
-                <p className="text-beigeCream/70 text-sm">
-                  All communications are encrypted. We never share your information with 
-                  casinos or third parties. Your secrets are safe with us.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-raisinBlack/50">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold">
-              <span className="text-limeGreen">Common</span>{' '}
-              <span className="text-pink">Questions</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {[
-              {
-                q: "How quickly will I get a response?",
-                a: "Email inquiries are answered within 24 hours. Live chat is available 24/7 for immediate assistance."
-              },
-              {
-                q: "Is my information secure?",
-                a: "Yes. All communications are encrypted, and we never share your data with casinos or any third parties."
-              },
-              {
-                q: "Can I remain anonymous?",
-                a: "Absolutely. We offer anonymous communication channels, especially for whistleblowers and sensitive information."
-              },
-              {
-                q: "Do you offer phone support?",
-                a: "Phone support is available for Whale plan members. All others can use email or live chat."
-              }
-            ].map((item, index) => (
               <motion.div
-                key={index}
                 initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: index * 0.1 }}
-                className="glassmorphism rounded-2xl p-6"
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                className="bg-gradient-to-br from-pink/10 to-limeGreen/10 border border-pink/30 rounded-2xl p-6"
               >
-                <h3 className="font-bold text-limeGreen mb-3">{item.q}</h3>
-                <p className="text-beigeCream/80">{item.a}</p>
+                <div className="flex items-start space-x-3">
+                  <Shield className="w-5 h-5 text-pink mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-pink mb-2">{t('contact.privacy.title')}</h4>
+                    <p className="text-beigeCream/70 text-sm">
+                      {t('contact.privacy.description')}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
-            ))}
+            </motion.div>
           </div>
         </div>
       </section>
@@ -290,10 +399,10 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl font-bold mb-6">
-              Ready to <span className="text-limeGreen">Join the Revolution</span>?
+              {t('contact.cta.title')} <span className="text-limeGreen">{t('contact.cta.highlight')}</span>?
             </h2>
             <p className="text-lg text-beigeCream/80 max-w-2xl mx-auto mb-8">
-              Don't wait for casinos to take more of your money. Start winning with AI-powered insights today.
+              {t('contact.cta.description')}
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -302,7 +411,7 @@ export default function ContactPage() {
               className="px-8 py-4 bg-limeGreen text-darkGreen font-bold rounded-xl text-lg
                        hover:shadow-[0_0_30px_rgba(171,248,11,0.5)] transition-all duration-300"
             >
-              Get Started Now
+              {t('contact.cta.button')}
             </motion.button>
           </motion.div>
         </div>

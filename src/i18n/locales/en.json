@@ -380,51 +380,78 @@
     }
   },
   "contact": {
-    "title": "Expose the",
-    "subtitle": "Truth",
-    "description": "Have evidence of casino manipulation? Want to join our mission? Get in touch.",
+    "title": "Get in",
+    "subtitle": "Touch",
+    "description": "Have insider information? Need support? Want to partner? We're here to help you beat the house.",
     "form": {
-      "name": "Name",
-      "namePlaceholder": "Your name (or alias)",
-      "email": "Email",
-      "emailPlaceholder": "your.email@example.com",
+      "title": "Send Us a Message",
+      "name": "Your Name",
+      "namePlaceholder": "John Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "john@example.com",
       "subject": "Subject",
       "subjects": {
         "general": "General Inquiry",
         "support": "Technical Support",
         "partnership": "Partnership Opportunity",
-        "whistleblower": "Whistleblower Report",
-        "media": "Media Inquiry"
+        "whistleblower": "Casino Whistleblower",
+        "media": "Media Inquiry",
+        "legal": "Legal Matter"
       },
       "message": "Message",
-      "messagePlaceholder": "Tell us your story...",
-      "anonymous": "Submit anonymously",
-      "anonymousTip": "Your identity will be protected",
+      "messagePlaceholder": "Tell us more...",
       "submit": "Send Message",
-      "submitting": "Sending..."
-    },
-    "channels": {
-      "title": "Other Ways to",
-      "subtitle": "Connect",
-      "support": {
-        "title": "24/7 Support",
-        "description": "Our AI never sleeps",
-        "action": "support@flamingo.ai"
-      },
-      "telegram": {
-        "title": "Telegram Community",
-        "description": "Join 5,000+ disruptors",
-        "action": "@flamingo_disruptors"
-      },
-      "signal": {
-        "title": "Secure Channel",
-        "description": "For sensitive information",
-        "action": "+1 (555) 0123"
+      "submitting": "Sending...",
+      "success": "Message Sent Successfully!",
+      "error": "Failed to Send Message",
+      "errors": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "messageRequired": "Message is required",
+        "messageTooShort": "Message must be at least 10 characters"
       }
     },
-    "success": {
-      "title": "Message Sent!",
-      "description": "We'll get back to you within 24 hours."
+    "channels": {
+      "title": "Quick Contact",
+      "email": {
+        "title": "Email",
+        "description": "Response within 24 hours"
+      },
+      "chat": {
+        "title": "Live Chat",
+        "available": "Available 24/7",
+        "description": "For urgent support"
+      },
+      "secure": {
+        "title": "Secure Line",
+        "description": "End-to-end encrypted"
+      }
+    },
+    "special": {
+      "title": "Special Inquiries",
+      "whistleblower": {
+        "title": "Casino Whistleblowers",
+        "description": "Have insider information about casino manipulation? Contact us securely. Your identity will be protected."
+      },
+      "partnership": {
+        "title": "Partnership Opportunities",
+        "description": "Interested in joining the revolution? We're always looking for allies in exposing casino deception."
+      },
+      "media": {
+        "title": "Media Inquiries",
+        "description": "Writing about casino manipulation or AI gambling analysis? We have data and experts available."
+      }
+    },
+    "privacy": {
+      "title": "Your Privacy Matters",
+      "description": "All communications are encrypted. We never share your information with casinos or third parties. Your secrets are safe with us."
+    },
+    "cta": {
+      "title": "Ready to",
+      "highlight": "Join the Revolution",
+      "description": "Don't wait for casinos to take more of your money. Start winning with AI-powered insights today.",
+      "button": "Get Started Now"
     }
   },
   "blog": {

@@ -187,51 +187,78 @@
     }
   },
   "contact": {
-    "title": "Expón la",
-    "subtitle": "Verdad",
-    "description": "¿Tienes evidencia de manipulación de casinos? ¿Quieres unirte a nuestra misión? Ponte en contacto.",
+    "title": "Ponte en",
+    "subtitle": "Contacto",
+    "description": "¿Tienes información privilegiada? ¿Necesitas soporte? ¿Quieres asociarte? Estamos aquí para ayudarte a vencer a la casa.",
     "form": {
-      "name": "Nombre",
-      "namePlaceholder": "Tu nombre (o alias)",
-      "email": "Correo electrónico",
-      "emailPlaceholder": "tu.correo@ejemplo.com",
+      "title": "Envíanos un Mensaje",
+      "name": "Tu Nombre",
+      "namePlaceholder": "Juan Pérez",
+      "email": "Correo Electrónico",
+      "emailPlaceholder": "juan@ejemplo.com",
       "subject": "Asunto",
       "subjects": {
-        "general": "Consulta general",
-        "support": "Soporte técnico",
-        "partnership": "Oportunidad de asociación",
-        "whistleblower": "Informe de denunciante",
-        "media": "Consulta de medios"
+        "general": "Consulta General",
+        "support": "Soporte Técnico",
+        "partnership": "Oportunidad de Asociación",
+        "whistleblower": "Denunciante de Casino",
+        "media": "Consulta de Medios",
+        "legal": "Asunto Legal"
       },
       "message": "Mensaje",
-      "messagePlaceholder": "Cuéntanos tu historia...",
-      "anonymous": "Enviar anónimamente",
-      "anonymousTip": "Tu identidad será protegida",
-      "submit": "Enviar mensaje",
-      "submitting": "Enviando..."
-    },
-    "channels": {
-      "title": "Otras formas de",
-      "subtitle": "Conectar",
-      "support": {
-        "title": "Soporte 24/7",
-        "description": "Nuestra IA nunca duerme",
-        "action": "support@flamingo.ai"
-      },
-      "telegram": {
-        "title": "Comunidad Telegram",
-        "description": "Únete a más de 5,000 disruptores",
-        "action": "@flamingo_disruptors"
-      },
-      "signal": {
-        "title": "Canal seguro",
-        "description": "Para información sensible",
-        "action": "+1 (555) 0123"
+      "messagePlaceholder": "Cuéntanos más...",
+      "submit": "Enviar Mensaje",
+      "submitting": "Enviando...",
+      "success": "¡Mensaje Enviado Exitosamente!",
+      "error": "Error al Enviar Mensaje",
+      "errors": {
+        "nameRequired": "El nombre es requerido",
+        "emailRequired": "El correo electrónico es requerido",
+        "emailInvalid": "Por favor ingresa un correo electrónico válido",
+        "messageRequired": "El mensaje es requerido",
+        "messageTooShort": "El mensaje debe tener al menos 10 caracteres"
       }
     },
-    "success": {
-      "title": "¡Mensaje enviado!",
-      "description": "Te responderemos dentro de 24 horas."
+    "channels": {
+      "title": "Contacto Rápido",
+      "email": {
+        "title": "Correo Electrónico",
+        "description": "Respuesta en 24 horas"
+      },
+      "chat": {
+        "title": "Chat en Vivo",
+        "available": "Disponible 24/7",
+        "description": "Para soporte urgente"
+      },
+      "secure": {
+        "title": "Línea Segura",
+        "description": "Cifrado de extremo a extremo"
+      }
+    },
+    "special": {
+      "title": "Consultas Especiales",
+      "whistleblower": {
+        "title": "Denunciantes de Casino",
+        "description": "¿Tienes información privilegiada sobre manipulación de casinos? Contáctanos de forma segura. Tu identidad será protegida."
+      },
+      "partnership": {
+        "title": "Oportunidades de Asociación",
+        "description": "¿Interesado en unirte a la revolución? Siempre buscamos aliados para exponer el engaño de los casinos."
+      },
+      "media": {
+        "title": "Consultas de Medios",
+        "description": "¿Escribes sobre manipulación de casinos o análisis de juegos de azar con IA? Tenemos datos y expertos disponibles."
+      }
+    },
+    "privacy": {
+      "title": "Tu Privacidad Importa",
+      "description": "Todas las comunicaciones están cifradas. Nunca compartimos tu información con casinos o terceros. Tus secretos están seguros con nosotros."
+    },
+    "cta": {
+      "title": "¿Listo para",
+      "highlight": "Unirte a la Revolución",
+      "description": "No esperes a que los casinos tomen más de tu dinero. Comienza a ganar con información impulsada por IA hoy.",
+      "button": "Comienza Ahora"
     }
   },
   "blog": {
