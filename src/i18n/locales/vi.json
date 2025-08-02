@@ -1,0 +1,285 @@
+{
+  "common": {
+    "appName": "Flamingo AI",
+    "loading": "Đang tải...",
+    "error": "Lỗi",
+    "success": "Thành công",
+    "cancel": "Hủy",
+    "save": "Lưu",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa",
+    "close": "Đóng",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "previous": "Trước",
+    "submit": "Gửi",
+    "continue": "Tiếp tục",
+    "skip": "Bỏ qua",
+    "start": "Bắt đầu",
+    "stop": "Dừng",
+    "yes": "Có",
+    "no": "Không"
+  },
+  "navigation": {
+    "home": "Trang chủ",
+    "about": "Về chúng tôi",
+    "useCase": "Ứng dụng",
+    "pricing": "Bảng giá",
+    "blog": "Blog",
+    "contact": "Liên hệ",
+    "dashboard": "Bảng điều khiển",
+    "chat": "Trò chuyện",
+    "requestFeature": "Yêu cầu tính năng",
+    "settings": "Cài đặt"
+  },
+  "landing": {
+    "hero": {
+      "title1": "CHƠI THEO LUẬT CỦA HỌ.",
+      "title2": "SAI LẦM LỚN.",
+      "subtitle": "Flamingo AI tận dụng phân tích lượng tử-thần kinh để giải mã các mẫu RNG. Chúng tôi chứng minh rằng tính ngẫu nhiên thực sự là một huyền thoại, dù sòng bạc có thích hay không.",
+      "cta": "Bắt đầu khai thác",
+      "watchStory": "XEM CÂU CHUYỆN CỦA CHÚNG TÔI"
+    },
+    "section2": {
+      "title": "Nhà cái luôn thắng?",
+      "subtitle": "Không còn nữa.",
+      "description": "AI của chúng tôi phân tích hàng triệu lượt quay máy xèng trong thời gian thực, xác định các mẫu mà sòng bạc không muốn bạn thấy."
+    },
+    "section3": {
+      "title": "Tham gia cuộc cách mạng",
+      "description": "Hơn 15.000 người chơi đang sử dụng flamingo.ai để lật ngược tình thế tại các sòng bạc trên toàn thế giới.",
+      "cta": "Bắt đầu ngay"
+    }
+  },
+  "onboarding": {
+    "slide1": {
+      "title1": "Gặp gỡ",
+      "title2": "Trợ lý AI của bạn",
+      "description": "AI hồng hạc hồng của chúng tôi phân tích các mẫu máy xèng trong thời gian thực để cung cấp cho bạn thông tin về xác suất."
+    },
+    "slide2": {
+      "title1": "Dự đoán",
+      "title2": "Thời gian thực",
+      "description": "Nhận tính toán xác suất tức thì được cập nhật với mỗi lượt quay. Đưa ra quyết định sáng suốt với thông tin do AI cung cấp."
+    },
+    "slide3": {
+      "title1": "Chơi",
+      "title2": "Có trách nhiệm",
+      "description": "Đặt giới hạn, theo dõi phiên chơi và tận hưởng trò chơi với các công cụ chơi có trách nhiệm tích hợp."
+    },
+    "stats": {
+      "patternDetection": "Phát hiện mẫu",
+      "aiAnalysis": "Phân tích AI",
+      "spinsAnalyzed": "Lượt quay đã phân tích",
+      "activeUsers": "Người dùng hoạt động",
+      "secure": "Bảo mật",
+      "fairGaming": "Công cụ chơi công bằng"
+    },
+    "buttons": {
+      "skip": "Bỏ qua",
+      "next": "Tiếp theo",
+      "previous": "Trước",
+      "letsStart": "Bắt đầu thôi"
+    }
+  },
+  "about": {
+    "hero": {
+      "title1": "Phá vỡ",
+      "title2": "Lợi thế nhà cái",
+      "subtitle": "Chúng tôi là một đội ngũ các nhà toán học nổi loạn, nhà nghiên cứu AI và hacker đạo đức đoàn kết vì một sứ mệnh: chứng minh rằng \"tính ngẫu nhiên\" của sòng bạc hoàn toàn không ngẫu nhiên."
+    },
+    "mission": {
+      "title": "Sứ mệnh của chúng tôi",
+      "description1": "Trong nhiều thập kỷ, các sòng bạc đã ẩn sau huyền thoại về \"tính ngẫu nhiên thực sự\" để biện minh cho lợi nhuận thiên văn của họ. Chúng tôi ở đây để phá vỡ ảo tưởng đó.",
+      "description2": "Sử dụng phân tích nơ-ron lượng tử tiên tiến và thuật toán nhận dạng mẫu mà sòng bạc không muốn bạn biết, flamingo.ai phơi bày các mẫu có thể dự đoán trong cái gọi là máy tạo số ngẫu nhiên của họ."
+    },
+    "stats": {
+      "patternRate": "Tỷ lệ phát hiện mẫu",
+      "spinsAnalyzed": "Lượt quay đã phân tích",
+      "activeUsers": "Người dùng hoạt động"
+    },
+    "truth": {
+      "title": "Sự thật họ che giấu",
+      "fact1": "Phần mềm RNG có các mẫu có thể khai thác",
+      "fact2": "Máy xèng được lập trình để tạo \"suýt trúng\"",
+      "fact3": "Sòng bạc trực tuyến theo dõi và hạn chế người chơi thắng",
+      "fact4": "Lợi thế nhà cái bị thổi phồng một cách giả tạo"
+    },
+    "team": {
+      "title1": "Gặp gỡ",
+      "title2": "Những người phá vỡ",
+      "subtitle": "Đội ngũ của chúng tôi bao gồm những người tố cáo ngành và những bộ óc xuất sắc đã từ chối im lặng."
+    },
+    "cta": {
+      "title": "Sẵn sàng san bằng sân chơi?",
+      "subtitle": "Tham gia cùng hàng ngàn người đã khám phá sự thật về \"tính ngẫu nhiên\" của sòng bạc và cuối cùng đang chiến thắng.",
+      "button": "Bắt đầu chiến thắng ngay"
+    }
+  },
+  "pricing": {
+    "title": "Chọn",
+    "subtitle": "Vũ khí của bạn",
+    "description": "Mỗi gói đều bao gồm công cụ dự đoán AI cốt lõi của chúng tôi. Chọn dựa trên phong cách chơi của bạn.",
+    "monthly": "Hàng tháng",
+    "yearly": "Hàng năm",
+    "save": "Tiết kiệm 20%",
+    "plans": {
+      "basic": {
+        "name": "Người phá vỡ cơ bản",
+        "price": "$49",
+        "period": "/tháng",
+        "description": "Hoàn hảo cho người chơi thông thường muốn có lợi thế",
+        "features": [
+          "Phân tích mẫu máy xèng thời gian thực",
+          "Dự đoán xác suất cơ bản",
+          "Tối đa 100 lượt quay mỗi ngày",
+          "Hỗ trợ qua email",
+          "Truy cập ứng dụng di động"
+        ],
+        "cta": "Bắt đầu dùng thử miễn phí"
+      },
+      "pro": {
+        "name": "Người khai thác chuyên nghiệp",
+        "price": "$149",
+        "period": "/tháng",
+        "description": "Dành cho người chơi nghiêm túc sẵn sàng tối đa hóa lợi thế của họ",
+        "badge": "Phổ biến nhất",
+        "features": [
+          "Mọi thứ trong Cơ bản",
+          "Dự đoán mạng nơ-ron nâng cao",
+          "Phân tích lượt quay không giới hạn",
+          "Theo dõi mẫu đa sòng bạc",
+          "Hỗ trợ ưu tiên",
+          "Chiến lược cược tùy chỉnh",
+          "Truy cập VIP Discord"
+        ],
+        "cta": "Nâng cấp lên Pro"
+      },
+      "elite": {
+        "name": "Tập đoàn tinh hoa",
+        "price": "$499",
+        "period": "/tháng",
+        "description": "Tham gia vòng tròn nội bộ của những người phá vỡ sòng bạc",
+        "features": [
+          "Mọi thứ trong Pro",
+          "Dự đoán tăng cường lượng tử",
+          "Hỗ trợ găng tay trắng",
+          "Cấu hình AI cá nhân",
+          "Truy cập sớm vào các khai thác mới",
+          "Phiên chiến lược hàng tháng",
+          "Tài nguyên bảo vệ pháp lý",
+          "Cơ hội chia sẻ lợi nhuận"
+        ],
+        "cta": "Đăng ký Elite"
+      }
+    },
+    "roi": {
+      "title": "Máy tính ROI",
+      "investment": "Đầu tư hàng tháng",
+      "hours": "Giờ chơi/tuần",
+      "bet": "Kích thước cược trung bình",
+      "calculate": "Tính ROI",
+      "results": {
+        "improved": "Tỷ lệ thắng cải thiện",
+        "monthly": "Lợi nhuận hàng tháng ước tính",
+        "roi": "ROI"
+      }
+    }
+  },
+  "contact": {
+    "title": "Phơi bày",
+    "subtitle": "Sự thật",
+    "description": "Có bằng chứng về thao túng sòng bạc? Muốn tham gia sứ mệnh của chúng tôi? Liên lạc với chúng tôi.",
+    "form": {
+      "name": "Tên",
+      "namePlaceholder": "Tên của bạn (hoặc bí danh)",
+      "email": "Email",
+      "emailPlaceholder": "email.cua.ban@vidu.com",
+      "subject": "Chủ đề",
+      "subjects": {
+        "general": "Yêu cầu chung",
+        "support": "Hỗ trợ kỹ thuật",
+        "partnership": "Cơ hội hợp tác",
+        "whistleblower": "Báo cáo tố giác",
+        "media": "Yêu cầu truyền thông"
+      },
+      "message": "Tin nhắn",
+      "messagePlaceholder": "Kể câu chuyện của bạn...",
+      "anonymous": "Gửi ẩn danh",
+      "anonymousTip": "Danh tính của bạn sẽ được bảo vệ",
+      "submit": "Gửi tin nhắn",
+      "submitting": "Đang gửi..."
+    },
+    "channels": {
+      "title": "Các cách khác để",
+      "subtitle": "Kết nối",
+      "support": {
+        "title": "Hỗ trợ 24/7",
+        "description": "AI của chúng tôi không bao giờ ngủ",
+        "action": "support@flamingo.ai"
+      },
+      "telegram": {
+        "title": "Cộng đồng Telegram",
+        "description": "Tham gia cùng 5.000+ người phá vỡ",
+        "action": "@flamingo_disruptors"
+      },
+      "signal": {
+        "title": "Kênh bảo mật",
+        "description": "Cho thông tin nhạy cảm",
+        "action": "+1 (555) 0123"
+      }
+    },
+    "success": {
+      "title": "Tin nhắn đã gửi!",
+      "description": "Chúng tôi sẽ liên lạc lại trong vòng 24 giờ."
+    }
+  },
+  "blog": {
+    "title": "Sòng bạc",
+    "subtitle": "Bị phơi bày",
+    "description": "Sự thật về cờ bạc mà ngành công nghiệp không muốn bạn biết.",
+    "featured": "Điều tra nổi bật",
+    "readTime": "{{time}} phút đọc",
+    "readMore": "Đọc toàn bộ điều tra"
+  },
+  "chat": {
+    "title": "Gặp gỡ",
+    "subtitle": "trợ lý của bạn",
+    "avatar": {
+      "thinking": "Đang phân tích mẫu...",
+      "ready": "Sẵn sàng giúp đỡ!",
+      "processing": "Đang xử lý dữ liệu..."
+    },
+    "input": {
+      "placeholder": "Hỏi về mẫu máy xèng, phân tích RTP hoặc lỗ hổng sòng bạc...",
+      "send": "Gửi"
+    },
+    "suggestions": [
+      "Phân tích RTP của máy xèng này",
+      "Tìm mẫu trong lịch sử chơi của tôi",
+      "Sòng bạc nào có RNG yếu nhất?",
+      "Jackpot lũy tiến thực sự hoạt động như thế nào?"
+    ]
+  },
+  "features": {
+    "title": "Định hình",
+    "subtitle": "Tương lai",
+    "description": "Bỏ phiếu cho các tính năng bạn muốn thấy tiếp theo. Tiếng nói của bạn thúc đẩy sự phát triển của chúng tôi.",
+    "search": "Tìm kiếm tính năng...",
+    "filter": {
+      "all": "Tất cả tính năng",
+      "planned": "Đã lên kế hoạch",
+      "inProgress": "Đang thực hiện",
+      "completed": "Đã hoàn thành"
+    },
+    "status": {
+      "planned": "Đã lên kế hoạch",
+      "inProgress": "Đang thực hiện",
+      "completed": "Đã hoàn thành"
+    },
+    "votes": "phiếu bầu",
+    "vote": "Bỏ phiếu",
+    "voted": "Đã bỏ phiếu",
+    "comments": "bình luận"
+  }
+}

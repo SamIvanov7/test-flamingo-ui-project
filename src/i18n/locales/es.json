@@ -1,0 +1,285 @@
+{
+  "common": {
+    "appName": "Flamingo AI",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Enviar",
+    "continue": "Continuar",
+    "skip": "Omitir",
+    "start": "Comenzar",
+    "stop": "Detener",
+    "yes": "Sí",
+    "no": "No"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "useCase": "Caso de uso",
+    "pricing": "Precios",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "dashboard": "Panel",
+    "chat": "Chat",
+    "requestFeature": "Solicitar función",
+    "settings": "Configuración"
+  },
+  "landing": {
+    "hero": {
+      "title1": "JUGAR CON SUS REGLAS.",
+      "title2": "GRAN ERROR.",
+      "subtitle": "Flamingo AI aprovecha el análisis cuántico-neuronal para decodificar patrones RNG. Demostramos que la verdadera aleatoriedad es un mito, les guste o no a los casinos.",
+      "cta": "Comenzar a explotar",
+      "watchStory": "VER NUESTRA HISTORIA"
+    },
+    "section2": {
+      "title": "¿La casa siempre gana?",
+      "subtitle": "Ya no más.",
+      "description": "Nuestra IA analiza millones de giros de tragamonedas en tiempo real, identificando patrones que los casinos no quieren que veas."
+    },
+    "section3": {
+      "title": "Únete a la revolución",
+      "description": "Más de 15,000 jugadores ya están usando flamingo.ai para cambiar las tornas en casinos de todo el mundo.",
+      "cta": "Comenzar ahora"
+    }
+  },
+  "onboarding": {
+    "slide1": {
+      "title1": "Conoce a tu",
+      "title2": "Asistente IA",
+      "description": "Nuestro flamenco rosa IA analiza patrones de tragamonedas en tiempo real para proporcionarte información sobre probabilidades."
+    },
+    "slide2": {
+      "title1": "Predicciones en",
+      "title2": "Tiempo real",
+      "description": "Obtén cálculos de probabilidad instantáneos actualizados con cada giro. Toma decisiones informadas con información impulsada por IA."
+    },
+    "slide3": {
+      "title1": "Juega",
+      "title2": "Responsablemente",
+      "description": "Establece límites, rastrea tu sesión y disfruta del juego con herramientas integradas de juego responsable."
+    },
+    "stats": {
+      "patternDetection": "Detección de patrones",
+      "aiAnalysis": "Análisis IA",
+      "spinsAnalyzed": "Giros analizados",
+      "activeUsers": "Usuarios activos",
+      "secure": "Seguro",
+      "fairGaming": "Herramientas de juego justo"
+    },
+    "buttons": {
+      "skip": "Omitir",
+      "next": "Siguiente",
+      "previous": "Anterior",
+      "letsStart": "Comencemos"
+    }
+  },
+  "about": {
+    "hero": {
+      "title1": "Disrumpiendo",
+      "title2": "la Ventaja de la Casa",
+      "subtitle": "Somos un equipo de matemáticos rebeldes, investigadores de IA y hackers éticos unidos por una misión: demostrar que la \"aleatoriedad\" del casino no es nada aleatoria."
+    },
+    "mission": {
+      "title": "Nuestra misión",
+      "description1": "Durante décadas, los casinos se han escondido detrás del mito de la \"verdadera aleatoriedad\" para justificar sus ganancias astronómicas. Estamos aquí para destrozar esa ilusión.",
+      "description2": "Usando análisis cuántico-neural avanzado y algoritmos de reconocimiento de patrones que los casinos no quieren que conozcas, flamingo.ai expone los patrones predecibles en sus supuestos generadores de números aleatorios."
+    },
+    "stats": {
+      "patternRate": "Tasa de detección de patrones",
+      "spinsAnalyzed": "Giros analizados",
+      "activeUsers": "Usuarios activos"
+    },
+    "truth": {
+      "title": "La verdad que ocultan",
+      "fact1": "El software RNG tiene patrones explotables",
+      "fact2": "Las tragamonedas están programadas para crear \"casi aciertos\"",
+      "fact3": "Los casinos en línea rastrean y limitan a los jugadores ganadores",
+      "fact4": "La ventaja de la casa está inflada artificialmente"
+    },
+    "team": {
+      "title1": "Conoce a los",
+      "title2": "Disruptores",
+      "subtitle": "Nuestro equipo está formado por denunciantes de la industria y mentes brillantes que se negaron a guardar silencio."
+    },
+    "cta": {
+      "title": "¿Listo para nivelar el campo de juego?",
+      "subtitle": "Únete a miles que han descubierto la verdad sobre la \"aleatoriedad\" del casino y finalmente están ganando.",
+      "button": "Comienza a ganar ahora"
+    }
+  },
+  "pricing": {
+    "title": "Elige tu",
+    "subtitle": "Arma",
+    "description": "Cada plan incluye nuestro motor central de predicción IA. Elige según tu estilo de juego.",
+    "monthly": "Mensual",
+    "yearly": "Anual",
+    "save": "Ahorra 20%",
+    "plans": {
+      "basic": {
+        "name": "Disruptor básico",
+        "price": "$49",
+        "period": "/mes",
+        "description": "Perfecto para jugadores casuales que buscan obtener ventaja",
+        "features": [
+          "Análisis de patrones de tragamonedas en tiempo real",
+          "Predicciones básicas de probabilidad",
+          "Hasta 100 giros por día",
+          "Soporte por correo electrónico",
+          "Acceso a la aplicación móvil"
+        ],
+        "cta": "Comenzar prueba gratuita"
+      },
+      "pro": {
+        "name": "Explotador Pro",
+        "price": "$149",
+        "period": "/mes",
+        "description": "Para jugadores serios listos para maximizar su ventaja",
+        "badge": "Más popular",
+        "features": [
+          "Todo en Básico",
+          "Predicciones avanzadas de redes neuronales",
+          "Análisis ilimitado de giros",
+          "Seguimiento de patrones de múltiples casinos",
+          "Soporte prioritario",
+          "Estrategias de apuestas personalizadas",
+          "Acceso VIP a Discord"
+        ],
+        "cta": "Actualizar a Pro"
+      },
+      "elite": {
+        "name": "Sindicato de élite",
+        "price": "$499",
+        "period": "/mes",
+        "description": "Únete al círculo interno de disruptores de casinos",
+        "features": [
+          "Todo en Pro",
+          "Predicciones mejoradas cuánticamente",
+          "Soporte de guante blanco",
+          "Configuración personal de IA",
+          "Acceso temprano a nuevos exploits",
+          "Sesiones mensuales de estrategia",
+          "Recursos de protección legal",
+          "Oportunidades de participación en beneficios"
+        ],
+        "cta": "Solicitar Elite"
+      }
+    },
+    "roi": {
+      "title": "Calculadora ROI",
+      "investment": "Inversión mensual",
+      "hours": "Horas jugadas/semana",
+      "bet": "Tamaño promedio de apuesta",
+      "calculate": "Calcular ROI",
+      "results": {
+        "improved": "Tasa de ganancia mejorada",
+        "monthly": "Ganancia mensual estimada",
+        "roi": "ROI"
+      }
+    }
+  },
+  "contact": {
+    "title": "Expón la",
+    "subtitle": "Verdad",
+    "description": "¿Tienes evidencia de manipulación de casinos? ¿Quieres unirte a nuestra misión? Ponte en contacto.",
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre (o alias)",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "tu.correo@ejemplo.com",
+      "subject": "Asunto",
+      "subjects": {
+        "general": "Consulta general",
+        "support": "Soporte técnico",
+        "partnership": "Oportunidad de asociación",
+        "whistleblower": "Informe de denunciante",
+        "media": "Consulta de medios"
+      },
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntanos tu historia...",
+      "anonymous": "Enviar anónimamente",
+      "anonymousTip": "Tu identidad será protegida",
+      "submit": "Enviar mensaje",
+      "submitting": "Enviando..."
+    },
+    "channels": {
+      "title": "Otras formas de",
+      "subtitle": "Conectar",
+      "support": {
+        "title": "Soporte 24/7",
+        "description": "Nuestra IA nunca duerme",
+        "action": "support@flamingo.ai"
+      },
+      "telegram": {
+        "title": "Comunidad Telegram",
+        "description": "Únete a más de 5,000 disruptores",
+        "action": "@flamingo_disruptors"
+      },
+      "signal": {
+        "title": "Canal seguro",
+        "description": "Para información sensible",
+        "action": "+1 (555) 0123"
+      }
+    },
+    "success": {
+      "title": "¡Mensaje enviado!",
+      "description": "Te responderemos dentro de 24 horas."
+    }
+  },
+  "blog": {
+    "title": "Casino",
+    "subtitle": "Expuesto",
+    "description": "La verdad sobre el juego que la industria no quiere que sepas.",
+    "featured": "Investigación destacada",
+    "readTime": "{{time}} min de lectura",
+    "readMore": "Leer investigación completa"
+  },
+  "chat": {
+    "title": "Conoce a tu",
+    "subtitle": "asistente",
+    "avatar": {
+      "thinking": "Analizando patrones...",
+      "ready": "¡Listo para ayudar!",
+      "processing": "Procesando datos..."
+    },
+    "input": {
+      "placeholder": "Pregunta sobre patrones de tragamonedas, análisis RTP o vulnerabilidades de casinos...",
+      "send": "Enviar"
+    },
+    "suggestions": [
+      "Analizar el RTP de esta tragamonedas",
+      "Encontrar patrones en mi historial de juego",
+      "¿Qué casinos tienen los RNG más débiles?",
+      "¿Cómo funcionan realmente los botes progresivos?"
+    ]
+  },
+  "features": {
+    "title": "Da forma al",
+    "subtitle": "Futuro",
+    "description": "Vota por las funciones que quieres ver a continuación. Tu voz impulsa nuestro desarrollo.",
+    "search": "Buscar funciones...",
+    "filter": {
+      "all": "Todas las funciones",
+      "planned": "Planificado",
+      "inProgress": "En progreso",
+      "completed": "Completado"
+    },
+    "status": {
+      "planned": "Planificado",
+      "inProgress": "En progreso",
+      "completed": "Completado"
+    },
+    "votes": "votos",
+    "vote": "Votar",
+    "voted": "Votado",
+    "comments": "comentarios"
+  }
+}

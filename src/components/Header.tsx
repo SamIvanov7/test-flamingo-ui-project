@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import LanguageSwitcher from './LanguageSwitcher'
 
 interface HeaderProps {
   onLogin: () => void
@@ -9,17 +11,18 @@ interface HeaderProps {
 export default function Header({ onLogin }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Use Case', path: '/use-case' },
-    { name: 'Pricing', path: '/pricing' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact' },
-    { name: 'Dashboard', path: '/dashboard' },
-    { name: 'Chat', path: '/chat' },
-    { name: 'Request Feature', path: '/request-feature' }
+    { name: t('navigation.home'), path: '/' },
+    { name: t('navigation.about'), path: '/about' },
+    { name: t('navigation.useCase'), path: '/use-case' },
+    { name: t('navigation.pricing'), path: '/pricing' },
+    { name: t('navigation.blog'), path: '/blog' },
+    { name: t('navigation.contact'), path: '/contact' },
+    { name: t('navigation.dashboard'), path: '/dashboard' },
+    { name: t('navigation.chat'), path: '/chat' },
+    { name: t('navigation.requestFeature'), path: '/request-feature' }
   ]
 
   const handleNavClick = (path: string) => {
@@ -49,27 +52,32 @@ export default function Header({ onLogin }: HeaderProps) {
               </span>
             </motion.div>
 
-            {/* Burger Menu Button */}
-            <motion.button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="p-2 rounded-lg hover:bg-darkGreen/10 transition-colors"
-            >
-              <svg 
-                className="w-8 h-8 text-limeGreen" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
+            <div className="flex items-center space-x-4">
+              {/* Language Switcher */}
+              <LanguageSwitcher />
+              
+              {/* Burger Menu Button */}
+              <motion.button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-2 rounded-lg hover:bg-darkGreen/10 transition-colors"
               >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2.5} 
-                  d="M4 6h16M4 12h16M4 18h16" 
-                />
-              </svg>
-            </motion.button>
+                <svg 
+                  className="w-8 h-8 text-limeGreen" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2.5} 
+                    d="M4 6h16M4 12h16M4 18h16" 
+                  />
+                </svg>
+              </motion.button>
+            </div>
           </div>
         </div>
       </header>

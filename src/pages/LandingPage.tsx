@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import VideoBackground from '../components/VideoBackground'
 import Header from '../components/Header'
 import GamblingNewsSection from '../components/GamblingNewsSection'
 
 export default function LandingPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -90,7 +92,7 @@ export default function LandingPage() {
                           userSelect: 'none'
                         }}
                       >
-                        PLAYING BY THEIR RULES.
+                        {t('landing.hero.title1')}
                       </h1>
                       <h2 
                         className="text-pink uppercase text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[143.112px] leading-tight sm:leading-tight md:leading-tight lg:leading-[104.519997px] select-none m-0 p-0"
@@ -111,13 +113,12 @@ export default function LandingPage() {
                           userSelect: 'none'
                         }}
                       >
-                        BIG MISTAKE.
+                        {t('landing.hero.title2')}
                       </h2>
                     </div>
                     <div className="subtitle max-w-[350px] sm:max-w-[500px] lg:max-w-[600px] px-6 sm:px-8 lg:px-0 mt-4 lg:mt-6 text-sm sm:text-base lg:text-lg text-beigeCream text-center flex flex-col relative z-10">
                       <p>
-                        Flamingo AI leverages quantum-neural analysis to decode RNG patterns. 
-                        We prove that true randomness is a myth, whether casinos like it or not.
+                        {t('landing.hero.subtitle')}
                       </p>
                     </div>
                   </div>
@@ -139,7 +140,7 @@ export default function LandingPage() {
                         </defs>
                         <text className="fill-limeGreen text-[10px] sm:text-xs font-bold uppercase">
                           <textPath href="#circle-text-path" startOffset="0%">
-                            WATCH OUR STORY • WATCH OUR STORY • 
+                            {t('landing.hero.watchStory')} • {t('landing.hero.watchStory')} • 
                           </textPath>
                         </text>
                       </svg>

@@ -1,35 +1,72 @@
 import { motion } from 'framer-motion'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
+import { useTranslation } from 'react-i18next'
 import Flamingo3D from '../components/Flamingo3D'
 import ParticleField from '../components/ParticleField'
 
 export default function AboutPage() {
-  const teamMembers = [
+  const { t } = useTranslation()
+  const processLevels = [
     {
-      name: "Dr. Sarah Chen",
-      role: "Chief AI Scientist",
-      description: "Former quantum computing researcher at MIT. Pioneered the integration of neural networks with RNG analysis.",
-      image: "/assets/images/team-1.png"
+      level: 1,
+      title: t('about.process.level1.title'),
+      subtitle: t('about.process.level1.subtitle'),
+      description: t('about.process.level1.description'),
+      details: [
+        t('about.process.level1.detail1'),
+        t('about.process.level1.detail2'),
+        t('about.process.level1.detail3'),
+        t('about.process.level1.detail4')
+      ],
+      stats: [t('about.process.level1.stat1'), t('about.process.level1.stat2'), t('about.process.level1.stat3')]
     },
     {
-      name: "Marcus Rivera",
-      role: "Lead Developer",
-      description: "15+ years in gambling software. Discovered critical vulnerabilities in major casino systems.",
-      image: "/assets/images/team-2.png"
+      level: 2,
+      title: t('about.process.level2.title'),
+      subtitle: t('about.process.level2.subtitle'),
+      description: t('about.process.level2.description'),
+      details: [
+        t('about.process.level2.detail1'),
+        t('about.process.level2.detail2'),
+        t('about.process.level2.detail3'),
+        t('about.process.level2.detail4')
+      ],
+      stats: [t('about.process.level2.stat1'), t('about.process.level2.stat2'), t('about.process.level2.stat3')]
     },
     {
-      name: "Elena Volkov",
-      role: "Data Scientist",
-      description: "Expert in pattern recognition and predictive modeling. Published 20+ papers on randomness theory.",
-      image: "/assets/images/team-3.png"
+      level: 3,
+      title: t('about.process.level3.title'),
+      subtitle: t('about.process.level3.subtitle'),
+      description: t('about.process.level3.description'),
+      details: [
+        t('about.process.level3.detail1'),
+        t('about.process.level3.detail2'),
+        t('about.process.level3.detail3'),
+        t('about.process.level3.detail4')
+      ],
+      stats: [t('about.process.level3.stat1'), t('about.process.level3.stat2'), t('about.process.level3.stat3')]
     },
     {
-      name: "James Park",
-      role: "Security Expert",
-      description: "Ethical hacker who exposed flaws in online casino RNG implementations worldwide.",
-      image: "/assets/images/team-4.png"
+      level: 4,
+      title: t('about.process.level4.title'),
+      subtitle: t('about.process.level4.subtitle'),
+      description: t('about.process.level4.description'),
+      details: [
+        t('about.process.level4.detail1'),
+        t('about.process.level4.detail2'),
+        t('about.process.level4.detail3'),
+        t('about.process.level4.detail4')
+      ],
+      stats: [t('about.process.level4.stat1'), t('about.process.level4.stat2'), t('about.process.level4.stat3')]
     }
+  ]
+
+  const dataLakeMetrics = [
+    { metric: t('about.dataLake.metric1'), description: t('about.dataLake.description1') },
+    { metric: t('about.dataLake.metric2'), description: t('about.dataLake.description2') },
+    { metric: t('about.dataLake.metric3'), description: t('about.dataLake.description3') },
+    { metric: t('about.dataLake.metric4'), description: t('about.dataLake.description4') }
   ]
 
   return (
@@ -40,8 +77,7 @@ export default function AboutPage() {
       className="min-h-screen bg-gradient-to-br from-darkGreen via-raisinBlack to-darkGreen"
     >
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        {/* 3D Background */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Canvas camera={{ position: [0, 0, 5] }}>
             <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
@@ -53,61 +89,89 @@ export default function AboutPage() {
           </Canvas>
         </div>
 
-        {/* Content */}
         <div className="relative z-10 container mx-auto px-6 text-center">
           <motion.h1
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
           >
-            <span className="text-limeGreen">Disrupting</span>{' '}
-            <span className="text-pink">the House Edge</span>
+            <span className="text-beigeCream">{t('about.hero.title1')}</span><br/>
+            <span className="text-limeGreen">{t('about.hero.title2')}</span>{' '}
+            <span className="text-pink">{t('about.hero.title3')}</span>{' '}
+            <span className="text-beigeCream">{t('about.hero.title4')}</span>
           </motion.h1>
           <motion.p
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-xl text-beigeCream/80 max-w-3xl mx-auto"
+            className="text-xl text-beigeCream/80 max-w-4xl mx-auto"
           >
-            We're a team of renegade mathematicians, AI researchers, and ethical hackers united by one mission: 
-            proving that casino "randomness" is anything but random.
+            {t('about.hero.subtitle')}
           </motion.p>
+        </div>
+      </section>
+
+      {/* Truth About Randomness Section */}
+      <section className="py-20 bg-raisinBlack/30">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            className="glassmorphism rounded-3xl p-12 max-w-4xl mx-auto text-center mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-6">
+              <span className="text-pink">{t('about.truth.title1')}</span>{' '}
+              <span className="text-beigeCream">{t('about.truth.title2')}</span>
+            </h2>
+            <p className="text-lg text-beigeCream/80 mb-4">
+              {t('about.truth.description1')} <span className="text-limeGreen font-semibold">{t('about.truth.prng')}</span>.
+            </p>
+            <p className="text-lg text-beigeCream/80">
+              {t('about.truth.description2')} <span className="italic">{t('about.truth.illusion')}</span> {t('about.truth.description3')}
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* Mission Section */}
       <section className="py-20 relative">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4">
+              <span className="text-limeGreen">{t('about.mission.title1')}</span>{' '}
+              <span className="text-pink">{t('about.mission.title2')}</span>
+            </h2>
+            <p className="text-lg text-beigeCream/70 max-w-3xl mx-auto">
+              {t('about.mission.subtitle')}
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             <motion.div
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold mb-6 text-limeGreen">Our Mission</h2>
+              <h3 className="text-2xl font-bold mb-6 text-limeGreen">{t('about.mission.fromElite')}</h3>
               <p className="text-lg text-beigeCream/80 mb-6">
-                For decades, casinos have hidden behind the myth of "true randomness" to justify their 
-                astronomical profits. We're here to shatter that illusion.
+                {t('about.mission.description1')}
               </p>
               <p className="text-lg text-beigeCream/80 mb-6">
-                Using advanced quantum-neural analysis and pattern recognition algorithms that casinos 
-                don't want you to know about, flamingo.ai exposes the predictable patterns in their 
-                so-called random number generators.
+                {t('about.mission.description2')} <span className="text-pink font-semibold">{t('about.mission.truth')}</span>.
               </p>
-              <div className="flex items-center space-x-4">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-pink">98.3%</div>
-                  <div className="text-sm text-beigeCream/60">Pattern Detection Rate</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-limeGreen">2.7M</div>
-                  <div className="text-sm text-beigeCream/60">Spins Analyzed</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-pink">15K+</div>
-                  <div className="text-sm text-beigeCream/60">Active Users</div>
-                </div>
+              <p className="text-lg text-beigeCream/80 mb-6">
+                {t('about.mission.description3')} <span className="text-limeGreen font-semibold">{t('about.mission.market')}</span>.
+              </p>
+              <div className="glassmorphism rounded-2xl p-6 mt-8">
+                <h4 className="text-xl font-bold mb-4 text-pink">{t('about.mission.movement.title')}</h4>
+                <p className="text-beigeCream/80">
+                  {t('about.mission.movement.description')}
+                </p>
               </div>
             </motion.div>
 
@@ -115,97 +179,339 @@ export default function AboutPage() {
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative"
             >
-              <div className="glassmorphism rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-4 text-pink">The Truth They Hide</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <span className="text-limeGreen mr-2">▸</span>
-                    <span className="text-beigeCream/80">RNG software has exploitable patterns</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-limeGreen mr-2">▸</span>
-                    <span className="text-beigeCream/80">Slot machines are programmed to create "near misses"</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-limeGreen mr-2">▸</span>
-                    <span className="text-beigeCream/80">Online casinos track and limit winning players</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-limeGreen mr-2">▸</span>
-                    <span className="text-beigeCream/80">The house edge is artificially inflated</span>
-                  </li>
-                </ul>
+              <div className="glassmorphism rounded-2xl p-8 mb-8">
+                <h3 className="text-2xl font-bold mb-6 text-pink">{t('about.architecture.title')}</h3>
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-lg font-bold text-limeGreen mb-2">
+                      {t('about.architecture.classical.title')}
+                    </h4>
+                    <p className="text-beigeCream/80">
+                      {t('about.architecture.classical.description')}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-limeGreen mb-2">
+                      {t('about.architecture.quantum.title')}
+                    </h4>
+                    <p className="text-beigeCream/80">
+                      {t('about.architecture.quantum.description1')} <span className="text-pink font-semibold">{t('about.architecture.quantum.aq')}</span> {t('about.architecture.quantum.description2')}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-4">
+                <div className="glassmorphism rounded-xl p-4 text-center">
+                  <div className="text-3xl font-bold text-pink">320</div>
+                  <div className="text-sm text-beigeCream/60">Qubits</div>
+                </div>
+                <div className="glassmorphism rounded-xl p-4 text-center">
+                  <div className="text-3xl font-bold text-limeGreen">99.5%</div>
+                  <div className="text-sm text-beigeCream/60">Gate Fidelity</div>
+                </div>
+                <div className="glassmorphism rounded-xl p-4 text-center">
+                  <div className="text-3xl font-bold text-pink">150+ #AQ</div>
+                  <div className="text-sm text-beigeCream/60">Algorithm Power</div>
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <section className="py-20 bg-gradient-to-b from-transparent to-raisinBlack/50">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4">
+              <span className="text-beigeCream">{t('about.process.title1')}</span>{' '}
+              <span className="text-limeGreen">{t('about.process.title2')}</span>
+            </h2>
+            <p className="text-lg text-beigeCream/70 max-w-3xl mx-auto">
+              {t('about.process.subtitle')}
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {processLevels.map((level, index) => (
+              <motion.div
+                key={level.level}
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: index * 0.1 }}
+                className="glassmorphism rounded-2xl p-6"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink to-limeGreen flex items-center justify-center text-darkGreen font-bold text-lg">
+                    {level.level}
+                  </div>
+                  <div className="ml-3">
+                    <h3 className="text-lg font-bold text-limeGreen">{level.title}</h3>
+                    <p className="text-sm text-pink">{level.subtitle}</p>
+                  </div>
+                </div>
+                <p className="text-sm text-beigeCream/80 mb-4">{level.description}</p>
+                <div className="space-y-1 mb-4">
+                  {level.details.map((detail, i) => (
+                    <div key={i} className="text-xs text-beigeCream/70">
+                      • {detail}
+                    </div>
+                  ))}
+                </div>
+                <div className="border-t border-beigeCream/20 pt-3 space-y-1">
+                  {level.stats.map((stat, i) => (
+                    <div key={i} className="text-xs text-limeGreen/80">
+                      ▸ {stat}
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Data Lake Details */}
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            className="glassmorphism rounded-2xl p-8 max-w-4xl mx-auto mb-12"
+          >
+            <h3 className="text-2xl font-bold mb-6 text-center">
+              <span className="text-pink">{t('about.dataLake.title1')}</span>{' '}
+              <span className="text-limeGreen">{t('about.dataLake.title2')}</span>
+            </h3>
+            <p className="text-beigeCream/80 text-center mb-6">
+              {t('about.dataLake.description')}
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              {dataLakeMetrics.map((item, index) => (
+                <div key={index} className="flex items-start">
+                  <span className="text-limeGreen mr-3">▸</span>
+                  <div>
+                    <span className="font-semibold text-pink">{item.metric}:</span>{' '}
+                    <span className="text-beigeCream/80">{item.description}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Quantum Advantage */}
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="glassmorphism rounded-2xl p-8 max-w-4xl mx-auto"
+          >
+            <h3 className="text-2xl font-bold mb-4 text-center">
+              <span className="text-pink">{t('about.quantumAdvantage.title1')}</span>{' '}
+              <span className="text-limeGreen">{t('about.quantumAdvantage.title2')}</span>
+            </h3>
+            <p className="text-beigeCream/80 text-center mb-4">
+              {t('about.quantumAdvantage.description1')} 
+              <span className="text-limeGreen font-semibold"> {t('about.quantumAdvantage.exponentially')}</span>.
+            </p>
+            <p className="text-beigeCream/80 text-center">
+              {t('about.quantumAdvantage.description2')} 
+              <span className="text-pink font-semibold"> {t('about.quantumAdvantage.laws')}</span>.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Team Section */}
-      <section className="py-20 bg-raisinBlack/50">
+      <section className="py-20">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-limeGreen">Meet the</span>{' '}
-              <span className="text-pink">Disruptors</span>
+            <h2 className="text-4xl font-bold mb-8">
+              <span className="text-beigeCream">{t('about.team.title1')}</span>{' '}
+              <span className="text-limeGreen">{t('about.team.title2')}</span>.{' '}
+              <span className="text-pink">{t('about.team.title3')}</span>.
             </h2>
-            <p className="text-lg text-beigeCream/70 max-w-2xl mx-auto">
-              Our team consists of industry whistleblowers and brilliant minds who refused to stay silent.
+            <p className="text-xl text-beigeCream/80 max-w-3xl mx-auto italic">
+              {t('about.team.subtitle')}
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="glassmorphism rounded-2xl p-6 text-center"
-              >
-                <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-pink/20 to-limeGreen/20 flex items-center justify-center">
-                  <span className="text-5xl">🦩</span>
+          <div className="max-w-4xl mx-auto space-y-8">
+            <motion.div
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="glassmorphism rounded-2xl p-8"
+            >
+              <p className="text-lg text-beigeCream/80 mb-6">
+                {t('about.team.intro')}
+              </p>
+              <p className="text-lg text-pink font-semibold">
+                {t('about.team.butNever')}
+              </p>
+            </motion.div>
+
+            {/* Reason 1 */}
+            <motion.div
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="glassmorphism rounded-2xl p-6"
+            >
+              <div className="flex items-start">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink to-limeGreen flex items-center justify-center text-darkGreen font-bold text-lg flex-shrink-0">
+                  1
                 </div>
-                <h3 className="text-xl font-bold text-limeGreen mb-2">{member.name}</h3>
-                <p className="text-sm text-pink mb-3">{member.role}</p>
-                <p className="text-sm text-beigeCream/70">{member.description}</p>
-              </motion.div>
-            ))}
+                <div className="ml-4">
+                  <h3 className="text-xl font-bold text-limeGreen mb-3">
+                    {t('about.team.reason1.title')}
+                  </h3>
+                  <p className="text-beigeCream/80">
+                    {t('about.team.reason1.description')}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Reason 2 */}
+            <motion.div
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="glassmorphism rounded-2xl p-6"
+            >
+              <div className="flex items-start">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink to-limeGreen flex items-center justify-center text-darkGreen font-bold text-lg flex-shrink-0">
+                  2
+                </div>
+                <div className="ml-4">
+                  <h3 className="text-xl font-bold text-limeGreen mb-3">
+                    {t('about.team.reason2.title')}
+                  </h3>
+                  <p className="text-beigeCream/80">
+                    {t('about.team.reason2.description')}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Reason 3 */}
+            <motion.div
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="glassmorphism rounded-2xl p-6"
+            >
+              <div className="flex items-start">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink to-limeGreen flex items-center justify-center text-darkGreen font-bold text-lg flex-shrink-0">
+                  3
+                </div>
+                <div className="ml-4">
+                  <h3 className="text-xl font-bold text-limeGreen mb-3">
+                    {t('about.team.reason3.title')}
+                  </h3>
+                  <p className="text-beigeCream/80">
+                    {t('about.team.reason3.description')}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Who We Are */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="glassmorphism rounded-2xl p-8 text-center"
+            >
+              <h3 className="text-2xl font-bold mb-4">
+                <span className="text-pink">{t('about.team.whoWeAre.title')}</span>
+              </h3>
+              <p className="text-lg text-beigeCream/80 mb-4">
+                {t('about.team.whoWeAre.description1')}
+              </p>
+              <p className="text-lg text-limeGreen font-semibold">
+                {t('about.team.whoWeAre.description2')}
+              </p>
+            </motion.div>
+
+            {/* Team Roles Grid */}
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="grid md:grid-cols-3 gap-6 mt-12"
+            >
+              <div className="glassmorphism rounded-xl p-6 text-center">
+                <div className="text-4xl mb-3">⚛️</div>
+                <h4 className="text-lg font-bold text-limeGreen mb-2">{t('about.team.roles.quantum.title')}</h4>
+                <p className="text-sm text-beigeCream/70">
+                  {t('about.team.roles.quantum.description')}
+                </p>
+              </div>
+              <div className="glassmorphism rounded-xl p-6 text-center">
+                <div className="text-4xl mb-3">☁️</div>
+                <h4 className="text-lg font-bold text-limeGreen mb-2">{t('about.team.roles.saas.title')}</h4>
+                <p className="text-sm text-beigeCream/70">
+                  {t('about.team.roles.saas.description')}
+                </p>
+              </div>
+              <div className="glassmorphism rounded-xl p-6 text-center">
+                <div className="text-4xl mb-3">📊</div>
+                <h4 className="text-lg font-bold text-limeGreen mb-2">{t('about.team.roles.data.title')}</h4>
+                <p className="text-sm text-beigeCream/70">
+                  {t('about.team.roles.data.description')}
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6 text-center">
+      <section className="py-20 bg-gradient-to-b from-transparent to-raisinBlack/50">
+        <div className="container mx-auto px-6">
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="glassmorphism rounded-3xl p-12 max-w-3xl mx-auto"
+            className="glassmorphism rounded-3xl p-12 max-w-4xl mx-auto text-center"
           >
             <h2 className="text-3xl font-bold mb-6">
-              Ready to <span className="text-limeGreen">Level the Playing Field</span>?
+              <span className="text-beigeCream">{t('about.cta.title1')}</span>{' '}
+              <span className="text-limeGreen">{t('about.cta.title2')}</span>{' '}
+              <span className="text-beigeCream">{t('about.cta.title3')}</span>{' '}
+              <span className="text-pink">{t('about.cta.title4')}</span>
             </h2>
             <p className="text-lg text-beigeCream/80 mb-8">
-              Join thousands who've discovered the truth about casino "randomness" and are finally winning.
+              {t('about.cta.description')}
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.href = '/dashboard'}
-              className="px-8 py-4 bg-limeGreen text-darkGreen font-bold rounded-xl text-lg
-                       hover:shadow-[0_0_30px_rgba(171,248,11,0.5)] transition-all duration-300"
-            >
-              Start Winning Now
-            </motion.button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.location.href = '/dashboard'}
+                className="px-8 py-4 bg-limeGreen text-darkGreen font-bold rounded-xl text-lg
+                         hover:shadow-[0_0_30px_rgba(171,248,11,0.5)] transition-all duration-300"
+              >
+                {t('about.cta.button1')}
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.location.href = '/technology'}
+                className="px-8 py-4 border-2 border-pink text-pink font-bold rounded-xl text-lg
+                         hover:bg-pink hover:text-darkGreen transition-all duration-300"
+              >
+                {t('about.cta.button2')}
+              </motion.button>
+            </div>
           </motion.div>
         </div>
       </section>

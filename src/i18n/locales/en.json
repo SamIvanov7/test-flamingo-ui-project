@@ -1,0 +1,424 @@
+{
+  "common": {
+    "appName": "Flamingo AI",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "continue": "Continue",
+    "skip": "Skip",
+    "start": "Start",
+    "stop": "Stop",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "useCase": "Use Case",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "contact": "Contact",
+    "dashboard": "Dashboard",
+    "chat": "Chat",
+    "requestFeature": "Request Feature",
+    "settings": "Settings"
+  },
+  "landing": {
+    "hero": {
+      "title1": "PLAYING BY THEIR RULES.",
+      "title2": "BIG MISTAKE.",
+      "subtitle": "Flamingo AI leverages quantum-neural analysis to decode RNG patterns. We prove that true randomness is a myth, whether casinos like it or not.",
+      "cta": "Start Exploiting",
+      "watchStory": "WATCH OUR STORY"
+    },
+    "section2": {
+      "title": "The House Always Wins?",
+      "subtitle": "Not Anymore.",
+      "description": "Our AI analyzes millions of slot spins in real-time, identifying patterns that casinos don't want you to see."
+    },
+    "section3": {
+      "title": "Join the Revolution",
+      "description": "15,000+ players are already using flamingo.ai to turn the tables on casinos worldwide.",
+      "cta": "Get Started Now"
+    }
+  },
+  "onboarding": {
+    "slide1": {
+      "title1": "Meet Your",
+      "title2": "AI Assistant",
+      "description": "Our pink flamingo AI analyzes slot patterns in real-time to provide you with probability insights."
+    },
+    "slide2": {
+      "title1": "Real-Time",
+      "title2": "Predictions",
+      "description": "Get instant probability calculations updated with every spin. Make informed decisions with AI-powered insights."
+    },
+    "slide3": {
+      "title1": "Play",
+      "title2": "Responsibly",
+      "description": "Set limits, track your session, and enjoy gaming with built-in responsible gaming tools."
+    },
+    "stats": {
+      "patternDetection": "Pattern Detection",
+      "aiAnalysis": "AI Analysis",
+      "spinsAnalyzed": "Spins Analyzed",
+      "activeUsers": "Active Users",
+      "secure": "Secure",
+      "fairGaming": "Fair Gaming Tools"
+    },
+    "buttons": {
+      "skip": "Skip",
+      "next": "Next",
+      "previous": "Previous",
+      "letsStart": "Let's Start"
+    }
+  },
+  "about": {
+    "hero": {
+      "title1": "We don't hack games.",
+      "title2": "We hack the",
+      "title3": "mathematics",
+      "title4": "they're built on.",
+      "subtitle": "Former quantum engineers from IonQ and Google Quantum AI democratizing the computational power that was science fiction just yesterday."
+    },
+    "truth": {
+      "title1": "The Truth:",
+      "title2": "Online Slots Aren't Random",
+      "description1": "Many think online slots are pure chance. This is not true. At their core lies not true chaos, but a complex mathematical algorithm — the",
+      "prng": "Pseudo-Random Number Generator (PRNG)",
+      "description2": "It creates the",
+      "illusion": "illusion",
+      "description3": "of randomness, but like any program, it follows certain logic. Our task is to decipher this logic using the same quantum technology that powers Fortune 500 risk analysis."
+    },
+    "mission": {
+      "title1": "Democratizing",
+      "title2": "Quantum Advantage",
+      "subtitle": "We believe if quantum computers can predict risks for hedge funds, they can predict probabilities for you too.",
+      "fromElite": "From Elite Labs to You",
+      "description1": "In a world dominated by giants like Google, IBM, and Microsoft, quantum computing has long remained a tool for megacorporations and government laboratories. Power capable of simulating the universe was used to optimize advertising networks and develop classified military technologies.",
+      "description2": "While working on projects for the US Department of Energy (DOE) and Wall Street financial giants, we realized a fundamental truth:",
+      "truth": "any complex digital system, from the power grid to the financial market, has its hidden patterns",
+      "description3": "And the most complex, most opaque market of all?",
+      "market": "The online gambling industry",
+      "movement": {
+        "title": "We Are a Movement",
+        "description": "We're not \"just another startup.\" We founded Wintuition as an independent laboratory with headquarters and data center in Switzerland, away from corporate influence. We are a movement to give ordinary people access to extraordinary computational power."
+      }
+    },
+    "architecture": {
+      "title": "Our Unique Two-Tier Architecture",
+      "classical": {
+        "title": "1. Classical Supercomputers",
+        "description": "Continuously simulate gaming mathematical models, creating the world's largest private statistical data library on online slots. This is our fuel."
+      },
+      "quantum": {
+        "title": "2. Quantum Processors",
+        "description1": "Built on the same trapped-ion architecture used by industry leader IonQ, ensuring the world's highest computational accuracy. We measure our power in",
+        "aq": "Algorithmic Qubits (#AQ)",
+        "description2": "— a metric that reflects real ability to solve complex problems."
+      },
+      "stats": {
+        "qubits": "Qubits",
+        "gateFidelity": "Gate Fidelity",
+        "aqPower": "#AQ Power"
+      }
+    },
+    "process": {
+      "title1": "From Spin Chaos to",
+      "title2": "Quantum Precision",
+      "subtitle": "How Wintuition transforms pseudo-randomness into predictable probability through our four-level analytical process",
+      "level1": {
+        "title": "Statistical Profiling",
+        "subtitle": "Our Data Lake",
+        "description": "Classical supercomputers create a 'statistical fingerprint' of each slot through billions of simulated spins.",
+        "detail1": "Real RTP and deviation analysis",
+        "detail2": "Bonus hit frequency mapping",
+        "detail3": "Big Win/Major Win distribution",
+        "detail4": "Symbol probability impacts",
+        "stat1": "100M-1B+ spins per slot",
+        "stat2": "24/7 processing",
+        "stat3": "Comprehensive database"
+      },
+      "level2": {
+        "title": "Markov Chain Modeling",
+        "subtitle": "Classical Approach 🧠",
+        "description": "Each slot becomes a probabilistic automaton with states connected through transition probabilities.",
+        "detail1": "Win states: 0x, 2x-5x, >100x",
+        "detail2": "Giant transition matrices",
+        "detail3": "State probability mapping",
+        "detail4": "Behavioral patterns",
+        "stat1": "10K+ slot models",
+        "stat2": "Real-time updates",
+        "stat3": "Matrix optimization"
+      },
+      "level3": {
+        "title": "Quantum Processing",
+        "subtitle": "Our Quantum Core ⚛️",
+        "description": "HHL algorithm solves Ax=b exponentially faster, where A is transitions, b is current state, x is probabilities.",
+        "detail1": "Trapped-ion processors",
+        "detail2": "Exponential speedup",
+        "detail3": "Real-time analysis",
+        "detail4": "Quantum advantage",
+        "stat1": "320 Qubits",
+        "stat2": "99.5% gate fidelity",
+        "stat3": "150+ #AQ power"
+      },
+      "level4": {
+        "title": "AI Interpretation",
+        "subtitle": "Floyd Assistant 🚀",
+        "description": "Complex probability vectors translated into actionable insights you can understand and use.",
+        "detail1": "Next spin win probability",
+        "detail2": "Hot spin identification",
+        "detail3": "Peak bonus timing",
+        "detail4": "Practical recommendations",
+        "stat1": "Real-time analysis",
+        "stat2": "Natural language",
+        "stat3": "Personalized tips"
+      }
+    },
+    "dataLake": {
+      "title1": "Our Data Lake:",
+      "title2": "The Statistical Fingerprint",
+      "description": "This enormous data array allows us to understand the \"character\" of each slot even before you make your first spin.",
+      "metric1": "Real RTP",
+      "description1": "Actual return to player rates with deviation analysis",
+      "metric2": "Hit Frequency",
+      "description2": "Bonus activation patterns and average timing",
+      "metric3": "Payout Distribution",
+      "description3": "Big Win, Major Win, and jackpot occurrence rates",
+      "metric4": "Symbol Probability",
+      "description4": "Each symbol's appearance rate and outcome impact"
+    },
+    "quantumAdvantage": {
+      "title1": "The Quantum Advantage:",
+      "title2": "HHL Algorithm",
+      "description1": "A classical computer would solve our state transition problem in time exponentially dependent on the matrix size. Our quantum processor finds the solution",
+      "exponentially": "exponentially faster",
+      "description2": "This is not just an app. It's a comprehensive analytical system where Big Data meets quantum physics. You get not blind faith in luck, but an advantage based on",
+      "laws": "fundamental laws of physics and mathematics"
+    },
+    "team": {
+      "title1": "We are",
+      "title2": "ghosts in the machine",
+      "title3": "And that's our strength",
+      "subtitle": "A frequent question we receive: \"Who are you?\"",
+      "intro": "We are the architects of Wintuition. We are the quantum physicist who previously modeled market volatility for hedge funds. We are the SaaS architect who built high-load cloud platforms for tech giants. We are the data specialist whose algorithms analyzed petabytes of information for global logistics companies.",
+      "butNever": "But you will never see our faces or know our names. And there are three compelling reasons for this.",
+      "reason1": {
+        "title": "Professional Obligations and Non-Disclosure Agreements (NDAs)",
+        "description": "Many of us left positions at the world's leading corporations to create Wintuition. We are still bound by the strictest non-disclosure agreements. Revealing our identities would immediately lead to lawsuits capable of destroying our project before it takes off. Our anonymity is a legal necessity, protecting not only us but the very existence of Wintuition."
+      },
+      "reason2": {
+        "title": "The Nature of the Industry We've Challenged",
+        "description": "The global online gambling industry is a multi-billion dollar behemoth with enormous influence. This industry, to put it mildly, doesn't welcome those who disrupt its carefully calibrated revenue models. We give players an unprecedented advantage, and we fully understand this makes us a target. Anonymity is our shield. It protects us and our families from potential pressure, both legal and less conventional."
+      },
+      "reason3": {
+        "title": "Project Philosophy: Focus on Results, Not Personalities",
+        "description": "We didn't create Wintuition for personal glory. Like Bitcoin's creator Satoshi Nakamoto, we believe that technology and its value should speak for themselves. At the center of this project is you, our user, not us. Our goal is to give you a tool, not to build a cult of personality around the developers. Our egos stayed at the door the day we founded this project."
+      },
+      "whoWeAre": {
+        "title": "So who are we?",
+        "description1": "We are our product. Our team is the lines of code, the precision of calculations, and the elegance of the interface. We prefer to be known by our work.",
+        "description2": "We remain in the shadows so you can step into the light, armed with knowledge. Our silence is your advantage."
+      },
+      "roles": {
+        "quantum": {
+          "title": "Quantum Physicist",
+          "description": "Previously modeled market volatility for hedge funds"
+        },
+        "saas": {
+          "title": "SaaS Architect",
+          "description": "Built high-load cloud platforms for tech giants"
+        },
+        "data": {
+          "title": "Data Specialist",
+          "description": "Analyzed petabytes for global logistics companies"
+        }
+      }
+    },
+    "cta": {
+      "title1": "Access",
+      "title2": "Computational Power",
+      "title3": "That Was",
+      "title4": "Science Fiction Yesterday",
+      "description": "Wintuition is your personal access to quantum advantage. Join thousands who now have a real, mathematically grounded chance against the opaque algorithms of casinos.",
+      "button1": "Start Your Quantum Advantage",
+      "button2": "Explore the Technology"
+    }
+  },
+  "pricing": {
+    "title": "Choose Your",
+    "subtitle": "Weapon",
+    "description": "Every plan includes our core AI prediction engine. Choose based on your playing style.",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "save": "Save 20%",
+    "plans": {
+      "basic": {
+        "name": "Basic Disruptor",
+        "price": "$49",
+        "period": "/month",
+        "description": "Perfect for casual players looking to gain an edge",
+        "features": [
+          "Real-time slot pattern analysis",
+          "Basic probability predictions",
+          "Up to 100 spins per day",
+          "Email support",
+          "Mobile app access"
+        ],
+        "cta": "Start Free Trial"
+      },
+      "pro": {
+        "name": "Pro Exploiter",
+        "price": "$149",
+        "period": "/month",
+        "description": "For serious players ready to maximize their advantage",
+        "badge": "Most Popular",
+        "features": [
+          "Everything in Basic",
+          "Advanced neural network predictions",
+          "Unlimited spins analysis",
+          "Multi-casino pattern tracking",
+          "Priority support",
+          "Custom betting strategies",
+          "VIP Discord access"
+        ],
+        "cta": "Upgrade to Pro"
+      },
+      "elite": {
+        "name": "Elite Syndicate",
+        "price": "$499",
+        "period": "/month",
+        "description": "Join the inner circle of casino disruptors",
+        "features": [
+          "Everything in Pro",
+          "Quantum-enhanced predictions",
+          "White-glove support",
+          "Personal AI configuration",
+          "Early access to new exploits",
+          "Monthly strategy sessions",
+          "Legal protection resources",
+          "Profit sharing opportunities"
+        ],
+        "cta": "Apply for Elite"
+      }
+    },
+    "roi": {
+      "title": "ROI Calculator",
+      "investment": "Monthly Investment",
+      "hours": "Hours Played/Week",
+      "bet": "Average Bet Size",
+      "calculate": "Calculate ROI",
+      "results": {
+        "improved": "Improved Win Rate",
+        "monthly": "Est. Monthly Profit",
+        "roi": "ROI"
+      }
+    }
+  },
+  "contact": {
+    "title": "Expose the",
+    "subtitle": "Truth",
+    "description": "Have evidence of casino manipulation? Want to join our mission? Get in touch.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name (or alias)",
+      "email": "Email",
+      "emailPlaceholder": "your.email@example.com",
+      "subject": "Subject",
+      "subjects": {
+        "general": "General Inquiry",
+        "support": "Technical Support",
+        "partnership": "Partnership Opportunity",
+        "whistleblower": "Whistleblower Report",
+        "media": "Media Inquiry"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Tell us your story...",
+      "anonymous": "Submit anonymously",
+      "anonymousTip": "Your identity will be protected",
+      "submit": "Send Message",
+      "submitting": "Sending..."
+    },
+    "channels": {
+      "title": "Other Ways to",
+      "subtitle": "Connect",
+      "support": {
+        "title": "24/7 Support",
+        "description": "Our AI never sleeps",
+        "action": "support@flamingo.ai"
+      },
+      "telegram": {
+        "title": "Telegram Community",
+        "description": "Join 5,000+ disruptors",
+        "action": "@flamingo_disruptors"
+      },
+      "signal": {
+        "title": "Secure Channel",
+        "description": "For sensitive information",
+        "action": "+1 (555) 0123"
+      }
+    },
+    "success": {
+      "title": "Message Sent!",
+      "description": "We'll get back to you within 24 hours."
+    }
+  },
+  "blog": {
+    "title": "Casino",
+    "subtitle": "Exposed",
+    "description": "The truth about gambling that the industry doesn't want you to know.",
+    "featured": "Featured Investigation",
+    "readTime": "{{time}} min read",
+    "readMore": "Read Full Investigation"
+  },
+  "chat": {
+    "title": "Meet your",
+    "subtitle": "assistant",
+    "avatar": {
+      "thinking": "Analyzing patterns...",
+      "ready": "Ready to help!",
+      "processing": "Processing data..."
+    },
+    "input": {
+      "placeholder": "Ask about slot patterns, RTP analysis, or casino vulnerabilities...",
+      "send": "Send"
+    },
+    "suggestions": [
+      "Analyze this slot's RTP",
+      "Find patterns in my play history",
+      "Which casinos have the weakest RNGs?",
+      "How do progressive jackpots really work?"
+    ]
+  },
+  "features": {
+    "title": "Shape the",
+    "subtitle": "Future",
+    "description": "Vote for features you want to see next. Your voice drives our development.",
+    "search": "Search features...",
+    "filter": {
+      "all": "All Features",
+      "planned": "Planned",
+      "inProgress": "In Progress",
+      "completed": "Completed"
+    },
+    "status": {
+      "planned": "Planned",
+      "inProgress": "In Progress",
+      "completed": "Completed"
+    },
+    "votes": "votes",
+    "vote": "Vote",
+    "voted": "Voted",
+    "comments": "comments"
+  }
+}
