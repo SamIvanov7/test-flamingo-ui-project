@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import BlogPost from './BlogPost'
 
 interface NewsItem {
@@ -14,25 +14,35 @@ interface NewsItem {
 export default function GamblingNewsSection() {
   const [news, setNews] = useState<NewsItem[]>([])
   const [loading, setLoading] = useState(true)
+  const [visibleCards, setVisibleCards] = useState(0)
 
   // Fetch gambling scandal news
   useEffect(() => {
     fetchGamblingScandals()
   }, [])
 
+  // Animate cards appearing one by one
+  useEffect(() => {
+    if (!loading && news.length > 0) {
+      const timer = setInterval(() => {
+        setVisibleCards((prev) => {
+          if (prev >= news.length) {
+            clearInterval(timer)
+            return prev
+          }
+          return prev + 1
+        })
+      }, 150) // Stagger cards every 150ms
+
+      return () => clearInterval(timer)
+    }
+  }, [loading, news.length])
+
   const fetchGamblingScandals = async () => {
     try {
-      // Using web search to find recent gambling scandals
-      // In production, these queries would be used with a news API:
-      // const searchQueries = [
-      //   'casino scandal 2024',
-      //   'slot machine rigged scandal',
-      //   'gambling fraud investigation',
-      //   'online casino scam exposed'
-      // ]
+      // Simulate loading delay for smooth transition
+      await new Promise(resolve => setTimeout(resolve, 800))
       
-      // For now, we'll use static data that represents typical gambling scandals
-      // In production, this would connect to a news API or web scraper
       const mockNews: NewsItem[] = [
         {
           title: "Major Online Casino Caught Using Rigged RNG Software",
@@ -86,6 +96,35 @@ export default function GamblingNewsSection() {
     }
   }
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.15
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { 
+      y: 60, 
+      opacity: 0,
+      scale: 0.9
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        damping: 20,
+        stiffness: 100
+      }
+    }
+  }
+
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <motion.div
@@ -95,46 +134,107 @@ export default function GamblingNewsSection() {
         className="text-center mb-12"
       >
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-beigeCream mb-4">
-          <span className="text-pink">EXPOSED:</span> Industry Scandals
+          <motion.span 
+            className="text-pink"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            EXPOSED:
+          </motion.span>{' '}
+          <motion.span
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            Industry Scandals
+          </motion.span>
         </h2>
-        <p className="text-base sm:text-lg md:text-xl text-beigeCream/70 max-w-3xl mx-auto">
+        <motion.p 
+          className="text-base sm:text-lg md:text-xl text-beigeCream/70 max-w-3xl mx-auto"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.6 }}
+        >
           The truth they don't want you to know. Real investigations revealing how the house always wins.
-        </p>
+        </motion.p>
       </motion.div>
 
-      {loading ? (
-        <div className="flex items-center justify-center h-64">
-          <div className="animate-pulse text-limeGreen text-2xl">
-            Uncovering the truth...
-          </div>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {news.map((item, index) => (
-            <BlogPost
-              key={index}
-              title={item.title}
-              excerpt={item.excerpt}
-              date={item.date}
-              readTime={item.readTime}
-              imageUrl={item.imageUrl}
-              sourceUrl={item.sourceUrl}
-              index={index}
-            />
-          ))}
-        </div>
+      <AnimatePresence mode="wait">
+        {loading ? (
+          <motion.div 
+            key="loading"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="flex items-center justify-center h-64"
+          >
+            <div className="relative">
+              <motion.div
+                animate={{ 
+                  rotate: 360,
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{ 
+                  rotate: { duration: 2, repeat: Infinity, ease: "linear" },
+                  scale: { duration: 1, repeat: Infinity }
+                }}
+                className="w-16 h-16 border-4 border-limeGreen/30 border-t-limeGreen rounded-full"
+              />
+              <motion.div
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute inset-0 flex items-center justify-center text-limeGreen text-sm font-bold"
+              >
+                <span className="text-center">Uncovering<br/>truth...</span>
+              </motion.div>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div 
+            key="content"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          >
+            {news.slice(0, visibleCards).map((item, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                layout
+              >
+                <BlogPost
+                  title={item.title}
+                  excerpt={item.excerpt}
+                  date={item.date}
+                  readTime={item.readTime}
+                  imageUrl={item.imageUrl}
+                  sourceUrl={item.sourceUrl}
+                  index={index}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {!loading && visibleCards >= news.length && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="text-center mt-12"
+        >
+          <motion.p 
+            className="text-sm text-beigeCream/50 italic"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            flamingo.ai - Exposing the truth behind "random" number generation
+          </motion.p>
+        </motion.div>
       )}
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="text-center mt-12"
-      >
-        <p className="text-sm text-beigeCream/50 italic">
-          flamingo.ai - Exposing the truth behind "random" number generation
-        </p>
-      </motion.div>
     </div>
   )
 }
