@@ -1,4 +1,5 @@
-/* Temporarily removed ClashGrotesk font import due to CDN issues */
+/* Import custom fonts */
+@import './fonts.css';
 
 @tailwind base;
 @tailwind components;
@@ -42,10 +43,7 @@
   }
   
   body {
-    @apply bg-raisinBlack text-beigeCream;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 
-      'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
-      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    @apply bg-raisinBlack text-beigeCream font-sans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

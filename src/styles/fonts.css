@@ -1,0 +1,17 @@
+/* Custom Font Declarations */
+
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('/assets/fonts/ClashGrotesk-Variable.ebe29424.ttf') format('truetype');
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Erode';
+  src: url('/assets/fonts/Erode-VariableItalic.97e5756e.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
