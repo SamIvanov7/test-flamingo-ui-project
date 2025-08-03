@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
+import { Provider } from './components/ui/provider'
 import LandingPage from './pages/LandingPage'
 import OnboardingCarousel from './components/OnboardingCarousel'
 import GameDashboard from './pages/GameDashboard'
@@ -16,12 +17,14 @@ import Layout from './components/Layout'
 
 function App() {
   return (
-    <Router>
+    <Provider>
+      <Router>
       <div className="min-h-screen bg-djungle">
         <AnimatePresence mode="wait">
           <Routes>
             {/* Main Landing Page */}
             <Route path="/" element={<LandingPage />} />
+            <Route path="/landing" element={<LandingPage />} />
             
             {/* Pages with Layout (Header) */}
             <Route element={<Layout />}>
@@ -46,6 +49,7 @@ function App() {
         </AnimatePresence>
       </div>
     </Router>
+    </Provider>
   )
 }
 
