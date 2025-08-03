@@ -41,6 +41,7 @@ const MotionButton = motion(Button)
 const MotionImage = motion(Image)
 
 export default function LandingPage() {
+  console.log('LandingPage component is mounting')
   const navigate = useNavigate()
   const { t } = useTranslation()
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)

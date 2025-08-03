@@ -11,6 +11,7 @@ import {
   Stat,
   Badge,
 } from '@chakra-ui/react'
+import BackgroundPaths from './FloatingPaths'
 
 interface StatItem {
   label: string
@@ -84,8 +85,13 @@ export default function AnimatedStats() {
   }, [isInView])
 
   return (
-    <Box ref={ref} py={{ base: 16, lg: 24 }} bg="raisinBlack" position="relative">
-      <Container maxW="container.xl">
+    <Box ref={ref} py={{ base: 16, lg: 24 }} bg="raisinBlack" position="relative" overflow="hidden">
+      {/* Animated Background Paths */}
+      <Box position="absolute" inset={0} opacity={0.3}>
+        <BackgroundPaths />
+      </Box>
+      
+      <Container maxW="container.xl" position="relative" zIndex={1}>
         <VStack gap={{ base: 12, lg: 16 }}>
           {/* Header */}
           <MotionBox

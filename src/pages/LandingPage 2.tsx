@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next'
 import VideoBackground from '../components/VideoBackground'
 import Header from '../components/Header'
 import GamblingNewsSection from '../components/GamblingNewsSection'
-import Footer from '../components/Footer'
 
 export default function LandingPage() {
   const navigate = useNavigate()
@@ -418,8 +417,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <Footer />
 
       {/* Video Modal */}
       {isVideoPlaying && (
