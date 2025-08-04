@@ -9,6 +9,8 @@ import { BackgroundPaths } from '../components/BackgroundPaths'
 import Footer from '../components/Footer'
 import { BeamsBackground } from '../components/BeamsBackground'
 import VideoShowcaseSlide from '../components/VideoShowcaseSlide'
+import ChaosToOrderSection from '../components/ChaosToOrderSectionSimple'
+import MCPExample from '../examples/MCPExample'
 
 export default function LandingPage() {
   const navigate = useNavigate()
@@ -229,7 +231,12 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Section 2 - Flamingo Images Gallery with Scroll Animations */}
+      {/* Section 2 - From Chaos to Order */}
+      <div className="relative">
+        <ChaosToOrderSection />
+      </div>
+
+      {/* Section 3 - Flamingo Images Gallery with Scroll Animations */}
       <section className="min-h-screen bg-darkGreen flex items-center justify-center overflow-hidden py-12 sm:py-16 lg:py-0 relative">
         {/* Animated Background Paths */}
         <BackgroundPaths />
@@ -441,10 +448,28 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Section 3 - Interactive Video Showcase */}
-      <VideoShowcaseSlide />
+      {/* Section 4 - Interactive Video Showcase */}
+      <div id="video-showcase-section">
+        <VideoShowcaseSlide />
+      </div>
 
-      {/* Section 4 - Gambling Scandal News with Scroll Animations */}
+      {/* Section 5 - MCP Example Section */}
+      <section className="relative min-h-screen bg-darkGreen py-20">
+        <div className="container mx-auto px-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-beigeCream mb-12"
+          >
+            MCP Server Examples
+          </motion.h2>
+          <MCPExample />
+        </div>
+      </section>
+
+      {/* Section 6 - Gambling Scandal News with Scroll Animations */}
       <section className="relative min-h-screen overflow-hidden">
         {/* Beams Background */}
         <BeamsBackground intensity="medium" className="absolute inset-0" />

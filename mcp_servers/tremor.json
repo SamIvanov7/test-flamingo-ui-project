@@ -1,0 +1,7 @@
+{
+  "title": "Tremor-MCP",
+  "description": "Dashboards & visualisation components",
+  "system_prompt": "Импортируй графики (`AreaChart`, `BarChart`, `LineChart`) из '@tremor/react'.\nДанные передавай пропом `data`, типизируй.\nИспользуй Tailwind контейнер `tremor-Card` для блоков.\nНе забудь a11y: aria-label для каждой диаграммы.",
+  "example_user": "Построй line-chart продаж за 12 мес.",
+  "example_assistant": "```tsx\nimport { Card, LineChart, Title } from '@tremor/react';\n\ninterface SalesData {\n  month: string;\n  sales: number;\n}\n\nconst salesData: SalesData[] = [\n  { month: 'Jan', sales: 2890 },\n  { month: 'Feb', sales: 2756 },\n  { month: 'Mar', sales: 3322 },\n  { month: 'Apr', sales: 3470 },\n  { month: 'May', sales: 3475 },\n  { month: 'Jun', sales: 3129 },\n  { month: 'Jul', sales: 3490 },\n  { month: 'Aug', sales: 2903 },\n  { month: 'Sep', sales: 2643 },\n  { month: 'Oct', sales: 2837 },\n  { month: 'Nov', sales: 2954 },\n  { month: 'Dec', sales: 3239 },\n];\n\nconst SalesChart = () => (\n  <Card>\n    <Title>Продажи за 2023 год</Title>\n    <LineChart\n      className=\"mt-6\"\n      data={salesData}\n      index=\"month\"\n      categories={['sales']}\n      colors={['blue']}\n      valueFormatter={(value) => `$${value.toLocaleString()}`}\n      yAxisWidth={60}\n      aria-label=\"График продаж за 12 месяцев 2023 года\"\n    />\n  </Card>\n);\n```"
+}

@@ -48,6 +48,7 @@ test-flamingo-ui-project/
 - **Flamingo3D.tsx** - Main 3D flamingo model with animations
 - **ChatFlamingo3D.tsx** - Specialized flamingo for chat interface
 - **ParticleField.tsx** - Floating mathematical formulas animation
+- **ParticleFieldEnhanced.tsx** - Enhanced particle field with chaos/order modes
 - **BackgroundPaths.tsx** - Animated path background elements
 - **BeamsBackground.tsx** - Animated light beams background effect
 
@@ -72,6 +73,7 @@ test-flamingo-ui-project/
 #### Content Components
 - **BlogPost.tsx** - Enhanced blog post card with animations
 - **GamblingNewsSection.tsx** - Enhanced anti-casino news display with categories
+- **ChaosToOrderSection.tsx** - Visual contrast between chaos and order with split screen
 
 #### Video Showcase Components (Interactive Center - Section 4)
 - **VideoShowcaseSlide.tsx** - Main container for video showcase section
@@ -83,7 +85,7 @@ test-flamingo-ui-project/
 
 ### Pages (`/src/pages/`)
 
-1. **LandingPage.tsx** - Homepage with video background, BeamsBackground effect, interactive video showcase, and marketing content
+1. **LandingPage.tsx** - Homepage with hero, chaos-to-order visualization, AI showcase, video demonstration, and news sections
 2. **AboutPage.tsx** - Team information and company mission with "Ghosts in the Machine" section featuring anonymous team members (Tunn3l!spectre, Sh4dowQubit, Sup3rposition)
 3. **UseCasePage.tsx** - Interactive use case demonstrations
 4. **PricingPage.tsx** - Subscription tiers and pricing
@@ -151,6 +153,8 @@ test-flamingo-ui-project/
 - Interactive video showcase with HUD overlay
 - Cyberpunk-themed video player interface
 - Real-time case file selection system
+- Chaos to Order visualization with dual particle systems
+- Split-screen contrasting casino randomness vs AI clarity
 
 ## 🔧 Configuration Files
 
@@ -214,6 +218,9 @@ Language preference is stored in localStorage and persists across sessions.
 
 ## 🚀 Recent Updates
 
+- Added "From Chaos to Order" section (Section 2) with split-screen visualization
+- Created enhanced ParticleField with chaos/order modes and casino symbols
+- Integrated Flamingo3D as the conductor of order in the visualization
 - Added Interactive Center (Section 4) with video showcase functionality
 - Created cyberpunk-themed video player with HUD overlay
 - Implemented video playlist with case file selection

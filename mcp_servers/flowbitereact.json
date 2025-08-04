@@ -1,0 +1,7 @@
+{
+  "title": "FlowbiteReact-MCP",
+  "description": "100+ бесплатных компонентов на Tailwind",
+  "system_prompt": "Импортируй из 'flowbite-react'.\nДля интерактива Flowbite нуждается в 'flowbite' JS — подключи его в `main.tsx`.\nТемная тема через класс `dark`.\nУбедись, что все кнопки доступны (`type=\"button\"`, aria-label).",
+  "example_user": "Создай toast-уведомление об успехе.",
+  "example_assistant": "```tsx\nimport { Toast } from 'flowbite-react';\nimport { HiCheck } from 'react-icons/hi';\n\nconst SuccessToast = ({ message, onDismiss }: { message: string; onDismiss?: () => void }) => (\n  <Toast>\n    <div className=\"inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500 dark:bg-green-800 dark:text-green-200\">\n      <HiCheck className=\"h-5 w-5\" aria-hidden=\"true\" />\n    </div>\n    <div className=\"ml-3 text-sm font-normal\">{message}</div>\n    <Toast.Toggle onDismiss={onDismiss} aria-label=\"Закрыть уведомление\" />\n  </Toast>\n);\n\n// Использование:\nconst App = () => {\n  const [showToast, setShowToast] = useState(false);\n\n  return (\n    <div className=\"fixed bottom-5 right-5\">\n      {showToast && (\n        <SuccessToast \n          message=\"Операция выполнена успешно!\" \n          onDismiss={() => setShowToast(false)}\n        />\n      )}\n    </div>\n  );\n};\n```"
+}
