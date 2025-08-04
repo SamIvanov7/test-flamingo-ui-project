@@ -13,7 +13,6 @@ import ChatPage from './pages/ChatPage'
 import RequestFeaturePage from './pages/RequestFeaturePage'
 import FAQPage from './pages/FAQPage'
 import Layout from './components/Layout'
-import ComponentShowcase from './pages/ComponentShowcase'
 
 function App() {
   return (
@@ -40,9 +39,6 @@ function App() {
             <Route path="/dashboard" element={<GameDashboard />} />
             <Route path="/chat" element={<ChatPage />} />
             <Route path="/settings" element={<SettingsPage />} />
-            
-            {/* Component Showcase */}
-            <Route path="/showcase" element={<ComponentShowcase />} />
             
             {/* Redirect any unknown routes to home */}
             <Route path="*" element={<Navigate to="/" replace />} />

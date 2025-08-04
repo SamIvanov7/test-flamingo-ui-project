@@ -10,7 +10,6 @@ import Footer from '../components/Footer'
 import { BeamsBackground } from '../components/BeamsBackground'
 import VideoShowcaseSlide from '../components/VideoShowcaseSlide'
 import ChaosToOrderSection from '../components/ChaosToOrderSectionSimple'
-import MCPExample from '../examples/MCPExample'
 
 export default function LandingPage() {
   const navigate = useNavigate()
@@ -453,41 +452,7 @@ export default function LandingPage() {
         <VideoShowcaseSlide />
       </div>
 
-      {/* Section 5 - MCP Example Section */}
-      <section className="relative min-h-screen bg-darkGreen py-20">
-        <div className="container mx-auto px-4">
-          <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-beigeCream mb-12"
-          >
-            MCP Server Examples
-          </motion.h2>
-          <MCPExample />
-          
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center mt-12"
-          >
-            <motion.button
-              onClick={() => navigate('/showcase')}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-transparent border-2 border-limeGreen text-limeGreen font-bold rounded-xl text-lg
-                       hover:bg-limeGreen/10 hover:shadow-[0_0_30px_rgba(171,248,11,0.5)] transition-all duration-300"
-            >
-              View Component Showcase
-            </motion.button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Section 6 - Gambling Scandal News with Scroll Animations */}
+      {/* Section 5 - Gambling Scandal News with Scroll Animations */}
       <section className="relative min-h-screen overflow-hidden">
         {/* Beams Background */}
         <BeamsBackground intensity="medium" className="absolute inset-0" />
