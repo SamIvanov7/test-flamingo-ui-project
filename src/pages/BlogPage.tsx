@@ -42,118 +42,127 @@ export default function BlogPage() {
   ]
 
   const featuredPost = {
-    title: t('blog.featured.title'),
-    excerpt: t('blog.featured.excerpt'),
+    title: "Resorts World Casino Hit with $10.5M Fine in Massive Money Laundering Scandal",
+    excerpt: "Nevada Gaming Control Board exposes shocking connections to illegal bookmakers and the Shohei Ohtani interpreter scandal. Internal documents reveal systematic failures in anti-money laundering protocols.",
     date: "March 20, 2024",
     readTime: "12",
     category: "exposes",
-    author: t('blog.featured.author'),
-    imageUrl: "/assets/images/blog-featured.jpg",
-    views: 15420,
+    author: "Investigation Unit",
+    imageUrl: "/content/images/resorts_world_casino_hit_with_10_5M_fine_in_massive_money_laundering.jpeg",
+    views: 45420,
     trending: true
   }
 
   const blogPosts = [
     {
       id: 1,
-      title: t('blog.posts.post1.title'),
-      excerpt: t('blog.posts.post1.excerpt'),
+      title: "INTERPOL Raids: 5,100 Arrests in $1.7 Trillion Illegal Gambling Crackdown",
+      excerpt: "Operation SOGA X uncovers massive international gambling syndicate spanning 28 countries. Rescued trafficking victims and exposed money laundering networks during UEFA 2024 investigations.",
       date: "March 18, 2024",
       readTime: "8",
-      category: "strategies",
-      author: "Dr. Sarah Chen",
+      category: "news",
+      author: "International Crime Unit",
       trending: true,
-      views: 8932,
-      tags: ['RNG', 'Mathematics', 'Patterns']
+      views: 38932,
+      imageUrl: "/content/images/interpol-gambling-crackdown.jpg",
+      tags: ['INTERPOL', 'Money Laundering', 'International Crime']
     },
     {
       id: 2,
-      title: t('blog.posts.post2.title'),
-      excerpt: t('blog.posts.post2.excerpt'),
+      title: "Shohei Ohtani's Interpreter Steals $17 Million for Illegal Gambling Debts",
+      excerpt: "Ippei Mizuhara faces 33 years in prison after pleading guilty to bank and tax fraud. Shocking details reveal how trusted interpreter placed 19,000 illegal bets with bookmaker Mathew Bowyer.",
       date: "March 15, 2024",
       readTime: "6",
-      category: "strategies",
-      author: "Michael Torres",
+      category: "exposes",
+      author: "Sports Investigation Team",
       trending: true,
-      views: 12847,
-      tags: ['Patterns', 'AI Analysis', 'Tips']
+      views: 52847,
+      imageUrl: "/content/images/ohtani-interpreter-theft.jpg",
+      tags: ['MLB Scandal', 'Fraud', 'Celebrity Crime']
     },
     {
       id: 3,
-      title: t('blog.posts.post3.title'),
-      excerpt: t('blog.posts.post3.excerpt'),
+      title: "Southeast Asian Casinos: The Dark Heart of Cyber Fraud Networks",
+      excerpt: "UN report exposes how casino industry facilitates pig-butchering scams and human trafficking. Hundreds of thousands forced into scamming compounds in lawless areas of Laos and Myanmar.",
       date: "March 12, 2024",
       readTime: "10",
       category: "exposes",
-      author: "Anonymous Whistleblower",
-      views: 6721,
-      tags: ['Live Casino', 'Manipulation', 'Expose']
+      author: "UN Investigation Unit",
+      views: 26721,
+      imageUrl: "/content/images/southeast-asia-casino-fraud.jpg",
+      tags: ['Human Trafficking', 'Cyber Fraud', 'SE Asia']
     },
     {
       id: 4,
-      title: t('blog.posts.post4.title'),
-      excerpt: t('blog.posts.post4.excerpt'),
+      title: "Wynn Las Vegas Caught in Proxy Betting and Money Transfer Violations",
+      excerpt: "Nevada Gaming Control Board settlement reveals unsuitable methods including unregistered money transmitting, international transactions facilitation, and systematic proxy betting operations.",
       date: "March 10, 2024",
       readTime: "7",
-      category: "tutorials",
-      author: "Alex Kumar",
-      views: 4523,
-      tags: ['Tutorial', 'Beginners', 'Patterns']
+      category: "news",
+      author: "Regulatory Watch",
+      views: 14523,
+      imageUrl: "/content/images/wynn-las-vegas-violations.jpg",
+      tags: ['Wynn', 'Nevada Gaming', 'Violations']
     },
     {
       id: 5,
-      title: t('blog.posts.post5.title'),
-      excerpt: t('blog.posts.post5.excerpt'),
+      title: "NBA's First Lifetime Ban: Jontay Porter's Betting Manipulation Exposed",
+      excerpt: "Former Raptor provided injury information to gamblers, bet on NBA games, and manipulated his playing availability. Commissioner Adam Silver's historic ruling sends shockwaves through professional sports.",
       date: "March 8, 2024",
       readTime: "5",
-      category: "strategies",
-      author: "Data Science Team",
-      views: 9876,
-      tags: ['Timing', 'Data Analysis', 'Strategy']
+      category: "exposes",
+      author: "Sports Integrity Unit",
+      views: 29876,
+      imageUrl: "/content/images/jontay-porter-lifetime-ban.jpg",
+      tags: ['NBA', 'Sports Betting', 'Lifetime Ban']
     },
     {
       id: 6,
-      title: t('blog.posts.post6.title'),
-      excerpt: t('blog.posts.post6.excerpt'),
+      title: "MGM Resorts Pays $8.5M Fine for Illegal Bookmaker Connections",
+      excerpt: "Nevada Gaming Control Board reveals MGM Grand and Cosmopolitan's ties to illegal bookmaker Wayne Nix. Settlement exposes systematic failures in customer vetting and compliance procedures.",
       date: "March 5, 2024",
       readTime: "4",
       category: "news",
-      author: "Legal Team",
-      views: 11234,
-      tags: ['Legal', 'EU', 'Investigation']
+      author: "Legal Compliance Team",
+      views: 21234,
+      imageUrl: "/content/images/mgm-resorts-fine.jpg",
+      tags: ['MGM', 'Illegal Bookmaking', 'Fines']
     },
     {
       id: 7,
-      title: t('blog.posts.post7.title'),
-      excerpt: t('blog.posts.post7.excerpt'),
+      title: "MLB Player Places 387 Illegal Bets: Tucupita Marcano's Lifetime Ban",
+      excerpt: "Padres infielder wagered over $150,000 on baseball including MLB games. Investigation reveals he won less than 5% of MLB-related wagers, highlighting the house always wins.",
       date: "March 3, 2024",
       readTime: "9",
-      category: "strategies",
-      author: "Community Team",
+      category: "exposes",
+      author: "MLB Investigation Unit",
       views: 18765,
-      tags: ['Success Story', 'User Experience', 'Verified']
+      imageUrl: "/content/images/mlb-marcano-scandal.jpg",
+      tags: ['MLB', 'Illegal Betting', 'Player Ban']
     },
     {
       id: 8,
-      title: t('blog.posts.post8.title'),
-      excerpt: t('blog.posts.post8.excerpt'),
+      title: "Billion-Dollar Pig-Butchering Scams Traced to Casino Operations",
+      excerpt: "Sophisticated romance scams originating from Southeast Asian casinos defraud victims worldwide. Leaked documents show casino staff directly involved in cryptocurrency fraud schemes.",
       date: "February 28, 2024",
       readTime: "11",
       category: "exposes",
-      author: "Investigation Unit",
-      views: 14321,
-      tags: ['Whistleblower', 'Leaked', 'Evidence']
+      author: "Cyber Crime Unit",
+      views: 34321,
+      imageUrl: "/content/images/pig-butchering-scams.jpg",
+      tags: ['Crypto Scams', 'Romance Fraud', 'Casinos']
     },
     {
       id: 9,
-      title: t('blog.posts.post9.title'),
-      excerpt: t('blog.posts.post9.excerpt'),
+      title: "Nevada Gaming Control Board Exposes Widespread AML Failures",
+      excerpt: "Multiple Las Vegas casinos cited for anti-money laundering violations. Pattern of accepting known criminals and failing to report suspicious transactions worth millions.",
       date: "February 25, 2024",
       readTime: "8",
-      category: "tutorials",
-      author: "Tech Support",
-      views: 3456,
-      tags: ['Advanced', 'Configuration', 'AI']
+      category: "news",
+      author: "Regulatory Affairs",
+      views: 13456,
+      imageUrl: "/content/images/nevada-gaming-violations.jpg",
+      tags: ['AML', 'Nevada', 'Compliance Failures']
     },
     {
       id: 10,
@@ -161,10 +170,10 @@ export default function BlogPage() {
       excerpt: t('blog.posts.post10.excerpt'),
       date: "February 22, 2024",
       readTime: "6",
-      category: "news",
-      author: "Industry Watch",
+      category: "strategies",
+      author: "Pattern Analysis Team",
       views: 7890,
-      tags: ['Regulation', 'Updates', 'Industry']
+      tags: ['RNG Patterns', 'Analysis', 'Strategy']
     },
     {
       id: 11,
@@ -172,10 +181,10 @@ export default function BlogPage() {
       excerpt: t('blog.posts.post11.excerpt'),
       date: "February 20, 2024",
       readTime: "12",
-      category: "exposes",
-      author: "Security Research",
-      views: 21098,
-      tags: ['Security', 'Vulnerability', 'Breaking']
+      category: "tutorials",
+      author: "Technical Team",
+      views: 11098,
+      tags: ['Tutorial', 'Configuration', 'Setup']
     },
     {
       id: 12,
@@ -183,10 +192,10 @@ export default function BlogPage() {
       excerpt: t('blog.posts.post12.excerpt'),
       date: "February 18, 2024",
       readTime: "5",
-      category: "tutorials",
-      author: "Getting Started Team",
+      category: "strategies",
+      author: "Success Stories",
       views: 5432,
-      tags: ['Beginners', 'Guide', 'Setup']
+      tags: ['Success', 'User Story', 'Verified']
     }
   ]
 
@@ -578,37 +587,37 @@ export default function BlogPage() {
               </motion.div>
               
               <motion.div 
-                className="relative h-64 md:h-80 rounded-2xl overflow-hidden bg-gradient-to-br from-pink/20 to-limeGreen/20"
+                className="relative h-64 md:h-80 rounded-2xl overflow-hidden"
                 initial={{ x: 50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.5, type: "spring", stiffness: 100 }}
               >
+                <img 
+                  src={featuredPost.imageUrl}
+                  alt={featuredPost.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
                 <motion.div 
-                  className="absolute inset-0 flex items-center justify-center"
-                  animate={{
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
+                  className="absolute inset-0 bg-gradient-to-t from-darkGreen via-transparent to-transparent opacity-60"
+                  whileHover={{ opacity: 0.4 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.div 
+                  className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-darkGreen/90 to-transparent"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.7 }}
                 >
-                  <div className="text-center">
-                    <motion.div 
-                      className="text-6xl font-bold text-pink/30 mb-2"
-                      animate={{ opacity: [0.3, 0.6, 0.3] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      MGM
-                    </motion.div>
-                    <motion.div 
-                      className="text-xl text-limeGreen/30"
-                      animate={{ opacity: [0.3, 0.6, 0.3] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                    >
-                      RNG EXPOSED
-                    </motion.div>
+                  <motion.div 
+                    className="text-2xl font-bold text-pink mb-1"
+                    animate={{ opacity: [0.8, 1, 0.8] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    EXPOSED
+                  </motion.div>
+                  <div className="text-sm text-limeGreen">
+                    Money Laundering Scandal
                   </div>
                 </motion.div>
               </motion.div>
@@ -691,6 +700,7 @@ export default function BlogPage() {
                       excerpt={post.excerpt}
                       date={post.date}
                       readTime={post.readTime}
+                      imageUrl={post.imageUrl}
                       index={index}
                     />
                     

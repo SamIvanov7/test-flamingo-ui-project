@@ -1101,6 +1101,302 @@ export default function ComponentShowcase() {
         </motion.div>
       </section>
 
+      {/* 21st.dev Futuristic Components Section */}
+      <section className="py-20 px-4 relative overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="max-w-7xl mx-auto"
+        >
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold text-center text-beigeCream mb-4"
+          >
+            Futuristic UI Elements
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-center text-beigeCream/60 mb-12 max-w-2xl mx-auto"
+          >
+            Next-generation components with holographic effects and advanced animations
+          </motion.p>
+
+          {/* Holographic Profile Card */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-limeGreen/20 via-pink/20 to-limeGreen/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="relative glassmorphism p-8 rounded-3xl border border-limeGreen/20 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-limeGreen/5 via-transparent to-pink/5 animate-pulse" />
+                <div className="relative z-10">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-r from-limeGreen to-pink p-1"
+                  >
+                    <div className="w-full h-full rounded-full bg-darkGreen flex items-center justify-center">
+                      <svg className="w-12 h-12 text-limeGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                    </div>
+                  </motion.div>
+                  <h3 className="text-xl font-semibold text-beigeCream text-center mb-2">AI Analyst</h3>
+                  <p className="text-beigeCream/60 text-center text-sm mb-6">Pattern Recognition Expert</p>
+                  <div className="space-y-3 mb-6">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-beigeCream/60">Accuracy</span>
+                      <span className="text-limeGreen">98.5%</span>
+                    </div>
+                    <div className="w-full h-2 bg-darkGreen/50 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "98.5%" }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: 0.5 }}
+                        className="h-full bg-gradient-to-r from-limeGreen to-pink rounded-full"
+                      />
+                    </div>
+                  </div>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-full py-3 px-4 bg-gradient-to-r from-limeGreen/20 to-pink/20 border border-limeGreen/30 rounded-xl text-beigeCream font-medium hover:border-limeGreen/50 transition-all duration-300"
+                  >
+                    View Profile
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Neon Glow Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="relative group"
+            >
+              <motion.div
+                animate={{
+                  boxShadow: [
+                    "0 0 20px rgba(171, 248, 11, 0.3)",
+                    "0 0 40px rgba(255, 0, 127, 0.3)",
+                    "0 0 20px rgba(171, 248, 11, 0.3)",
+                  ],
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+                className="absolute inset-0 rounded-3xl"
+              />
+              <div className="relative glassmorphism p-8 rounded-3xl border border-pink/20">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-semibold text-beigeCream">Neural Network</h3>
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                    className="w-10 h-10 bg-pink/20 rounded-lg flex items-center justify-center"
+                  >
+                    <svg className="w-6 h-6 text-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                  </motion.div>
+                </div>
+                <div className="grid grid-cols-3 gap-2 mb-6">
+                  {[...Array(9)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 + i * 0.05 }}
+                      whileHover={{ scale: 1.2 }}
+                      className="aspect-square bg-gradient-to-br from-pink/20 to-limeGreen/20 rounded-lg"
+                    />
+                  ))}
+                </div>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-beigeCream/60">Processing</span>
+                  <motion.span
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="text-pink"
+                  >
+                    Active
+                  </motion.span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Morphing Gradient Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="relative group"
+            >
+              <motion.div
+                animate={{
+                  background: [
+                    "linear-gradient(45deg, rgba(171,248,11,0.3) 0%, rgba(255,0,127,0.3) 100%)",
+                    "linear-gradient(225deg, rgba(255,0,127,0.3) 0%, rgba(249,248,239,0.3) 100%)",
+                    "linear-gradient(315deg, rgba(249,248,239,0.3) 0%, rgba(171,248,11,0.3) 100%)",
+                    "linear-gradient(45deg, rgba(171,248,11,0.3) 0%, rgba(255,0,127,0.3) 100%)",
+                  ],
+                }}
+                transition={{ duration: 6, repeat: Infinity }}
+                className="absolute inset-0 rounded-3xl blur-xl"
+              />
+              <div className="relative glassmorphism p-8 rounded-3xl border border-beigeCream/20">
+                <h3 className="text-xl font-semibold text-beigeCream mb-4">Quantum State</h3>
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-center gap-3">
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="w-4 h-4 bg-limeGreen rounded-full"
+                    />
+                    <span className="text-beigeCream/80 text-sm">Superposition Active</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                      className="w-4 h-4 bg-pink rounded-full"
+                    />
+                    <span className="text-beigeCream/80 text-sm">Entanglement Stable</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                      className="w-4 h-4 bg-beigeCream rounded-full"
+                    />
+                    <span className="text-beigeCream/80 text-sm">Coherence Optimal</span>
+                  </div>
+                </div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full py-3 px-4 bg-gradient-to-r from-beigeCream/10 to-beigeCream/20 border border-beigeCream/30 rounded-xl text-beigeCream text-center font-medium hover:border-beigeCream/50 transition-all duration-300 cursor-pointer"
+                >
+                  Observe State
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Interactive Orb Component */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-2xl mx-auto mb-16"
+          >
+            <div className="glassmorphism p-12 rounded-3xl border border-limeGreen/20 relative overflow-hidden">
+              <motion.div
+                animate={{
+                  scale: [1, 1.2, 1],
+                  rotate: [0, 180, 360],
+                }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 opacity-10"
+              >
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-limeGreen via-pink to-beigeCream rounded-full blur-3xl" />
+              </motion.div>
+              <div className="relative z-10 text-center">
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  className="w-32 h-32 mx-auto mb-8 relative"
+                >
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.3, 0.7, 0.3],
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="absolute inset-0 bg-limeGreen rounded-full blur-2xl"
+                  />
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0 bg-gradient-to-r from-limeGreen to-pink rounded-full opacity-80"
+                  />
+                  <div className="absolute inset-2 bg-darkGreen rounded-full flex items-center justify-center">
+                    <motion.svg
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="w-16 h-16 text-limeGreen"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </motion.svg>
+                  </div>
+                </motion.div>
+                <h3 className="text-2xl font-bold text-beigeCream mb-4">AI Power Core</h3>
+                <p className="text-beigeCream/60 mb-8">Quantum processing at the speed of thought</p>
+                <div className="flex justify-center gap-4">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 py-3 bg-limeGreen text-darkGreen rounded-xl font-semibold hover:bg-limeGreen/90 transition-all duration-300"
+                  >
+                    Activate
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 py-3 bg-darkGreen/50 border border-pink/30 text-pink rounded-xl font-semibold hover:bg-pink/10 transition-all duration-300"
+                  >
+                    Configure
+                  </motion.button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Cyberpunk Data Stream */}
+          <div className="glassmorphism p-8 rounded-3xl border border-limeGreen/20 overflow-hidden">
+            <h3 className="text-xl font-semibold text-beigeCream mb-6">Live Data Stream</h3>
+            <div className="relative h-64 overflow-hidden rounded-xl bg-darkGreen/50">
+              {[...Array(5)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ x: "100%", opacity: 0 }}
+                  animate={{ x: "-100%", opacity: [0, 1, 1, 0] }}
+                  transition={{
+                    duration: 3 + i,
+                    repeat: Infinity,
+                    delay: i * 0.5,
+                    ease: "linear",
+                  }}
+                  className="absolute top-0 h-full flex items-center"
+                  style={{ top: `${i * 20}%` }}
+                >
+                  <div className="whitespace-nowrap text-limeGreen/60 font-mono text-sm">
+                    {`[${new Date().toISOString()}] Pattern detected: ${Math.random().toString(36).substring(7)} | Confidence: ${(85 + Math.random() * 14).toFixed(1)}% | Status: ACTIVE`}
+                  </div>
+                </motion.div>
+              ))}
+              <div className="absolute inset-0 bg-gradient-to-r from-darkGreen via-transparent to-darkGreen pointer-events-none" />
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       <Footer />
     </motion.div>
   )

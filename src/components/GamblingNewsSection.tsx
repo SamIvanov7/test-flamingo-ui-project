@@ -30,52 +30,58 @@ export default function GamblingNewsSection() {
     try {
       const mockNews: NewsItem[] = [
         {
-          title: "Major Online Casino Caught Using Rigged RNG Software",
-          excerpt: "Investigation reveals popular online casino manipulated random number generators to reduce player wins by 15%. Regulatory authorities have issued record fines.",
+          title: "Resorts World Casino Hit with $10.5M Fine in Money Laundering Scandal",
+          excerpt: "Nevada Gaming Control Board exposes shocking connections to illegal bookmakers and the Shohei Ohtani interpreter scandal. Internal documents reveal systematic failures.",
           date: "March 15, 2024",
           readTime: "5",
+          imageUrl: "/content/images/resorts-world-money-laundering.jpg",
           sourceUrl: "#",
           category: "scandal",
           trending: true
         },
         {
-          title: "Slot Machine Manufacturer Admits to Programming 'Near Miss' Features",
-          excerpt: "Leading slot machine manufacturer confesses to deliberately programming machines to show 'near miss' combinations more frequently than statistically probable.",
+          title: "INTERPOL Raids: 5,100 Arrests in $1.7 Trillion Gambling Network",
+          excerpt: "Operation SOGA X uncovers massive international gambling syndicate spanning 28 countries. Rescued trafficking victims and exposed money laundering networks.",
           date: "March 10, 2024", 
           readTime: "7",
+          imageUrl: "/content/images/interpol-gambling-crackdown.jpg",
           sourceUrl: "#",
           category: "investigation"
         },
         {
-          title: "Whistleblower Exposes Casino's Player Tracking Manipulation",
-          excerpt: "Former casino employee reveals how player tracking systems were used to identify and limit winning players while encouraging problem gamblers.",
+          title: "Shohei Ohtani's Interpreter Steals $17 Million for Gambling Debts",
+          excerpt: "Ippei Mizuhara faces 33 years in prison after pleading guilty to bank and tax fraud. Shocking details reveal 19,000 illegal bets placed.",
           date: "March 5, 2024",
           readTime: "6",
+          imageUrl: "/content/images/ohtani-interpreter-theft.jpg",
           sourceUrl: "#",
           category: "scandal",
           trending: true
         },
         {
-          title: "AI Analysis Proves Popular Slots Are Not Truly Random",
-          excerpt: "Independent researchers using advanced AI algorithms demonstrate that several popular slot games exhibit patterns that contradict claims of true randomness.",
+          title: "Southeast Asian Casinos: Dark Heart of Cyber Fraud Networks",
+          excerpt: "UN report exposes how casino industry facilitates pig-butchering scams and human trafficking. Hundreds of thousands forced into scamming compounds.",
           date: "February 28, 2024",
           readTime: "8",
+          imageUrl: "/content/images/southeast-asia-casino-fraud.jpg",
           sourceUrl: "#",
           category: "investigation"
         },
         {
-          title: "Class Action Lawsuit Filed Against Major Casino Chain",
-          excerpt: "Thousands of players join lawsuit claiming systematic manipulation of odds and false advertising of payout percentages across multiple properties.",
+          title: "NBA's First Lifetime Ban: Jontay Porter's Betting Manipulation",
+          excerpt: "Former Raptor provided injury information to gamblers, bet on NBA games, and manipulated his playing availability. Historic ruling by Commissioner Adam Silver.",
           date: "February 20, 2024",
           readTime: "4",
+          imageUrl: "/content/images/jontay-porter-lifetime-ban.jpg",
           sourceUrl: "#",
           category: "lawsuit"
         },
         {
-          title: "Regulatory Body Fines Online Casinos $50M for RTP Violations",
-          excerpt: "Gaming commission issues massive fines after audit reveals actual return-to-player percentages were significantly lower than advertised.",
+          title: "MGM Resorts Pays $8.5M Fine for Illegal Bookmaker Connections",
+          excerpt: "Nevada Gaming Control Board reveals MGM Grand and Cosmopolitan's ties to illegal bookmaker Wayne Nix. Settlement exposes systematic failures in compliance.",
           date: "February 15, 2024",
           readTime: "5",
+          imageUrl: "/content/images/mgm-resorts-fine.jpg",
           sourceUrl: "#",
           category: "scandal"
         }
