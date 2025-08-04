@@ -1,4 +1,3 @@
-import React from 'react';
 
 // Пример использования MCP для генерации компонентов
 // 1. Запустите MCP сервер: ./start-mcp-server.sh

@@ -466,6 +466,24 @@ export default function LandingPage() {
             MCP Server Examples
           </motion.h2>
           <MCPExample />
+          
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center mt-12"
+          >
+            <motion.button
+              onClick={() => navigate('/showcase')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-transparent border-2 border-limeGreen text-limeGreen font-bold rounded-xl text-lg
+                       hover:bg-limeGreen/10 hover:shadow-[0_0_30px_rgba(171,248,11,0.5)] transition-all duration-300"
+            >
+              View Component Showcase
+            </motion.button>
+          </motion.div>
         </div>
       </section>
 
