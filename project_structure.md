@@ -12,7 +12,7 @@ Flamingo.ai is a controversial gambling AI assistant web application that claims
 - Framer Motion for animations
 - Tailwind CSS for styling
 - GSAP for advanced animations
-- i18next for internationalization (EN, RU)
+- i18next for internationalization (EN, ES, RU, VI)
 
 ## 📁 Directory Structure
 
@@ -48,11 +48,13 @@ test-flamingo-ui-project/
 - **Flamingo3D.tsx** - Main 3D flamingo model with animations
 - **ChatFlamingo3D.tsx** - Specialized flamingo for chat interface
 - **ParticleField.tsx** - Floating mathematical formulas animation
-- **AnimatedNumber.tsx** - Smooth number transitions
+- **BackgroundPaths.tsx** - Animated path background elements
+- **BeamsBackground.tsx** - Animated light beams background effect
 
 #### Layout Components
 - **Header.tsx** - Navigation header with slide-in menu and language switcher
 - **Layout.tsx** - Page layout wrapper
+- **Footer.tsx** - Footer component with links and branding
 - **VideoBackground.tsx** - Video background with fog effects
 - **VideoBackgroundClean.tsx** - Video background without effects
 - **LanguageSwitcher.tsx** - Language selection dropdown
@@ -60,7 +62,6 @@ test-flamingo-ui-project/
 #### Game Components
 - **ProbabilityCard.tsx** - Displays win probability
 - **GameControls.tsx** - Betting controls interface
-- **SlotMachine.tsx** - Animated slot machine
 - **SessionHeader.tsx** - Game session information
 - **SlotSelectionModal.tsx** - Slot game selector
 
@@ -69,13 +70,20 @@ test-flamingo-ui-project/
 - **OnboardingCarousel.tsx** - New user onboarding flow
 
 #### Content Components
-- **BlogPost.tsx** - Blog post card component
-- **GamblingNewsSection.tsx** - Anti-casino news display
-- **SettingsPanel.tsx** - User settings interface
+- **BlogPost.tsx** - Enhanced blog post card with animations
+- **GamblingNewsSection.tsx** - Enhanced anti-casino news display with categories
+
+#### Video Showcase Components (Interactive Center - Section 4)
+- **VideoShowcaseSlide.tsx** - Main container for video showcase section
+- **InteractiveVideoPlayer.tsx** - Interactive video player with playlist
+- **MainVideoDisplay.tsx** - Active video display with controls
+- **VideoOverlay.tsx** - HUD-style overlay with technical information
+- **VideoPlaylist.tsx** - Video case selection playlist
+- **PlaylistItem.tsx** - Individual playlist item with tags and states
 
 ### Pages (`/src/pages/`)
 
-1. **LandingPage.tsx** - Homepage with video background and marketing content
+1. **LandingPage.tsx** - Homepage with video background, BeamsBackground effect, interactive video showcase, and marketing content
 2. **AboutPage.tsx** - Team information and company mission with "Ghosts in the Machine" section featuring anonymous team members (Tunn3l!spectre, Sh4dowQubit, Sup3rposition)
 3. **UseCasePage.tsx** - Interactive use case demonstrations
 4. **PricingPage.tsx** - Subscription tiers and pricing
@@ -99,12 +107,17 @@ test-flamingo-ui-project/
 - **Lilac** (#CE91BA) - Accent
 - **Onyx** (#373F3D) - Dark elements
 - **Moss Green** (#89A254) - Tertiary accent
+- **Neutral** (#171717) - Used in BeamsBackground
+- **Cyan** (#00FFFF) - Cyberpunk accent for video showcase
+- **Magenta** (#FF00FF) - Neon accent for active elements
 
 ### Styling Approach
 - Tailwind CSS for utility-first styling
 - Custom CSS variables for theme colors
 - Glassmorphism effects throughout
 - Responsive design with mobile-first approach
+- Advanced animations using Framer Motion
+- Canvas-based background effects
 
 ## 🚀 Key Features
 
@@ -122,11 +135,22 @@ test-flamingo-ui-project/
 - Strategic recommendations based on quantum analysis
 
 ### Content Features
-- Anti-casino blog posts
-- Gambling scandal news
+- Anti-casino blog posts with categories (scandal, investigation, lawsuit)
+- Gambling scandal news with trending indicators
 - User success stories
 - Feature request system
 - Multi-language support (English, Spanish, Russian, Vietnamese)
+
+### Visual Features
+- Animated light beam backgrounds
+- Parallax scrolling effects
+- 3D text animations
+- Glassmorphism card designs
+- Hover animations and transitions
+- Loading states with custom spinners
+- Interactive video showcase with HUD overlay
+- Cyberpunk-themed video player interface
+- Real-time case file selection system
 
 ## 🔧 Configuration Files
 
@@ -159,6 +183,21 @@ The application is fully responsive with breakpoints:
 - Tablet: 640px - 1024px
 - Desktop: > 1024px
 
+Enhanced responsive features:
+- Touch-friendly interactions
+- Adaptive typography scaling
+- Flexible grid layouts
+- Optimized image loading
+
+## ♿ Accessibility
+
+The application follows WCAG 2.1 guidelines:
+- ARIA labels on interactive elements
+- Focus states for keyboard navigation
+- Semantic HTML structure
+- Screen reader support
+- High contrast ratios
+
 ## 🎯 Target Audience
 
 The application targets online gamblers who believe casinos manipulate their games and are looking for an edge. The messaging is deliberately controversial and anti-establishment, positioning flamingo.ai as a tool to "expose casino secrets" and "beat the house."
@@ -172,3 +211,15 @@ The application supports multiple languages through i18next:
 - **Vietnamese (VI)** - Complete translations
 
 Language preference is stored in localStorage and persists across sessions.
+
+## 🚀 Recent Updates
+
+- Added Interactive Center (Section 4) with video showcase functionality
+- Created cyberpunk-themed video player with HUD overlay
+- Implemented video playlist with case file selection
+- Enhanced "EXPOSED: Industry Scandals" section with BeamsBackground
+- Improved BlogPost component with advanced animations
+- Added category badges and trending indicators to news items
+- Implemented glassmorphism effects across components
+- Enhanced loading states and transitions
+- Improved accessibility with ARIA labels and focus states

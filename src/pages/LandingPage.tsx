@@ -7,6 +7,8 @@ import Header from '../components/Header'
 import GamblingNewsSection from '../components/GamblingNewsSection'
 import { BackgroundPaths } from '../components/BackgroundPaths'
 import Footer from '../components/Footer'
+import { BeamsBackground } from '../components/BeamsBackground'
+import VideoShowcaseSlide from '../components/VideoShowcaseSlide'
 
 export default function LandingPage() {
   const navigate = useNavigate()
@@ -439,30 +441,40 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Section 3 - Gambling Scandal News with Scroll Animations */}
-      <section className="min-h-screen bg-raisinBlack flex items-center justify-center py-12 sm:py-16 lg:py-20 relative overflow-hidden">
-        {/* Parallax news ticker background */}
-        <motion.div
-          className="absolute top-0 left-0 right-0 h-20 opacity-10"
-          style={{
-            x: useTransform(useScroll().scrollY, [1600, 2600], [0, -500]),
-          }}
-        >
-          <div className="flex whitespace-nowrap text-6xl font-bold text-limeGreen">
-            <span className="mx-8">BREAKING NEWS • AI BEATS THE HOUSE • </span>
-            <span className="mx-8">BREAKING NEWS • AI BEATS THE HOUSE • </span>
-            <span className="mx-8">BREAKING NEWS • AI BEATS THE HOUSE • </span>
-          </div>
-        </motion.div>
+      {/* Section 3 - Interactive Video Showcase */}
+      <VideoShowcaseSlide />
+
+      {/* Section 4 - Gambling Scandal News with Scroll Animations */}
+      <section className="relative min-h-screen overflow-hidden">
+        {/* Beams Background */}
+        <BeamsBackground intensity="medium" className="absolute inset-0" />
         
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-        >
-          <GamblingNewsSection />
-        </motion.div>
+        {/* Content Container */}
+        <div className="relative z-10 min-h-screen flex items-center justify-center py-12 sm:py-16 lg:py-20">
+          {/* Parallax news ticker background */}
+          <motion.div
+            className="absolute top-0 left-0 right-0 h-20 opacity-20"
+            style={{
+              x: useTransform(useScroll().scrollY, [1600, 2600], [0, -500]),
+            }}
+          >
+            <div className="flex whitespace-nowrap text-6xl font-bold text-limeGreen">
+              <span className="mx-8">BREAKING NEWS • AI BEATS THE HOUSE • </span>
+              <span className="mx-8">BREAKING NEWS • AI BEATS THE HOUSE • </span>
+              <span className="mx-8">BREAKING NEWS • AI BEATS THE HOUSE • </span>
+            </div>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="w-full"
+          >
+            <GamblingNewsSection />
+          </motion.div>
+        </div>
       </section>
 
       {/* Footer Section */}
