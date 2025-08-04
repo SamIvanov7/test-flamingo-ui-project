@@ -65,6 +65,21 @@ export default function VideoShowcaseSlide() {
               We recorded real sessions of our agents so you can see how knowledge turns into results. 
               Watch as Floyd cracks the math of slots live.
             </motion.p>
+            
+            {/* Featured Video Badge */}
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.9, duration: 0.4, type: "spring" }}
+              className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-pink/10 border border-pink/30 rounded-full"
+            >
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-pink"></span>
+              </span>
+              <span className="text-pink font-semibold text-sm uppercase tracking-wider">New: Live Floyd Demo Available</span>
+            </motion.div>
           </motion.div>
           
           {/* Interactive Video Player */}

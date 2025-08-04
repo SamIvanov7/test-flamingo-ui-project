@@ -16,6 +16,17 @@ export interface VideoCase {
 
 const videoCases: VideoCase[] = [
   {
+    id: 'promo001',
+    title: "Floyd Cracks the Math of Slots LIVE",
+    protocol: 'Surveillance Recording',
+    accuracy: '97.3%',
+    tags: ['Live Demo', 'Real Session', 'Floyd AI'],
+    thumbnailUrl: '/assets/images/thumb_promo.png',
+    videoUrl: '/assets/videos/promo-video-1.mp4',
+    target: 'Multiple Slots',
+    analysis: 'Live Mathematical Pattern Recognition'
+  },
+  {
     id: 'case001',
     title: "Case #001: Breakthrough in 'Gates of Olympus'",
     protocol: 'Hunter Protocol',

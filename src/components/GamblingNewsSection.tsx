@@ -17,10 +17,15 @@ interface NewsItem {
 export default function GamblingNewsSection() {
   const [news, setNews] = useState<NewsItem[]>([])
   const [loading, setLoading] = useState(true)
+  const [imageErrors, setImageErrors] = useState<Set<number>>(new Set())
   const { scrollY } = useScroll()
   
   const parallaxY = useTransform(scrollY, [2000, 3000], [0, -50])
   const scaleProgress = useTransform(scrollY, [2000, 2500], [0.9, 1])
+
+  const handleImageError = (index: number) => {
+    setImageErrors(prev => new Set(prev).add(index))
+  }
 
   useEffect(() => {
     fetchGamblingScandals()
@@ -108,7 +113,7 @@ export default function GamblingNewsSection() {
   }
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -130,7 +135,7 @@ export default function GamblingNewsSection() {
         </motion.div>
 
         <motion.h2
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 break-words"
           style={{ scale: scaleProgress }}
         >
           <motion.span 
@@ -152,7 +157,7 @@ export default function GamblingNewsSection() {
         </motion.h2>
         
         <motion.p
-          className="text-lg sm:text-xl md:text-2xl text-beigeCream/70 max-w-4xl mx-auto"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-beigeCream/70 max-w-4xl mx-auto px-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.6 }}
@@ -179,7 +184,7 @@ export default function GamblingNewsSection() {
               transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
             />
             <motion.p
-              className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-limeGreen text-lg font-semibold"
+              className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-limeGreen text-sm sm:text-lg font-semibold text-center px-4"
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
@@ -189,7 +194,7 @@ export default function GamblingNewsSection() {
         </motion.div>
       ) : (
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -199,25 +204,25 @@ export default function GamblingNewsSection() {
               key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{
-                delay: index * 0.1,
+                delay: Math.min(index * 0.1, 0.3),
                 duration: 0.6,
                 type: "spring",
                 stiffness: 100
               }}
-              className="relative"
+              className="relative h-full"
             >
               {item.trending && (
                 <motion.div
-                  className="absolute -top-3 -right-3 z-10"
+                  className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 z-20"
                   initial={{ scale: 0, rotate: -180 }}
                   animate={{ scale: 1, rotate: 0 }}
-                  transition={{ delay: 0.5 + index * 0.1, type: "spring" }}
+                  transition={{ delay: 0.5 + Math.min(index * 0.1, 0.3), type: "spring" }}
                 >
                   <div className="relative">
                     <div className="absolute inset-0 bg-limeGreen blur-xl opacity-50 animate-pulse" />
-                    <div className="relative bg-limeGreen text-darkGreen px-3 py-1 rounded-full text-xs font-bold uppercase">
+                    <div className="relative bg-limeGreen text-darkGreen px-2 sm:px-3 py-1 rounded-full text-xs font-bold uppercase">
                       🔥 Trending
                     </div>
                   </div>
@@ -226,25 +231,28 @@ export default function GamblingNewsSection() {
               
               {item.category && (
                 <motion.div
-                  className={`absolute -top-3 left-4 z-10 flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold border ${categoryColors[item.category]}`}
+                  className={`absolute -top-2 left-2 sm:-top-3 sm:left-4 z-20 flex items-center gap-1 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold border ${categoryColors[item.category]}`}
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 + index * 0.1 }}
+                  transition={{ delay: 0.6 + Math.min(index * 0.1, 0.3) }}
                 >
                   {categoryIcons[item.category]}
-                  <span className="capitalize">{item.category}</span>
+                  <span className="capitalize hidden sm:inline">{item.category}</span>
                 </motion.div>
               )}
               
-              <BlogPost
-                title={item.title}
-                excerpt={item.excerpt}
-                date={item.date}
-                readTime={item.readTime}
-                imageUrl={item.imageUrl}
-                sourceUrl={item.sourceUrl}
-                index={index}
-              />
+              <div className="h-full">
+                <BlogPost
+                  title={item.title}
+                  excerpt={item.excerpt}
+                  date={item.date}
+                  readTime={item.readTime}
+                  imageUrl={!imageErrors.has(index) ? item.imageUrl : undefined}
+                  sourceUrl={item.sourceUrl}
+                  index={index}
+                  onImageError={() => handleImageError(index)}
+                />
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -257,18 +265,18 @@ export default function GamblingNewsSection() {
         className="text-center mt-16"
       >
         <motion.div
-          className="inline-flex items-center gap-4 text-sm text-beigeCream/50 italic"
+          className="inline-flex items-center gap-2 sm:gap-4 text-xs sm:text-sm text-beigeCream/50 italic"
           whileHover={{ scale: 1.05 }}
         >
           <motion.div
-            className="w-8 h-[1px] bg-beigeCream/30"
+            className="w-4 sm:w-8 h-[1px] bg-beigeCream/30"
             initial={{ width: 0 }}
             whileInView={{ width: 32 }}
             transition={{ delay: 1, duration: 0.6 }}
           />
-          <p>flamingo.ai - Exposing the truth behind "random" number generation</p>
+          <p className="text-center px-2">flamingo.ai - Exposing the truth behind "random" number generation</p>
           <motion.div
-            className="w-8 h-[1px] bg-beigeCream/30"
+            className="w-4 sm:w-8 h-[1px] bg-beigeCream/30"
             initial={{ width: 0 }}
             whileInView={{ width: 32 }}
             transition={{ delay: 1, duration: 0.6 }}

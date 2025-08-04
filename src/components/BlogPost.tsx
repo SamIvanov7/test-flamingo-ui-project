@@ -9,9 +9,10 @@ interface BlogPostProps {
   imageUrl?: string
   sourceUrl?: string
   index: number
+  onImageError?: () => void
 }
 
-export default function BlogPost({ title, excerpt, date, readTime, imageUrl, sourceUrl, index }: BlogPostProps) {
+export default function BlogPost({ title, excerpt, date, readTime, imageUrl, sourceUrl, index, onImageError }: BlogPostProps) {
   return (
     <motion.article
       initial={{ y: 50, opacity: 0 }}
@@ -24,7 +25,7 @@ export default function BlogPost({ title, excerpt, date, readTime, imageUrl, sou
         damping: 15
       }}
       whileHover={{ y: -8, transition: { duration: 0.3 } }}
-      className="h-full flex flex-col group relative overflow-hidden rounded-2xl bg-gradient-to-br from-darkGreen/40 via-raisinBlack/40 to-darkGreen/40 backdrop-blur-sm border border-beigeCream/10 hover:border-limeGreen/30 transition-all duration-300"
+      className="h-full flex flex-col group relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-br from-darkGreen/40 via-raisinBlack/40 to-darkGreen/40 backdrop-blur-sm border border-beigeCream/10 hover:border-limeGreen/30 transition-all duration-300"
       role="article"
       aria-label={`News article: ${title}`}
     >
@@ -58,7 +59,7 @@ export default function BlogPost({ title, excerpt, date, readTime, imageUrl, sou
 
       {imageUrl ? (
         <motion.div 
-          className="relative h-48 overflow-hidden bg-gradient-to-br from-pink/20 to-limeGreen/20"
+          className="relative h-40 sm:h-48 overflow-hidden bg-gradient-to-br from-pink/20 to-limeGreen/20"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.4 }}
         >
@@ -72,6 +73,7 @@ export default function BlogPost({ title, excerpt, date, readTime, imageUrl, sou
             loading="lazy"
             onError={(e) => {
               (e.target as HTMLImageElement).style.display = 'none'
+              onImageError?.()
             }}
           />
           {/* Scan line effect */}
@@ -93,7 +95,7 @@ export default function BlogPost({ title, excerpt, date, readTime, imageUrl, sou
           </motion.div>
         </motion.div>
       ) : (
-        <div className="h-48 bg-gradient-to-br from-pink/10 to-limeGreen/10 flex items-center justify-center relative overflow-hidden">
+        <div className="h-40 sm:h-48 bg-gradient-to-br from-pink/10 to-limeGreen/10 flex items-center justify-center relative overflow-hidden">
           <motion.div
             className="absolute inset-0"
             animate={{
@@ -115,7 +117,7 @@ export default function BlogPost({ title, excerpt, date, readTime, imageUrl, sou
         </div>
       )}
       
-      <div className="p-6 flex-1 flex flex-col relative z-10">
+      <div className="p-4 sm:p-6 flex-1 flex flex-col relative z-10">
         <motion.div 
           className="flex items-center justify-between text-sm text-beigeCream/60 mb-4"
           initial={{ opacity: 0 }}
@@ -135,7 +137,7 @@ export default function BlogPost({ title, excerpt, date, readTime, imageUrl, sou
         </motion.div>
         
         <motion.h3 
-          className="text-xl font-bold text-pink mb-3 line-clamp-2 group-hover:text-limeGreen transition-colors duration-300"
+          className="text-lg sm:text-xl font-bold text-pink mb-3 line-clamp-2 group-hover:text-limeGreen transition-colors duration-300"
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.3 + index * 0.1 }}
@@ -144,7 +146,7 @@ export default function BlogPost({ title, excerpt, date, readTime, imageUrl, sou
         </motion.h3>
         
         <motion.p 
-          className="text-beigeCream/80 line-clamp-3 mb-6 flex-1 leading-relaxed"
+          className="text-sm sm:text-base text-beigeCream/80 line-clamp-3 mb-4 sm:mb-6 flex-1 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 + index * 0.1 }}
@@ -154,7 +156,7 @@ export default function BlogPost({ title, excerpt, date, readTime, imageUrl, sou
         
         <motion.button
           onClick={() => sourceUrl && window.open(sourceUrl, '_blank')}
-          className="relative text-limeGreen font-semibold hover:text-limeGreen/80 transition-all duration-300 flex items-center gap-2 group/button focus:outline-none focus:ring-2 focus:ring-limeGreen/50 rounded-lg px-4 py-2 -ml-4"
+          className="relative text-sm sm:text-base text-limeGreen font-semibold hover:text-limeGreen/80 transition-all duration-300 flex items-center gap-2 group/button focus:outline-none focus:ring-2 focus:ring-limeGreen/50 rounded-lg px-3 sm:px-4 py-2 -ml-3 sm:-ml-4"
           whileHover={{ x: 5 }}
           whileTap={{ scale: 0.95 }}
           tabIndex={0}
