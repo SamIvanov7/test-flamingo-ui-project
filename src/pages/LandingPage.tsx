@@ -42,30 +42,30 @@ export default function LandingPage() {
       <Header onLogin={() => navigate('/dashboard')} />
       
       {/* Floating Geometric Shapes with Parallax */}
-      <div className="fixed inset-0 pointer-events-none z-0">
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <motion.div
-          className="absolute top-[20%] left-[10%] w-20 h-20 border-2 border-limeGreen/20 rounded-full"
+          className="absolute top-[20%] left-[10%] w-20 h-20 border-2 border-limeGreen/30 rounded-full backdrop-blur-sm"
           style={{
             y: useTransform(useScroll().scrollY, [0, 3000], [0, -600]),
             rotate: useTransform(useScroll().scrollY, [0, 3000], [0, 360]),
           }}
         />
         <motion.div
-          className="absolute top-[40%] right-[15%] w-16 h-16 bg-pink/10 backdrop-blur-sm"
+          className="absolute top-[40%] right-[15%] w-16 h-16 bg-gradient-to-br from-pink/15 to-pink/5 backdrop-blur-md rounded-lg"
           style={{
             y: useTransform(useScroll().scrollY, [0, 3000], [0, -400]),
             rotate: useTransform(useScroll().scrollY, [0, 3000], [0, -180]),
           }}
         />
         <motion.div
-          className="absolute top-[60%] left-[20%] w-24 h-24 border-2 border-beigeCream/10 transform rotate-45"
+          className="absolute top-[60%] left-[20%] w-24 h-24 border-2 border-beigeCream/20 transform rotate-45 backdrop-blur-sm rounded-lg"
           style={{
             y: useTransform(useScroll().scrollY, [0, 3000], [0, -500]),
             x: useTransform(useScroll().scrollY, [0, 3000], [0, 100]),
           }}
         />
         <motion.div
-          className="absolute top-[80%] right-[10%] w-32 h-32 bg-gradient-to-br from-limeGreen/5 to-transparent rounded-full blur-xl"
+          className="absolute top-[80%] right-[10%] w-32 h-32 bg-gradient-to-br from-limeGreen/10 via-limeGreen/5 to-transparent rounded-full blur-2xl"
           style={{
             y: useTransform(useScroll().scrollY, [0, 3000], [0, -700]),
             scale: useTransform(useScroll().scrollY, [0, 3000], [1, 1.5]),
@@ -74,7 +74,7 @@ export default function LandingPage() {
       </div>
       
       {/* Section 1 - Hero with Video Background */}
-      <section className="relative h-screen overflow-hidden">
+      <section className="relative h-screen overflow-hidden bg-gradient-to-b from-darkGreen via-darkGreen/98 to-darkGreen/95">
         <VideoBackground videoSrc="/assets/videos/intro-loop-desktop.mp4" />
         
         {/* Parallax background elements */}
@@ -84,8 +84,8 @@ export default function LandingPage() {
             y: useTransform(useScroll().scrollY, [0, 1000], [0, -200]),
           }}
         >
-          <div className="absolute top-20 left-10 w-32 h-32 bg-limeGreen/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-40 right-20 w-48 h-48 bg-pink/10 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-limeGreen/15 to-limeGreen/5 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-40 right-20 w-56 h-56 bg-gradient-to-tl from-pink/15 to-pink/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
         </motion.div>
         
         <div className="relative z-10 h-full flex items-center justify-center">
@@ -128,7 +128,7 @@ export default function LandingPage() {
                   className="text-center max-w-4xl mx-auto"
                 >
                   <div className="flex flex-col items-center justify-center select-none">
-                    <div className="title mt-8 sm:mt-12 lg:mt-20 text-center relative z-20">
+                    <div className="title mt-10 sm:mt-16 lg:mt-24 text-center relative z-20">
                       <h1 
                         className="text-beigeCream uppercase text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[143.112px] leading-tight sm:leading-tight md:leading-tight lg:leading-[104.519997px] select-none m-0 p-0"
                         style={{ 
@@ -172,7 +172,7 @@ export default function LandingPage() {
                         {t('landing.hero.title2')}
                       </h2>
                     </div>
-                    <div className="subtitle max-w-[350px] sm:max-w-[500px] lg:max-w-[600px] px-6 sm:px-8 lg:px-0 mt-4 lg:mt-6 text-sm sm:text-base lg:text-lg text-beigeCream text-center flex flex-col relative z-10">
+                    <div className="subtitle max-w-[400px] sm:max-w-[550px] lg:max-w-[700px] px-6 sm:px-8 lg:px-0 mt-6 lg:mt-8 text-base sm:text-lg lg:text-xl text-beigeCream/90 text-center flex flex-col relative z-10">
                       <p>
                         {t('landing.hero.subtitle')}
                       </p>
@@ -184,11 +184,16 @@ export default function LandingPage() {
                     onClick={handlePlayVideo}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.5, type: "spring" }}
                     className="relative mb-8 sm:mb-12 lg:mb-16 mx-auto block w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32"
                   >
-                    <div className="absolute inset-0 rounded-full border-2 border-limeGreen bg-transparent
-                                  shadow-[0_0_50px_rgba(171,248,11,0.6)] hover:shadow-[0_0_70px_rgba(171,248,11,0.8)]
-                                  transition-all duration-300">
+                    <div className="absolute inset-0 rounded-full border-2 border-limeGreen bg-gradient-to-br from-limeGreen/10 to-transparent
+                                  shadow-[0_0_50px_rgba(171,248,11,0.6)] hover:shadow-[0_0_80px_rgba(171,248,11,0.9)]
+                                  transition-all duration-300 backdrop-blur-sm
+                                  before:absolute before:inset-0 before:rounded-full before:bg-limeGreen/5 
+                                  before:animate-pulse">
                       {/* Rotating Text */}
                       <svg className="absolute inset-0 w-full h-full animate-spin-slow" viewBox="0 0 128 128">
                         <defs>
@@ -218,9 +223,11 @@ export default function LandingPage() {
                     onClick={() => navigate('/onboarding')}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-limeGreen text-limeGreen font-bold rounded-xl text-base sm:text-lg
-                             hover:bg-limeGreen/10 hover:shadow-[0_0_30px_rgba(171,248,11,0.5)] transition-all duration-300
-                             mt-8 sm:mt-12 lg:mt-16"
+                    className="px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-limeGreen/10 to-transparent 
+                             border-2 border-limeGreen text-limeGreen font-bold rounded-2xl text-lg sm:text-xl
+                             hover:bg-limeGreen/20 hover:shadow-[0_0_40px_rgba(171,248,11,0.6)] 
+                             transition-all duration-300 backdrop-blur-sm
+                             mt-10 sm:mt-14 lg:mt-20"
                   >
                     Try flamingo.ai
                   </motion.button>
@@ -232,12 +239,19 @@ export default function LandingPage() {
       </section>
 
       {/* Section 2 - From Chaos to Order */}
-      <div className="relative">
+      <motion.div 
+        className="relative"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1 }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-darkGreen/95 via-transparent to-darkGreen/95 pointer-events-none" />
         <ChaosToOrderSection />
-      </div>
+      </motion.div>
 
       {/* Section 3 - Flamingo Images Gallery with Scroll Animations */}
-      <section className="min-h-screen bg-darkGreen flex items-center justify-center overflow-hidden py-12 sm:py-16 lg:py-0 relative">
+      <section className="min-h-screen bg-gradient-to-br from-darkGreen via-darkGreen/95 to-darkGreen/90 flex items-center justify-center overflow-hidden py-16 sm:py-20 lg:py-24 relative">
         {/* Animated Background Paths */}
         <BackgroundPaths />
         
@@ -246,13 +260,13 @@ export default function LandingPage() {
           className="absolute inset-0 pointer-events-none overflow-hidden"
         >
           <motion.div
-            className="absolute -top-20 -left-20 w-96 h-96 bg-limeGreen/5 rounded-full blur-3xl"
+            className="absolute -top-20 -left-20 w-96 h-96 bg-gradient-to-br from-limeGreen/10 to-limeGreen/2 rounded-full blur-3xl"
             style={{
               y: useTransform(useScroll().scrollY, [600, 1600], [100, -100]),
             }}
           />
           <motion.div
-            className="absolute -bottom-20 -right-20 w-96 h-96 bg-pink/5 rounded-full blur-3xl"
+            className="absolute -bottom-20 -right-20 w-96 h-96 bg-gradient-to-tl from-pink/10 to-pink/2 rounded-full blur-3xl"
             style={{
               y: useTransform(useScroll().scrollY, [600, 1600], [-100, 100]),
             }}
@@ -265,25 +279,37 @@ export default function LandingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-beigeCream mb-12"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-16"
           >
-            Discover the Power of AI
+            <span className="bg-gradient-to-r from-limeGreen via-beigeCream to-pink bg-clip-text text-transparent">
+              Discover the Power of AI
+            </span>
           </motion.h2>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center max-w-3xl mx-auto mb-12 text-lg sm:text-xl text-beigeCream/70 leading-relaxed"
+          >
+            Experience the future of gaming intelligence with our revolutionary AI-powered analytics platform
+          </motion.p>
           
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 max-w-7xl mx-auto"
           >
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.5 }}
+              initial={{ y: 80, opacity: 0, rotateY: -10 }}
+              whileInView={{ y: 0, opacity: 1, rotateY: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ 
                 delay: 0.1,
-                duration: 0.8,
+                duration: 1,
                 ease: [0.215, 0.61, 0.355, 1.0]
               }}
               whileHover={{ 
@@ -291,27 +317,34 @@ export default function LandingPage() {
                 scale: 1.02,
                 transition: { duration: 0.3 }
               }}
-              className="glassmorphism p-4 sm:p-6 rounded-2xl overflow-hidden group"
+              className="backdrop-blur-xl bg-gradient-to-br from-darkGreen/40 via-darkGreen/20 to-transparent 
+                        border border-limeGreen/20 shadow-xl shadow-limeGreen/10
+                        p-6 sm:p-8 rounded-3xl overflow-hidden group relative
+                        before:absolute before:inset-0 before:bg-gradient-to-tr before:from-limeGreen/10 before:to-transparent before:opacity-0 
+                        before:transition-opacity before:duration-500 hover:before:opacity-100"
             >
-              <img 
-                src="/assets/images/flamingo_1_restyled.png" 
-                alt="Flamingo 1" 
-                className="w-full h-32 sm:h-40 md:h-48 object-contain rounded-lg mb-3 sm:mb-4 
-                         group-hover:scale-105 transition-transform duration-300"
-              />
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-limeGreen">AI Technology</h3>
-              <p className="text-sm sm:text-base text-beigeCream/70">
+              <div className="relative overflow-hidden rounded-2xl mb-6 bg-gradient-to-br from-darkGreen/60 to-darkGreen/30 p-4">
+                <img 
+                  src="/assets/images/flamingo_1_restyled.png" 
+                  alt="Flamingo 1" 
+                  className="w-full h-36 sm:h-44 md:h-52 object-contain relative z-10
+                           group-hover:scale-110 transition-transform duration-500 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-limeGreen/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-limeGreen tracking-wide">AI Technology</h3>
+              <p className="text-sm sm:text-base text-beigeCream/80 leading-relaxed">
                 Advanced neural networks analyze patterns in real-time
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.5 }}
+              initial={{ y: 80, opacity: 0, rotateY: -10 }}
+              whileInView={{ y: 0, opacity: 1, rotateY: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ 
                 delay: 0.2,
-                duration: 0.8,
+                duration: 1,
                 ease: [0.215, 0.61, 0.355, 1.0]
               }}
               whileHover={{ 
@@ -319,27 +352,34 @@ export default function LandingPage() {
                 scale: 1.02,
                 transition: { duration: 0.3 }
               }}
-              className="glassmorphism p-4 sm:p-6 rounded-2xl overflow-hidden group"
+              className="backdrop-blur-xl bg-gradient-to-br from-darkGreen/40 via-darkGreen/20 to-transparent 
+                        border border-limeGreen/20 shadow-xl shadow-limeGreen/10
+                        p-6 sm:p-8 rounded-3xl overflow-hidden group relative
+                        before:absolute before:inset-0 before:bg-gradient-to-tr before:from-limeGreen/10 before:to-transparent before:opacity-0 
+                        before:transition-opacity before:duration-500 hover:before:opacity-100"
             >
-              <img 
-                src="/assets/images/flamingo_2_restyled.png" 
-                alt="Flamingo 2" 
-                className="w-full h-32 sm:h-40 md:h-48 object-contain rounded-lg mb-3 sm:mb-4
-                         group-hover:scale-105 transition-transform duration-300"
-              />
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-limeGreen">Live Analytics</h3>
-              <p className="text-sm sm:text-base text-beigeCream/70">
+              <div className="relative overflow-hidden rounded-2xl mb-6 bg-gradient-to-br from-darkGreen/60 to-darkGreen/30 p-4">
+                <img 
+                  src="/assets/images/flamingo_2_restyled.png" 
+                  alt="Flamingo 2" 
+                  className="w-full h-36 sm:h-44 md:h-52 object-contain relative z-10
+                           group-hover:scale-110 transition-transform duration-500 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-pink/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-pink tracking-wide">Live Analytics</h3>
+              <p className="text-sm sm:text-base text-beigeCream/80 leading-relaxed">
                 Real-time probability calculations for every spin
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.5 }}
+              initial={{ y: 80, opacity: 0, rotateY: -10 }}
+              whileInView={{ y: 0, opacity: 1, rotateY: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ 
                 delay: 0.3,
-                duration: 0.8,
+                duration: 1,
                 ease: [0.215, 0.61, 0.355, 1.0]
               }}
               whileHover={{ 
@@ -347,27 +387,34 @@ export default function LandingPage() {
                 scale: 1.02,
                 transition: { duration: 0.3 }
               }}
-              className="glassmorphism p-4 sm:p-6 rounded-2xl overflow-hidden group"
+              className="backdrop-blur-xl bg-gradient-to-br from-darkGreen/40 via-darkGreen/20 to-transparent 
+                        border border-limeGreen/20 shadow-xl shadow-limeGreen/10
+                        p-6 sm:p-8 rounded-3xl overflow-hidden group relative
+                        before:absolute before:inset-0 before:bg-gradient-to-tr before:from-limeGreen/10 before:to-transparent before:opacity-0 
+                        before:transition-opacity before:duration-500 hover:before:opacity-100"
             >
-              <img 
-                src="/assets/images/flamingo_3_restyled.png" 
-                alt="Flamingo 3" 
-                className="w-full h-32 sm:h-40 md:h-48 object-contain rounded-lg mb-3 sm:mb-4
-                         group-hover:scale-105 transition-transform duration-300"
-              />
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-limeGreen">Smart Insights</h3>
-              <p className="text-sm sm:text-base text-beigeCream/70">
+              <div className="relative overflow-hidden rounded-2xl mb-6 bg-gradient-to-br from-darkGreen/60 to-darkGreen/30 p-4">
+                <img 
+                  src="/assets/images/flamingo_3_restyled.png" 
+                  alt="Flamingo 3" 
+                  className="w-full h-36 sm:h-44 md:h-52 object-contain relative z-10
+                           group-hover:scale-110 transition-transform duration-500 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-limeGreen/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-limeGreen tracking-wide">Smart Insights</h3>
+              <p className="text-sm sm:text-base text-beigeCream/80 leading-relaxed">
                 Personalized recommendations based on your play style
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.5 }}
+              initial={{ y: 80, opacity: 0, rotateY: -10 }}
+              whileInView={{ y: 0, opacity: 1, rotateY: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ 
                 delay: 0.4,
-                duration: 0.8,
+                duration: 1,
                 ease: [0.215, 0.61, 0.355, 1.0]
               }}
               whileHover={{ 
@@ -375,27 +422,34 @@ export default function LandingPage() {
                 scale: 1.02,
                 transition: { duration: 0.3 }
               }}
-              className="glassmorphism p-4 sm:p-6 rounded-2xl overflow-hidden group"
+              className="backdrop-blur-xl bg-gradient-to-br from-darkGreen/40 via-darkGreen/20 to-transparent 
+                        border border-limeGreen/20 shadow-xl shadow-limeGreen/10
+                        p-6 sm:p-8 rounded-3xl overflow-hidden group relative
+                        before:absolute before:inset-0 before:bg-gradient-to-tr before:from-limeGreen/10 before:to-transparent before:opacity-0 
+                        before:transition-opacity before:duration-500 hover:before:opacity-100"
             >
-              <img 
-                src="/assets/images/flamingo_4_restyled.png" 
-                alt="Flamingo 4" 
-                className="w-full h-32 sm:h-40 md:h-48 object-contain rounded-lg mb-3 sm:mb-4 
-                         group-hover:scale-105 transition-transform duration-300"
-              />
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-limeGreen">Pattern Recognition</h3>
-              <p className="text-sm sm:text-base text-beigeCream/70">
+              <div className="relative overflow-hidden rounded-2xl mb-6 bg-gradient-to-br from-darkGreen/60 to-darkGreen/30 p-4">
+                <img 
+                  src="/assets/images/flamingo_4_restyled.png" 
+                  alt="Flamingo 4" 
+                  className="w-full h-36 sm:h-44 md:h-52 object-contain relative z-10
+                           group-hover:scale-110 transition-transform duration-500 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-pink/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-pink tracking-wide">Pattern Recognition</h3>
+              <p className="text-sm sm:text-base text-beigeCream/80 leading-relaxed">
                 Quantum-neural analysis decodes hidden patterns
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.5 }}
+              initial={{ y: 80, opacity: 0, rotateY: -10 }}
+              whileInView={{ y: 0, opacity: 1, rotateY: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ 
                 delay: 0.5,
-                duration: 0.8,
+                duration: 1,
                 ease: [0.215, 0.61, 0.355, 1.0]
               }}
               whileHover={{ 
@@ -403,27 +457,34 @@ export default function LandingPage() {
                 scale: 1.02,
                 transition: { duration: 0.3 }
               }}
-              className="glassmorphism p-4 sm:p-6 rounded-2xl overflow-hidden group"
+              className="backdrop-blur-xl bg-gradient-to-br from-darkGreen/40 via-darkGreen/20 to-transparent 
+                        border border-limeGreen/20 shadow-xl shadow-limeGreen/10
+                        p-6 sm:p-8 rounded-3xl overflow-hidden group relative
+                        before:absolute before:inset-0 before:bg-gradient-to-tr before:from-limeGreen/10 before:to-transparent before:opacity-0 
+                        before:transition-opacity before:duration-500 hover:before:opacity-100"
             >
-              <img 
-                src="/assets/images/flamingo_5_restyled.png" 
-                alt="Flamingo 5" 
-                className="w-full h-32 sm:h-40 md:h-48 object-contain rounded-lg mb-3 sm:mb-4
-                         group-hover:scale-105 transition-transform duration-300"
-              />
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-limeGreen">Probability Engine</h3>
-              <p className="text-sm sm:text-base text-beigeCream/70">
+              <div className="relative overflow-hidden rounded-2xl mb-6 bg-gradient-to-br from-darkGreen/60 to-darkGreen/30 p-4">
+                <img 
+                  src="/assets/images/flamingo_5_restyled.png" 
+                  alt="Flamingo 5" 
+                  className="w-full h-36 sm:h-44 md:h-52 object-contain relative z-10
+                           group-hover:scale-110 transition-transform duration-500 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-limeGreen/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-limeGreen tracking-wide">Probability Engine</h3>
+              <p className="text-sm sm:text-base text-beigeCream/80 leading-relaxed">
                 Revolutionary algorithms challenge randomness
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.5 }}
+              initial={{ y: 80, opacity: 0, rotateY: -10 }}
+              whileInView={{ y: 0, opacity: 1, rotateY: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ 
                 delay: 0.6,
-                duration: 0.8,
+                duration: 1,
                 ease: [0.215, 0.61, 0.355, 1.0]
               }}
               whileHover={{ 
@@ -431,16 +492,23 @@ export default function LandingPage() {
                 scale: 1.02,
                 transition: { duration: 0.3 }
               }}
-              className="glassmorphism p-4 sm:p-6 rounded-2xl overflow-hidden group"
+              className="backdrop-blur-xl bg-gradient-to-br from-darkGreen/40 via-darkGreen/20 to-transparent 
+                        border border-limeGreen/20 shadow-xl shadow-limeGreen/10
+                        p-6 sm:p-8 rounded-3xl overflow-hidden group relative
+                        before:absolute before:inset-0 before:bg-gradient-to-tr before:from-limeGreen/10 before:to-transparent before:opacity-0 
+                        before:transition-opacity before:duration-500 hover:before:opacity-100"
             >
-              <img 
-                src="/assets/images/flamingo_6_restyled.png" 
-                alt="Flamingo 6" 
-                className="w-full h-32 sm:h-40 md:h-48 object-contain rounded-lg mb-3 sm:mb-4
-                         group-hover:scale-105 transition-transform duration-300"
-              />
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-limeGreen">Win Strategy</h3>
-              <p className="text-sm sm:text-base text-beigeCream/70">
+              <div className="relative overflow-hidden rounded-2xl mb-6 bg-gradient-to-br from-darkGreen/60 to-darkGreen/30 p-4">
+                <img 
+                  src="/assets/images/flamingo_6_restyled.png" 
+                  alt="Flamingo 6" 
+                  className="w-full h-36 sm:h-44 md:h-52 object-contain relative z-10
+                           group-hover:scale-110 transition-transform duration-500 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-pink/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-pink tracking-wide">Win Strategy</h3>
+              <p className="text-sm sm:text-base text-beigeCream/80 leading-relaxed">
                 Beat the house with data-driven insights
               </p>
             </motion.div>
@@ -449,12 +517,20 @@ export default function LandingPage() {
       </section>
 
       {/* Section 4 - Interactive Video Showcase */}
-      <div id="video-showcase-section">
+      <motion.div 
+        id="video-showcase-section"
+        className="relative"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1 }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-darkGreen/95 via-transparent to-transparent pointer-events-none" />
         <VideoShowcaseSlide />
-      </div>
+      </motion.div>
 
       {/* Section 5 - MCP Example Section */}
-      <section className="relative min-h-screen bg-darkGreen py-20">
+      <section className="relative min-h-screen bg-gradient-to-b from-darkGreen via-darkGreen/98 to-darkGreen/95 py-24">
         <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
@@ -465,6 +541,17 @@ export default function LandingPage() {
           >
             MCP Server Examples
           </motion.h2>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center max-w-3xl mx-auto mb-12 text-lg sm:text-xl text-beigeCream/70 leading-relaxed"
+          >
+            Explore our Model Context Protocol server implementations and integrations
+          </motion.p>
+          
           <MCPExample />
           
           <motion.div
@@ -478,8 +565,10 @@ export default function LandingPage() {
               onClick={() => navigate('/showcase')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-transparent border-2 border-limeGreen text-limeGreen font-bold rounded-xl text-lg
-                       hover:bg-limeGreen/10 hover:shadow-[0_0_30px_rgba(171,248,11,0.5)] transition-all duration-300"
+              className="px-10 py-5 bg-gradient-to-r from-limeGreen/10 to-transparent 
+                       border-2 border-limeGreen text-limeGreen font-bold rounded-2xl text-xl
+                       hover:bg-limeGreen/20 hover:shadow-[0_0_40px_rgba(171,248,11,0.6)] 
+                       transition-all duration-300 backdrop-blur-sm"
             >
               View Component Showcase
             </motion.button>
@@ -493,7 +582,7 @@ export default function LandingPage() {
         <BeamsBackground intensity="medium" className="absolute inset-0" />
         
         {/* Content Container */}
-        <div className="relative z-10 min-h-screen flex items-center justify-center py-12 sm:py-16 lg:py-20">
+        <div className="relative z-10 min-h-screen flex items-center justify-center py-16 sm:py-20 lg:py-24">
           {/* Parallax news ticker background */}
           <motion.div
             className="absolute top-0 left-0 right-0 h-20 opacity-20"
@@ -529,7 +618,7 @@ export default function LandingPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4"
           onClick={handleCloseVideo}
         >
           <motion.div
@@ -542,7 +631,7 @@ export default function LandingPage() {
             <video
               ref={videoRef}
               src="/assets/videos/Pinky_Desktop.mp4"
-              className="w-full rounded-lg shadow-2xl"
+              className="w-full rounded-2xl shadow-2xl shadow-black/50 ring-1 ring-white/10"
               controls
               autoPlay
             />
@@ -550,11 +639,12 @@ export default function LandingPage() {
               onClick={handleCloseVideo}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="absolute top-4 right-4 p-2 bg-limeGreen rounded-full 
-                       text-darkGreen hover:bg-limeGreen/80 transition-colors"
+              className="absolute top-4 right-4 p-3 bg-gradient-to-br from-limeGreen to-limeGreen/80 rounded-full 
+                       text-darkGreen hover:from-limeGreen/90 hover:to-limeGreen/70 
+                       transition-all duration-300 shadow-lg shadow-black/30"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </motion.button>
           </motion.div>

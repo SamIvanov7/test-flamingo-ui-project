@@ -1,0 +1,113 @@
+{
+  "devto": [
+    {
+      "title": "[ForgeCode x OpenAI's Open Model]: Our First Impression with OpenAI’s GPT‑OSS Models",
+      "author": "",
+      "url": "https://dev.tohttps://dev.to/forgecode/forgecode-x-openais-open-model-our-first-impression-with-openais-gpt-oss-models-48d2",
+      "tags": [
+        "#webdev",
+        "#javascript",
+        "#programming",
+        "#beginners"
+      ],
+      "readTime": "",
+      "reactions": ""
+    },
+    {
+      "title": "JWT Security Best Practices",
+      "author": "",
+      "url": "https://dev.tohttps://dev.to/lovestaco/jwt-security-best-practices-3g94",
+      "tags": [
+        "#webdev",
+        "#programming",
+        "#javascript",
+        "#beginners"
+      ],
+      "readTime": "",
+      "reactions": ""
+    },
+    {
+      "title": "Build a multi-page recipe website with search and filtering",
+      "author": "",
+      "url": "https://dev.tohttps://dev.to/frontendmentor/build-a-multi-page-recipe-website-with-search-and-filtering-4hpe",
+      "tags": [
+        "#challenge",
+        "#webdev",
+        "#javascript",
+        "#frontend"
+      ],
+      "readTime": "",
+      "reactions": ""
+    },
+    {
+      "title": "Proyectos base (Scaffolding) para Springboot, FastApi, React y Express",
+      "author": "",
+      "url": "https://dev.tohttps://dev.to/luismalamoc/proyectos-base-scaffolding-para-springboot-fastapi-react-y-express-301",
+      "tags": [
+        "#programming",
+        "#javascript",
+        "#python",
+        "#java"
+      ],
+      "readTime": "",
+      "reactions": ""
+    },
+    {
+      "title": "🧠 React.memo — Boost Performance by Preventing Unnecessary Renders",
+      "author": "",
+      "url": "https://dev.tohttps://dev.to/aman_kureshi_/reactmemo-boost-performance-by-preventing-unnecessary-renders-2po4",
+      "tags": [
+        "#webdev",
+        "#javascript",
+        "#react",
+        "#amankureshi"
+      ],
+      "readTime": "",
+      "reactions": ""
+    }
+  ],
+  "hackernews": [
+    {
+      "title": "Claude Code IDE integration for Emacs",
+      "url": "https://github.com/manzaltu/claude-code-ide.el",
+      "points": "354 points",
+      "author": "kgwgk",
+      "comments": "116 comments",
+      "age": "5 hours ago"
+    },
+    {
+      "title": "Writing a Rust GPU kernel driver: a brief introduction on how GPU drivers work",
+      "url": "https://www.collabora.com/news-and-blog/blog/2025/08/06/writing-a-rust-gpu-kernel-driver-a-brief-introduction-on-how-gpu-drivers-work/",
+      "points": "115 points",
+      "author": "losgehts",
+      "comments": "12 comments",
+      "age": "2 hours ago"
+    },
+    {
+      "title": "Jules, our asynchronous coding agent",
+      "url": "https://blog.google/technology/google-labs/jules-now-available/",
+      "points": "98 points",
+      "author": "meetpateltech",
+      "comments": "72 comments",
+      "age": "2 hours ago"
+    },
+    {
+      "title": "Breaking the sorting barrier for directed single-source shortest paths",
+      "url": "https://www.quantamagazine.org/new-method-is-the-fastest-way-to-find-the-best-routes-20250806/",
+      "points": "90 points",
+      "author": "baruchel",
+      "comments": "21 comments",
+      "age": "4 hours ago"
+    },
+    {
+      "title": "Cognitive Decline Can Be Slowed Down with Lifestyle Changes",
+      "url": "https://www.smithsonianmag.com/smart-news/cognitive-decline-can-be-slowed-down-with-lifestyle-changes-from-diet-to-exercise-and-social-time-new-study-suggests-180987077/",
+      "points": "9 points",
+      "author": "ulrischa",
+      "comments": "1 comment",
+      "age": "18 minutes ago"
+    }
+  ],
+  "reddit": [],
+  "timestamp": "2025-08-06T18:56:22.589Z"
+}
