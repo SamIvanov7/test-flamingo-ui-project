@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useAuth } from '../contexts/AuthContext'
+import { LogOut, User } from 'lucide-react'
 import LanguageSwitcher from './LanguageSwitcher'
 
 interface HeaderProps {
@@ -10,8 +12,10 @@ interface HeaderProps {
 
 export default function Header({ onLogin }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [showUserMenu, setShowUserMenu] = useState(false)
   const navigate = useNavigate()
   const { t } = useTranslation()
+  const { user, isAuthenticated, logout } = useAuth()
 
   const navItems = [
     { name: t('navigation.home'), path: '/' },
@@ -29,6 +33,12 @@ export default function Header({ onLogin }: HeaderProps) {
   const handleNavClick = (path: string) => {
     setIsMenuOpen(false)
     navigate(path)
+  }
+
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+    setShowUserMenu(false)
   }
 
   return (
@@ -56,6 +66,63 @@ export default function Header({ onLogin }: HeaderProps) {
             <div className="flex items-center space-x-4">
               {/* Language Switcher */}
               <LanguageSwitcher />
+              
+              {/* User Menu or Login Button */}
+              {isAuthenticated && user ? (
+                <div className="relative">
+                  <motion.button
+                    onClick={() => setShowUserMenu(!showUserMenu)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-limeGreen/20 flex items-center justify-center">
+                      <User className="w-5 h-5 text-limeGreen" />
+                    </div>
+                    <span className="text-beigeCream text-sm font-medium">
+                      {user.fullName.split(' ')[0]}
+                    </span>
+                  </motion.button>
+                  
+                  <AnimatePresence>
+                    {showUserMenu && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="absolute right-0 mt-2 w-48 bg-darkGreen/95 backdrop-blur-md rounded-lg shadow-lg py-2 z-50"
+                      >
+                        <button
+                          onClick={() => {
+                            navigate('/settings')
+                            setShowUserMenu(false)
+                          }}
+                          className="w-full text-left px-4 py-2 text-beigeCream hover:bg-white/10 transition-colors"
+                        >
+                          Settings
+                        </button>
+                        <button
+                          onClick={handleLogout}
+                          className="w-full text-left px-4 py-2 text-beigeCream hover:bg-white/10 transition-colors flex items-center space-x-2"
+                        >
+                          <LogOut className="w-4 h-4" />
+                          <span>Logout</span>
+                        </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <motion.button
+                  onClick={() => navigate('/login')}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-4 py-2 bg-limeGreen/20 border border-limeGreen text-limeGreen font-medium rounded-lg
+                           hover:bg-limeGreen/30 transition-all duration-300"
+                >
+                  Log In
+                </motion.button>
+              )}
               
               {/* Burger Menu Button */}
               <motion.button
@@ -157,20 +224,64 @@ export default function Header({ onLogin }: HeaderProps) {
                   ))}
                 </div>
 
-                {/* Login Button */}
-                <motion.button
-                  onClick={() => {
-                    setIsMenuOpen(false)
-                    onLogin()
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full mt-8 px-6 py-3 bg-limeGreen/20 border-2 border-limeGreen text-limeGreen font-bold 
-                           rounded-lg hover:bg-limeGreen/30 hover:shadow-[0_0_20px_rgba(171,248,11,0.5)]
-                           transition-all duration-300"
-                >
-                  Log In
-                </motion.button>
+                {/* Auth Section */}
+                {isAuthenticated && user ? (
+                  <div className="mt-8 space-y-4">
+                    <div className="p-4 bg-white/10 rounded-lg">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 rounded-full bg-limeGreen/20 flex items-center justify-center">
+                          <User className="w-6 h-6 text-limeGreen" />
+                        </div>
+                        <div>
+                          <p className="text-limeGreen font-medium">{user.fullName}</p>
+                          <p className="text-beigeCream/60 text-sm">{user.email}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <motion.button
+                      onClick={() => {
+                        setIsMenuOpen(false)
+                        handleLogout()
+                      }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full px-6 py-3 bg-red-500/20 border-2 border-red-500 text-red-400 font-bold 
+                               rounded-lg hover:bg-red-500/30 transition-all duration-300 flex items-center justify-center space-x-2"
+                    >
+                      <LogOut className="w-5 h-5" />
+                      <span>Log Out</span>
+                    </motion.button>
+                  </div>
+                ) : (
+                  <div className="mt-8 space-y-3">
+                    <motion.button
+                      onClick={() => {
+                        setIsMenuOpen(false)
+                        navigate('/login')
+                      }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full px-6 py-3 bg-limeGreen/20 border-2 border-limeGreen text-limeGreen font-bold 
+                               rounded-lg hover:bg-limeGreen/30 hover:shadow-[0_0_20px_rgba(171,248,11,0.5)]
+                               transition-all duration-300"
+                    >
+                      Log In
+                    </motion.button>
+                    <motion.button
+                      onClick={() => {
+                        setIsMenuOpen(false)
+                        navigate('/signup')
+                      }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full px-6 py-3 bg-pink/20 border-2 border-pink text-pink font-bold 
+                               rounded-lg hover:bg-pink/30 hover:shadow-[0_0_20px_rgba(229,159,206,0.5)]
+                               transition-all duration-300"
+                    >
+                      Sign Up
+                    </motion.button>
+                  </div>
+                )}
               </div>
             </motion.nav>
           </>

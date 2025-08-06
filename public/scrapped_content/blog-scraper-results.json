@@ -1,0 +1,91 @@
+{
+  "timestamp": "2025-08-06T19:28:22.904Z",
+  "techcrunch": [
+    {
+      "title": "Federal regulators give Zoox an exemption for its custom-built robotaxis",
+      "url": "https://techcrunch.com/category/transportation/",
+      "excerpt": "",
+      "author": "",
+      "date": "24 minutes ago"
+    },
+    {
+      "title": "How to actually raise a seed round: Actionable advice from top investors at TechCrunch Disrupt 2025",
+      "url": "https://techcrunch.com/category/fundraising/",
+      "excerpt": "",
+      "author": "",
+      "date": "38 minutes ago"
+    },
+    {
+      "title": "First impressions of Alexa+, Amazon’s upgraded, AI-powered digital assistant",
+      "url": "https://techcrunch.com/category/artificial-intelligence/",
+      "excerpt": "",
+      "author": "",
+      "date": "59 minutes ago"
+    },
+    {
+      "title": "Google takes on ChatGPT’s Study Mode with new ‘Guided Learning’ tool in Gemini",
+      "url": "https://techcrunch.com/category/artificial-intelligence/",
+      "excerpt": "",
+      "author": "",
+      "date": "1 hour ago"
+    },
+    {
+      "title": "OpenAI is practically giving ChatGPT to the government for free",
+      "url": "https://techcrunch.com/category/artificial-intelligence/",
+      "excerpt": "",
+      "author": "",
+      "date": "2 hours ago"
+    }
+  ],
+  "github": [
+    {
+      "name": "nautechsystems / nautilus_trader",
+      "url": "https://github.com/nautechsystems/nautilus_trader",
+      "description": "",
+      "language": "Rust",
+      "stars": "Star\n\n\n    \n\n        11,346\n        \n    \n\n        260 stars today",
+      "forks": "1,313"
+    },
+    {
+      "name": "dyad-sh / dyad",
+      "url": "https://github.com/dyad-sh/dyad",
+      "description": "",
+      "language": "TypeScript",
+      "stars": "Star\n\n\n    \n\n        10,494\n        \n    \n\n        1,987 stars today",
+      "forks": "988"
+    },
+    {
+      "name": "simstudioai / sim",
+      "url": "https://github.com/simstudioai/sim",
+      "description": "",
+      "language": "TypeScript",
+      "stars": "Star\n\n\n    \n\n        6,765\n        \n    \n\n        233 stars today",
+      "forks": "906"
+    },
+    {
+      "name": "browserbase / stagehand",
+      "url": "https://github.com/browserbase/stagehand",
+      "description": "",
+      "language": "TypeScript",
+      "stars": "Star\n\n\n    \n\n        15,249\n        \n    \n\n        166 stars today",
+      "forks": "918"
+    },
+    {
+      "name": "python-poetry / poetry",
+      "url": "https://github.com/python-poetry/poetry",
+      "description": "",
+      "language": "Python",
+      "stars": "Star\n\n\n    \n\n        33,583\n        \n    \n\n        36 stars today",
+      "forks": "2,363"
+    }
+  ],
+  "producthunt": [],
+  "dynamic": [
+    {
+      "title": "All release notes",
+      "date": "",
+      "excerpt": "This blog is the official source for the updates from the React team. Anything important, including release notes or deprecation notices, will be posted here first.",
+      "link": "https://react.dev/blog"
+    }
+  ]
+}

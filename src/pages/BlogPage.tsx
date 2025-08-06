@@ -1,11 +1,64 @@
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { Search, Filter, TrendingUp, Clock, Calendar, Tag, ChevronDown, X, ArrowUp } from 'lucide-react'
 import BlogPost from '../components/BlogPost'
+import NewsDetailTemplate, { Article } from '../components/NewsDetailTemplate'
+
+// Sample article data - In production, this would come from an API or database
+const generateArticleContent = (_title: string, excerpt: string) => {
+  return `
+    <p>${excerpt}</p>
+    
+    <h2>Background and Context</h2>
+    <p>This investigation began following multiple reports from industry insiders and whistleblowers who came forward with evidence of systematic violations. The scope of the scandal has shocked even seasoned investigators who have been following gambling industry practices for decades.</p>
+    
+    <p>According to documents obtained through our investigation, the pattern of violations dates back several years, with increasingly sophisticated methods being employed to circumvent regulatory oversight. The involvement of high-profile individuals and institutions has raised serious questions about the effectiveness of current regulatory frameworks.</p>
+    
+    <h2>Key Findings</h2>
+    <p>Our investigation revealed several disturbing patterns:</p>
+    <ul>
+      <li>Systematic failures in anti-money laundering protocols across multiple venues</li>
+      <li>Direct connections between casino operations and illegal bookmaking networks</li>
+      <li>Evidence of insider trading and match-fixing in professional sports</li>
+      <li>Cryptocurrency being used to obscure transaction trails</li>
+      <li>Involvement of organized crime syndicates in casino operations</li>
+    </ul>
+    
+    <h2>The Human Cost</h2>
+    <p>Beyond the financial crimes, this scandal has had devastating human consequences. Families have been destroyed by gambling addiction enabled by these illegal operations. Vulnerable individuals have been targeted and exploited, with some losing their life savings to rigged games and predatory lending practices.</p>
+    
+    <blockquote>
+      <p>"The scale of this operation is unprecedented. We're not just talking about a few bad actors - this is a systemic problem that goes to the very heart of the industry," said a senior investigator who requested anonymity due to ongoing proceedings.</p>
+    </blockquote>
+    
+    <h2>Regulatory Response</h2>
+    <p>In response to these revelations, regulatory bodies have announced sweeping reforms and increased enforcement actions. The Nevada Gaming Control Board has implemented new monitoring systems and mandatory reporting requirements. Federal agencies are also coordinating efforts to address the interstate and international aspects of these crimes.</p>
+    
+    <p>Industry experts predict that these scandals will lead to fundamental changes in how casinos and online gambling platforms are regulated. New legislation is being drafted to address the gaps exposed by these investigations, with a focus on:</p>
+    <ul>
+      <li>Enhanced KYC (Know Your Customer) requirements</li>
+      <li>Real-time transaction monitoring systems</li>
+      <li>Stricter penalties for violations</li>
+      <li>Improved whistleblower protections</li>
+      <li>International cooperation agreements</li>
+    </ul>
+    
+    <h2>What This Means for Players</h2>
+    <p>For legitimate players and operators, these revelations serve as a wake-up call about the importance of choosing regulated and transparent platforms. The scandals have highlighted the risks associated with unregulated gambling operations and the importance of consumer protection measures.</p>
+    
+    <h2>Looking Forward</h2>
+    <p>As this story continues to develop, we will be following the legal proceedings and regulatory responses closely. The implications of these scandals will likely be felt for years to come, potentially reshaping the entire gambling industry landscape.</p>
+    
+    <p>Stay tuned for updates as more information becomes available. Our investigative team continues to analyze documents and interview sources to bring you the most comprehensive coverage of this developing story.</p>
+  `;
+};
 
 export default function BlogPage() {
   const { t } = useTranslation()
+  const { articleId } = useParams()
+  const navigate = useNavigate()
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [sortBy, setSortBy] = useState<'date' | 'popular' | 'readTime'>('date')
@@ -14,6 +67,7 @@ export default function BlogPage() {
   const [newsletterEmail, setNewsletterEmail] = useState('')
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [bookmarkedArticles, setBookmarkedArticles] = useState<string[]>([])
   
   const { scrollY } = useScroll()
   const heroOpacity = useTransform(scrollY, [0, 200], [1, 0.7])
@@ -25,13 +79,13 @@ export default function BlogPage() {
   }
 
   // Show/hide scroll to top button
-  useState(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 400)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  })
+  }, [])
 
   const categories = [
     { id: 'all', name: t('blog.categories.all'), count: 24 },
@@ -42,6 +96,7 @@ export default function BlogPage() {
   ]
 
   const featuredPost = {
+    id: 'featured-1',
     title: "Resorts World Casino Hit with $10.5M Fine in Massive Money Laundering Scandal",
     excerpt: "Nevada Gaming Control Board exposes shocking connections to illegal bookmakers and the Shohei Ohtani interpreter scandal. Internal documents reveal systematic failures in anti-money laundering protocols.",
     date: "March 20, 2024",
@@ -50,12 +105,13 @@ export default function BlogPage() {
     author: "Investigation Unit",
     imageUrl: "/content/images/resorts_world_casino_hit_with_10_5M_fine_in_massive_money_laundering.jpeg",
     views: 45420,
-    trending: true
+    trending: true,
+    tags: ['Money Laundering', 'Casino Scandal', 'Nevada Gaming']
   }
 
   const blogPosts = [
     {
-      id: 1,
+      id: '1',
       title: "INTERPOL Raids: 5,100 Arrests in $1.7 Trillion Illegal Gambling Crackdown",
       excerpt: "Operation SOGA X uncovers massive international gambling syndicate spanning 28 countries. Rescued trafficking victims and exposed money laundering networks during UEFA 2024 investigations.",
       date: "March 18, 2024",
@@ -68,7 +124,7 @@ export default function BlogPage() {
       tags: ['INTERPOL', 'Money Laundering', 'International Crime']
     },
     {
-      id: 2,
+      id: '2',
       title: "Shohei Ohtani's Interpreter Steals $17 Million for Illegal Gambling Debts",
       excerpt: "Ippei Mizuhara faces 33 years in prison after pleading guilty to bank and tax fraud. Shocking details reveal how trusted interpreter placed 19,000 illegal bets with bookmaker Mathew Bowyer.",
       date: "March 15, 2024",
@@ -81,7 +137,7 @@ export default function BlogPage() {
       tags: ['MLB Scandal', 'Fraud', 'Celebrity Crime']
     },
     {
-      id: 3,
+      id: '3',
       title: "Southeast Asian Casinos: The Dark Heart of Cyber Fraud Networks",
       excerpt: "UN report exposes how casino industry facilitates pig-butchering scams and human trafficking. Hundreds of thousands forced into scamming compounds in lawless areas of Laos and Myanmar.",
       date: "March 12, 2024",
@@ -93,7 +149,7 @@ export default function BlogPage() {
       tags: ['Human Trafficking', 'Cyber Fraud', 'SE Asia']
     },
     {
-      id: 4,
+      id: '4',
       title: "Wynn Las Vegas Caught in Proxy Betting and Money Transfer Violations",
       excerpt: "Nevada Gaming Control Board settlement reveals unsuitable methods including unregistered money transmitting, international transactions facilitation, and systematic proxy betting operations.",
       date: "March 10, 2024",
@@ -105,7 +161,7 @@ export default function BlogPage() {
       tags: ['Wynn', 'Nevada Gaming', 'Violations']
     },
     {
-      id: 5,
+      id: '5',
       title: "NBA's First Lifetime Ban: Jontay Porter's Betting Manipulation Exposed",
       excerpt: "Former Raptor provided injury information to gamblers, bet on NBA games, and manipulated his playing availability. Commissioner Adam Silver's historic ruling sends shockwaves through professional sports.",
       date: "March 8, 2024",
@@ -117,7 +173,7 @@ export default function BlogPage() {
       tags: ['NBA', 'Sports Betting', 'Lifetime Ban']
     },
     {
-      id: 6,
+      id: '6',
       title: "MGM Resorts Pays $8.5M Fine for Illegal Bookmaker Connections",
       excerpt: "Nevada Gaming Control Board reveals MGM Grand and Cosmopolitan's ties to illegal bookmaker Wayne Nix. Settlement exposes systematic failures in customer vetting and compliance procedures.",
       date: "March 5, 2024",
@@ -129,7 +185,7 @@ export default function BlogPage() {
       tags: ['MGM', 'Illegal Bookmaking', 'Fines']
     },
     {
-      id: 7,
+      id: '7',
       title: "MLB Player Places 387 Illegal Bets: Tucupita Marcano's Lifetime Ban",
       excerpt: "Padres infielder wagered over $150,000 on baseball including MLB games. Investigation reveals he won less than 5% of MLB-related wagers, highlighting the house always wins.",
       date: "March 3, 2024",
@@ -141,7 +197,7 @@ export default function BlogPage() {
       tags: ['MLB', 'Illegal Betting', 'Player Ban']
     },
     {
-      id: 8,
+      id: '8',
       title: "Billion-Dollar Pig-Butchering Scams Traced to Casino Operations",
       excerpt: "Sophisticated romance scams originating from Southeast Asian casinos defraud victims worldwide. Leaked documents show casino staff directly involved in cryptocurrency fraud schemes.",
       date: "February 28, 2024",
@@ -153,7 +209,7 @@ export default function BlogPage() {
       tags: ['Crypto Scams', 'Romance Fraud', 'Casinos']
     },
     {
-      id: 9,
+      id: '9',
       title: "Nevada Gaming Control Board Exposes Widespread AML Failures",
       excerpt: "Multiple Las Vegas casinos cited for anti-money laundering violations. Pattern of accepting known criminals and failing to report suspicious transactions worth millions.",
       date: "February 25, 2024",
@@ -163,41 +219,109 @@ export default function BlogPage() {
       views: 13456,
       imageUrl: "/content/images/nevada-gaming-violations.jpg",
       tags: ['AML', 'Nevada', 'Compliance Failures']
-    },
-    {
-      id: 10,
-      title: t('blog.posts.post10.title'),
-      excerpt: t('blog.posts.post10.excerpt'),
-      date: "February 22, 2024",
-      readTime: "6",
-      category: "strategies",
-      author: "Pattern Analysis Team",
-      views: 7890,
-      tags: ['RNG Patterns', 'Analysis', 'Strategy']
-    },
-    {
-      id: 11,
-      title: t('blog.posts.post11.title'),
-      excerpt: t('blog.posts.post11.excerpt'),
-      date: "February 20, 2024",
-      readTime: "12",
-      category: "tutorials",
-      author: "Technical Team",
-      views: 11098,
-      tags: ['Tutorial', 'Configuration', 'Setup']
-    },
-    {
-      id: 12,
-      title: t('blog.posts.post12.title'),
-      excerpt: t('blog.posts.post12.excerpt'),
-      date: "February 18, 2024",
-      readTime: "5",
-      category: "strategies",
-      author: "Success Stories",
-      views: 5432,
-      tags: ['Success', 'User Story', 'Verified']
     }
   ]
+
+  // Convert blog posts to Article format for detail view
+  const getArticleById = (id: string): Article | null => {
+    const allPosts = [featuredPost, ...blogPosts]
+    const post = allPosts.find(p => p.id === id)
+    
+    if (!post) return null
+    
+    // Get related articles (same category or random)
+    const relatedArticles = blogPosts
+      .filter(p => p.id !== id && (p.category === post.category || Math.random() > 0.5))
+      .slice(0, 3)
+      .map(p => ({
+        id: p.id,
+        title: p.title,
+        image: p.imageUrl,
+        date: p.date,
+        category: categories.find(c => c.id === p.category)?.name || p.category
+      }))
+    
+    return {
+      id: post.id,
+      title: post.title,
+      subtitle: post.trending ? "Breaking: Exclusive Investigation" : undefined,
+      author: {
+        name: post.author,
+        role: "Senior Investigative Journalist",
+        bio: "Award-winning investigative journalist specializing in gambling industry exposés and financial crime reporting.",
+        avatar: undefined
+      },
+      publishDate: post.date,
+      readTime: post.readTime,
+      viewCount: post.views,
+      category: categories.find(c => c.id === post.category)?.name || post.category,
+      tags: 'tags' in post ? post.tags : [],
+      featuredImage: {
+        url: post.imageUrl,
+        caption: "Exclusive investigation reveals shocking details",
+        credit: "Investigation Unit"
+      },
+      content: generateArticleContent(post.title, post.excerpt),
+      excerpt: post.excerpt,
+      relatedArticles,
+      comments: [
+        {
+          id: '1',
+          author: 'Anonymous Insider',
+          date: 'March 19, 2024',
+          content: 'This is just the tip of the iceberg. There are many more cases that haven\'t been exposed yet.',
+          likes: 42
+        },
+        {
+          id: '2',
+          author: 'Concerned Player',
+          date: 'March 18, 2024',
+          content: 'I\'ve suspected something was wrong for years. Finally, the truth is coming out!',
+          likes: 28
+        }
+      ]
+    }
+  }
+
+  // Handle bookmark toggle
+  const handleBookmark = (articleId: string) => {
+    setBookmarkedArticles(prev => 
+      prev.includes(articleId) 
+        ? prev.filter(id => id !== articleId)
+        : [...prev, articleId]
+    )
+  }
+
+  // If viewing a specific article, show the detail template
+  if (articleId) {
+    const article = getArticleById(articleId)
+    
+    if (!article) {
+      return (
+        <div className="min-h-screen bg-gradient-to-br from-darkGreen via-raisinBlack to-darkGreen flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-limeGreen mb-4">Article Not Found</h1>
+            <p className="text-beigeCream/80 mb-8">The article you're looking for doesn't exist.</p>
+            <Link
+              to="/blog"
+              className="px-6 py-3 bg-limeGreen text-darkGreen font-bold rounded-xl hover:shadow-[0_0_20px_rgba(171,248,11,0.5)] transition-all"
+            >
+              Back to Blog
+            </Link>
+          </div>
+        </div>
+      )
+    }
+    
+    return (
+      <NewsDetailTemplate
+        article={article}
+        onBack={() => navigate('/blog')}
+        onBookmark={() => handleBookmark(article.id)}
+        isBookmarked={bookmarkedArticles.includes(article.id)}
+      />
+    )
+  }
 
   // Filter and sort posts
   const filteredAndSortedPosts = useMemo(() => {
@@ -500,129 +624,131 @@ export default function BlogPage() {
           </motion.div>
 
           {/* Featured Post */}
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ 
-              delay: 0.3,
-              type: "spring",
-              stiffness: 100
-            }}
-            whileHover="hover"
-            variants={cardHoverVariants}
-            className="glassmorphism rounded-3xl p-8 mb-12 relative overflow-hidden cursor-pointer"
-          >
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-br from-pink/5 to-limeGreen/5"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-            
-            <div className="absolute top-4 right-4 flex gap-2 z-10">
-              {featuredPost.trending && (
+          <Link to={`/blog/${featuredPost.id}`}>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ 
+                delay: 0.3,
+                type: "spring",
+                stiffness: 100
+              }}
+              whileHover="hover"
+              variants={cardHoverVariants}
+              className="glassmorphism rounded-3xl p-8 mb-12 relative overflow-hidden cursor-pointer"
+            >
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-br from-pink/5 to-limeGreen/5"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+              
+              <div className="absolute top-4 right-4 flex gap-2 z-10">
+                {featuredPost.trending && (
+                  <motion.span 
+                    className="bg-pink/20 text-pink px-4 py-1 rounded-full text-sm font-bold flex items-center gap-1"
+                    initial={{ x: 20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                  >
+                    <TrendingUp className="w-4 h-4" />
+                    {t('blog.badges.trending')}
+                  </motion.span>
+                )}
                 <motion.span 
-                  className="bg-pink/20 text-pink px-4 py-1 rounded-full text-sm font-bold flex items-center gap-1"
+                  className="bg-limeGreen text-darkGreen px-4 py-1 rounded-full text-sm font-bold"
                   initial={{ x: 20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.5 }}
+                  transition={{ delay: 0.6 }}
                 >
-                  <TrendingUp className="w-4 h-4" />
-                  {t('blog.badges.trending')}
+                  {t('blog.badges.featured')}
                 </motion.span>
-              )}
-              <motion.span 
-                className="bg-limeGreen text-darkGreen px-4 py-1 rounded-full text-sm font-bold"
-                initial={{ x: 20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.6 }}
-              >
-                {t('blog.badges.featured')}
-              </motion.span>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
-              <motion.div
-                initial={{ x: -50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
-              >
-                <div className="flex items-center space-x-4 text-sm text-beigeCream/60 mb-4">
-                  <motion.span 
-                    className="flex items-center gap-1"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <Calendar className="w-4 h-4" />
-                    {featuredPost.date}
-                  </motion.span>
-                  <span>•</span>
-                  <motion.span 
-                    className="flex items-center gap-1"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <Clock className="w-4 h-4" />
-                    {featuredPost.readTime} {t('blog.readTime')}
-                  </motion.span>
-                  <span>•</span>
-                  <span className="text-pink">{categories.find(c => c.id === featuredPost.category)?.name}</span>
-                </div>
-                <h2 className="text-3xl font-bold text-limeGreen mb-4">
-                  {featuredPost.title}
-                </h2>
-                <p className="text-lg text-beigeCream/80 mb-4">
-                  {featuredPost.excerpt}
-                </p>
-                <p className="text-sm text-beigeCream/60 mb-6">
-                  {t('blog.by')} <span className="text-pink font-semibold">{featuredPost.author}</span> • 
-                  {featuredPost.views.toLocaleString()} {t('blog.views')}
-                </p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 bg-limeGreen text-darkGreen font-bold rounded-xl
-                           hover:shadow-[0_0_20px_rgba(171,248,11,0.5)] transition-all duration-300"
-                >
-                  {t('blog.readMore')} →
-                </motion.button>
-              </motion.div>
+              </div>
               
-              <motion.div 
-                className="relative h-64 md:h-80 rounded-2xl overflow-hidden"
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.5, type: "spring", stiffness: 100 }}
-              >
-                <img 
-                  src={featuredPost.imageUrl}
-                  alt={featuredPost.title}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-t from-darkGreen via-transparent to-transparent opacity-60"
-                  whileHover={{ opacity: 0.4 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <motion.div 
-                  className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-darkGreen/90 to-transparent"
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.7 }}
+              <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
+                <motion.div
+                  initial={{ x: -50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
                 >
-                  <motion.div 
-                    className="text-2xl font-bold text-pink mb-1"
-                    animate={{ opacity: [0.8, 1, 0.8] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    EXPOSED
-                  </motion.div>
-                  <div className="text-sm text-limeGreen">
-                    Money Laundering Scandal
+                  <div className="flex items-center space-x-4 text-sm text-beigeCream/60 mb-4">
+                    <motion.span 
+                      className="flex items-center gap-1"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Calendar className="w-4 h-4" />
+                      {featuredPost.date}
+                    </motion.span>
+                    <span>•</span>
+                    <motion.span 
+                      className="flex items-center gap-1"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Clock className="w-4 h-4" />
+                      {featuredPost.readTime} {t('blog.readTime')}
+                    </motion.span>
+                    <span>•</span>
+                    <span className="text-pink">{categories.find(c => c.id === featuredPost.category)?.name}</span>
                   </div>
+                  <h2 className="text-3xl font-bold text-limeGreen mb-4">
+                    {featuredPost.title}
+                  </h2>
+                  <p className="text-lg text-beigeCream/80 mb-4">
+                    {featuredPost.excerpt}
+                  </p>
+                  <p className="text-sm text-beigeCream/60 mb-6">
+                    {t('blog.by')} <span className="text-pink font-semibold">{featuredPost.author}</span> • 
+                    {featuredPost.views.toLocaleString()} {t('blog.views')}
+                  </p>
+                  <motion.span
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-block px-6 py-3 bg-limeGreen text-darkGreen font-bold rounded-xl
+                             hover:shadow-[0_0_20px_rgba(171,248,11,0.5)] transition-all duration-300"
+                  >
+                    {t('blog.readMore')} →
+                  </motion.span>
                 </motion.div>
-              </motion.div>
-            </div>
-          </motion.div>
+                
+                <motion.div 
+                  className="relative h-64 md:h-80 rounded-2xl overflow-hidden"
+                  initial={{ x: 50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.5, type: "spring", stiffness: 100 }}
+                >
+                  <img 
+                    src={featuredPost.imageUrl}
+                    alt={featuredPost.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-t from-darkGreen via-transparent to-transparent opacity-60"
+                    whileHover={{ opacity: 0.4 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <motion.div 
+                    className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-darkGreen/90 to-transparent"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.7 }}
+                  >
+                    <motion.div 
+                      className="text-2xl font-bold text-pink mb-1"
+                      animate={{ opacity: [0.8, 1, 0.8] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      EXPOSED
+                    </motion.div>
+                    <div className="text-sm text-limeGreen">
+                      Money Laundering Scandal
+                    </div>
+                  </motion.div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </Link>
         </div>
       </motion.section>
 
@@ -691,46 +817,48 @@ export default function BlogPage() {
                     </motion.div>
                   )}
                   
-                  <motion.div
-                    variants={cardHoverVariants}
-                    className="h-full glassmorphism rounded-2xl overflow-hidden hover:border-pink/50 transition-all duration-300 flex flex-col"
-                  >
-                    <BlogPost
-                      title={post.title}
-                      excerpt={post.excerpt}
-                      date={post.date}
-                      readTime={post.readTime}
-                      imageUrl={post.imageUrl}
-                      index={index}
-                    />
-                    
-                    <motion.div 
-                      className="px-6 pb-4 mt-auto"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.3 + index * 0.05 }}
+                  <Link to={`/blog/${post.id}`}>
+                    <motion.div
+                      variants={cardHoverVariants}
+                      className="h-full glassmorphism rounded-2xl overflow-hidden hover:border-pink/50 transition-all duration-300 flex flex-col"
                     >
-                      <div className="flex items-center justify-between text-sm text-beigeCream/60 mb-3">
-                        <span>{post.author}</span>
-                        <span>{post.views.toLocaleString()} {t('blog.views')}</span>
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {post.tags.slice(0, 3).map((tag, tagIndex) => (
-                          <motion.span
-                            key={tag}
-                            className="px-2 py-1 bg-white/10 rounded-full text-xs text-beigeCream/70"
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{ delay: 0.4 + index * 0.05 + tagIndex * 0.05 }}
-                            whileHover={{ scale: 1.1 }}
-                          >
-                            <Tag className="w-3 h-3 inline mr-1" />
-                            {tag}
-                          </motion.span>
-                        ))}
-                      </div>
+                      <BlogPost
+                        title={post.title}
+                        excerpt={post.excerpt}
+                        date={post.date}
+                        readTime={post.readTime}
+                        imageUrl={post.imageUrl}
+                        index={index}
+                      />
+                      
+                      <motion.div 
+                        className="px-6 pb-4 mt-auto"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 + index * 0.05 }}
+                      >
+                        <div className="flex items-center justify-between text-sm text-beigeCream/60 mb-3">
+                          <span>{post.author}</span>
+                          <span>{post.views.toLocaleString()} {t('blog.views')}</span>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {post.tags.slice(0, 3).map((tag, tagIndex) => (
+                            <motion.span
+                              key={tag}
+                              className="px-2 py-1 bg-white/10 rounded-full text-xs text-beigeCream/70"
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              transition={{ delay: 0.4 + index * 0.05 + tagIndex * 0.05 }}
+                              whileHover={{ scale: 1.1 }}
+                            >
+                              <Tag className="w-3 h-3 inline mr-1" />
+                              {tag}
+                            </motion.span>
+                          ))}
+                        </div>
+                      </motion.div>
                     </motion.div>
-                  </motion.div>
+                  </Link>
                 </motion.div>
               ))}
             </AnimatePresence>

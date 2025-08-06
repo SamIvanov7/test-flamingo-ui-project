@@ -23,8 +23,6 @@ test-flamingo-ui-project/
 ├── src/
 │   ├── components/          # Reusable UI components
 │   ├── pages/              # Page components for routing
-│   ├── contexts/           # React Context providers
-│   │   └── AuthContext.tsx # Authentication context and state management
 │   ├── config/             # Configuration files
 │   │   └── scraperConfigs.ts # Web scraper configurations
 │   ├── styles/             # Global styles and CSS
@@ -57,6 +55,11 @@ test-flamingo-ui-project/
 │   │   └── videos/        # Public videos
 │   └── content/           # Content directory
 │       └── images/        # Content images (gambling scandals)
+├── docs/                  # Documentation files
+│   ├── accessibility-implementation-guide.md
+│   ├── landing-page-optimization-analysis.md
+│   ├── landing-page-ux-accessibility-audit.md
+│   └── performance-optimization-summary.md
 ├── mcp_servers/           # MCP server configurations
 │   ├── 21stdev.json
 │   ├── firecrawl-mcp.json
@@ -103,16 +106,13 @@ test-flamingo-ui-project/
 - **BeamsBackground.tsx** - Animated light beams background effect
 
 #### Layout Components
-- **Header.tsx** - Navigation header with slide-in menu, language switcher, and user authentication status
+- **Header.tsx** - Navigation header with slide-in menu and language switcher
 - **HeaderAccessible.tsx** - Accessible version of header component
 - **Layout.tsx** - Page layout wrapper
 - **Footer.tsx** - Footer component with links and branding
 - **VideoBackground.tsx** - Video background with fog effects
 - **VideoBackgroundClean.tsx** - Video background without effects
 - **LanguageSwitcher.tsx** - Language selection dropdown
-
-#### Authentication Components
-- **ProtectedRoute.tsx** - Route protection wrapper for authenticated-only pages
 
 #### Game Components
 - **ProbabilityCard.tsx** - Displays win probability
@@ -145,20 +145,18 @@ test-flamingo-ui-project/
 
 ### Pages (`/src/pages/`)
 
-1. **LandingPage.tsx** - Homepage with hero, chaos-to-order visualization, AI showcase, video demonstration, and news sections
-2. **LoginPage.tsx** - User login page with form validation, social login options, and remember me functionality
-3. **SignUpPage.tsx** - User registration page with password strength indicator, terms acceptance, and social signup
-4. **AboutPage.tsx** - Team information and company mission with "Ghosts in the Machine" section featuring anonymous team members
-5. **UseCasePage.tsx** - Interactive use case demonstrations
-6. **PricingPage.tsx** - Subscription tiers and pricing
-7. **BlogPage.tsx** - Casino exposé articles with full article detail view support
-8. **ContactPage.tsx** - Contact form with whistleblower support
-9. **FAQPage.tsx** - Frequently asked questions page
-10. **GameDashboard.tsx** - Main gambling interface (protected route)
-11. **ChatPage.tsx** - Full-screen AI assistant interface (protected route)
-12. **SettingsPage.tsx** - User preferences and limits (protected route)
-13. **RequestFeaturePage.tsx** - Feature request and voting system
-14. **ComponentShowcase.tsx** - Component demonstration page
+1.  **LandingPage.tsx** - Homepage with hero, chaos-to-order visualization, AI showcase, video demonstration, and news sections
+2.  **AboutPage.tsx** - Team information and company mission with "Ghosts in the Machine" section featuring anonymous team members
+3.  **UseCasePage.tsx** - Interactive use case demonstrations
+4.  **PricingPage.tsx** - Subscription tiers and pricing
+5.  **BlogPage.tsx** - Casino exposé articles with full article detail view support
+6.  **ContactPage.tsx** - Contact form with whistleblower support
+7.  **FAQPage.tsx** - Frequently asked questions page
+8.  **GameDashboard.tsx** - Main gambling interface
+9.  **ChatPage.tsx** - Full-screen AI assistant interface
+10. **SettingsPage.tsx** - User preferences and limits
+11. **RequestFeaturePage.tsx** - Feature request and voting system
+12. **ComponentShowcase.tsx** - Component demonstration page
 
 ## 🎨 Design System
 
@@ -200,69 +198,39 @@ test-flamingo-ui-project/
 - Pattern recognition alerts
 - Strategic recommendations based on quantum analysis
 
-### Authentication Features
-- User registration with email validation and password strength requirements
-- Secure login with remember me functionality
-- Social authentication options (Google, GitHub)
-- Protected routes for authenticated users
-- User profile management in header with dropdown menu
-- Session persistence with localStorage
-- Logout functionality with session cleanup
-- Real-time form validation with error feedback
-- Password strength indicator on signup
-- User-friendly error messages and loading states
-- AuthContext for centralized authentication state management
-
 ### Content Features
 - Anti-casino blog posts with categories (scandal, investigation, lawsuit)
 - Full article detail pages with rich media support
 - Social sharing functionality (Facebook, Twitter, LinkedIn)
-- Article bookmarking system for saving articles
+- Article bookmarking system
 - Related articles suggestions
-- Comment sections with like functionality
+- Comment sections on articles
 - Gambling scandal news with trending indicators
 - User success stories
 - Feature request system
 - Multi-language support (English, Spanish, Russian, Vietnamese)
-- Enhanced blog page with routing for individual articles
-- Article data conversion system
-- View counter and reading time estimates
-- Tag-based navigation system
-- Rich HTML content rendering
-- Responsive article layout with hero images
-- Author profiles and bios
 
 ### Web Scraping Features
-- Universal blog scraper with Cheerio for multiple platform support
-- Dynamic content scraper with Puppeteer for JavaScript-rendered content
+- Universal blog scraper with Cheerio
+- Dynamic content scraper with Puppeteer
 - Support for multiple platforms (Medium, WordPress, Ghost, Substack, Dev.to, Hashnode)
 - News article extraction with metadata
-- Export functionality to JSON, CSV, and Markdown formats
+- Export to JSON, CSV, and Markdown formats
 - Anti-bot detection handling
 - Customizable scraping configurations
-- CLI tools for scraping automation
-- Built-in scraper configurations for major blogging platforms
 
 ### Visual Features
 - Animated light beam backgrounds
 - Parallax scrolling effects
 - 3D text animations
-- Glassmorphism card designs and effects across components
+- Glassmorphism card designs
 - Hover animations and transitions
 - Loading states with custom spinners
-- Interactive Center with video showcase functionality
 - Interactive video showcase with HUD overlay
 - Cyberpunk-themed video player interface
 - Real-time case file selection system
-- Video playlist with case file selection
-- "From Chaos to Order" section with split-screen visualization
 - Chaos to Order visualization with dual particle systems
-- Enhanced ParticleField with chaos/order modes
-- Flamingo3D integrated as the conductor of order
 - Split-screen contrasting casino randomness vs AI clarity
-- Enhanced "EXPOSED: Industry Scandals" section
-- Improved BlogPost component with advanced animations
-- Category badges and trending indicators
 
 ## 🔧 Configuration Files
 
@@ -279,19 +247,17 @@ test-flamingo-ui-project/
 
 ```
 /                    # Landing page
-/login               # User login page
-/signup              # User registration page
 /about               # About us
 /use-case            # Use cases
 /pricing             # Pricing plans
 /blog                # Blog posts list
 /blog/:articleId     # Individual article detail
 /contact             # Contact form
-/dashboard           # Game dashboard (protected)
-/chat                # AI chat interface (protected)
-/settings            # User settings (protected)
+/dashboard           # Game dashboard
+/chat                # AI chat interface
+/settings            # User settings
 /request-feature     # Feature requests
-/onboarding          # New user flow (protected)
+/onboarding          # New user flow
 /showcase            # Component showcase
 /faq                 # Frequently asked questions
 ```
@@ -315,17 +281,14 @@ Enhanced responsive features:
 ## ♿ Accessibility
 
 The application follows WCAG 2.1 guidelines:
-- ARIA labels on interactive elements with improved focus states
+- ARIA labels on interactive elements
 - Focus states for keyboard navigation
 - Semantic HTML structure
 - Screen reader support
 - High contrast ratios
-- Accessible component variants (HeaderAccessible, PlaylistItemAccessible)
+- Accessible component variants
 - Skip navigation links
 - Alternative text for images
-- Comprehensive keyboard navigation support
-- Enhanced accessibility documentation
-- Improved accessibility with ARIA labels and focus states
 
 ## 🎯 Target Audience
 
@@ -410,38 +373,48 @@ Language preference is stored in localStorage and persists across sessions.
 - @apify/mcp-server-rag-web-browser: ^0.1.3
 - express: ^5.1.0
 
-## 🎯 Performance & Optimization
+## 🚀 Recent Updates
 
-### Performance Features
-- Optimized landing page variants for faster load times
-- Performance-optimized versions of key components
-- Lazy loading and code splitting strategies
+### Web Scraping Integration (Latest)
+- Implemented universal blog scraper with multiple platform support
+- Added Puppeteer for JavaScript-rendered content scraping
+- Created CLI tools for scraping automation
+- Built scraper configurations for major blogging platforms
+- Added export functionality for JSON, CSV, and Markdown formats
+- Created comprehensive article detail view template
+- Added social sharing functionality (Facebook, Twitter, LinkedIn)
+- Implemented bookmark system for saving articles
+- Added related articles suggestions
+- Integrated comment sections with like functionality
+- Created responsive article layout with hero images
+- Added author profiles and bios
+- Enhanced blog page with routing for individual articles
+- Implemented article data conversion system
+- Added view counter and reading time estimates
+- Created tag-based navigation system
+- Integrated rich HTML content rendering
+- Created optimized landing page variants
+- Added performance-optimized versions of key components
+- Implemented lazy loading and code splitting strategies
 - Optimized image loading with responsive formats
-- Efficient re-rendering with React memo and useMemo hooks
-- Bundle size optimization with tree shaking
-- CSS-in-JS optimization with Tailwind CSS
-
-## 🔐 Security Considerations
-
-- No storage of sensitive user data (passwords are handled client-side only in mock implementation)
+- Added "From Chaos to Order" section with split-screen visualization
+- Created enhanced ParticleField with chaos/order modes
+- Integrated Flamingo3D as the conductor of order
+- Added Interactive Center with video showcase functionality
+- Created cyberpunk-themed video player with HUD overlay
+- Implemented video playlist with case file selection
+- Enhanced "EXPOSED: Industry Scandals" section
+- Improved BlogPost component with advanced animations
+- Added category badges and trending indicators
+- Implemented glassmorphism effects across components
+- Added accessible component variants
+- Improved accessibility with ARIA labels and focus states
+- Added comprehensive accessibility documentation
+- Implemented keyboard navigation support
+- Created skip navigation links
+- No storage of sensitive user data
 - Client-side only gambling calculations
-- Secure routing with React Router and protected routes
+- Secure routing with React Router
 - XSS protection through React's built-in escaping
 - Content Security Policy headers recommended for production
 - Scraping tools respect robots.txt and rate limiting
-- Form validation to prevent malicious input
-- Session management with secure token handling
-- Password strength requirements enforced on registration
-
-## 🎮 Gaming Disclaimer
-
-This application is for entertainment purposes only. It does not guarantee winnings and should not be used as the sole basis for gambling decisions. Always gamble responsibly and within your means.
-
-## 📄 License
-
-Proprietary - All rights reserved
-
----
-
-*Last Updated: January 2025*
-*Version: 1.6.0*
